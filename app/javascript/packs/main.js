@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from '../app.vue'
-	console.log("Vue")
+
 document.addEventListener('DOMContentLoaded', () => {
 
   const apw = new Vue({

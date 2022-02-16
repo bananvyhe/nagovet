@@ -17,6 +17,7 @@ export default {
 <style scoped>
 
  .mes{
+  
     font-size: 1em;
   text-align: center;
  

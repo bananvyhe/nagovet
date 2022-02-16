@@ -9,7 +9,7 @@ const sassLoaderConfig = sassLoader.use.find(function(element) {
 })
 const options = sassLoaderConfig.options
 options.implementation = require('sass')
-options.additionalData = `@import "app/javascript/stylesheets/scss/_variables.scss"`
+// options.additionalData = `@import "app/javascript/stylesheets/scss/_variables.scss"`
 
 environment.plugins.prepend('VueLoaderPlugin', new VueLoaderPlugin())
 environment.loaders.prepend('vue', vue)
