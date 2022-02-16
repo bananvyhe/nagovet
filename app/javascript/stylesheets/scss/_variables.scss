@@ -1,0 +1,106 @@
+// @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,700&display=swap');
+html {
+  overflow-y: scroll;
+  scrollbar-face-color: #646464;
+  scrollbar-base-color: #646464;
+  scrollbar-dlight-color: #646464;
+  scrollbar-highlight-color: #646464;
+  scrollbar-track-color: #222;
+  scrollbar-arrow-color: #222;
+  scrollbar-shadow-color: #646464;
+  scrollbar-dark-shadow-color: #646464;
+}
+
+::-webkit-scrollbar { width: 8px; height: 3px;}
+::-webkit-scrollbar-button {  background-color: #666; }
+::-webkit-scrollbar-track {  background-color: #646464;}
+::-webkit-scrollbar-track-piece { background-color: #222;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
+::-webkit-scrollbar-corner { background-color: #646464;}
+::-webkit-resizer { background-color: #666;}
+
+
+$color-pack: false;
+$headings: (
+ 	'h5': (
+      'line-height': 1.718em,
+    ),
+  	'body-1': (
+      'size': 1rem,
+      'line-height': 1.28rem,
+      'letter-spacing': 0.03125rem,
+ 
+    ),
+	);
+
+$material-dark: (
+  'background': #11120e,
+ 
+	'text': (
+    'primary': #e9f1f5,
+		'secondary': #e1e3d1,
+	),
+
+);
+// $body-font-family: 'Roboto Slab';
+// $title-font: 'Roboto';
+// $heading-font-family: 'Roboto';
+$font-size-root: 1em ;
+$grid-breakpoints:  (
+    'xs': 0,
+    'sm': 576px,
+    'md': 840px,
+    'lg': 1180px - 16px,
+    'xl': 1180px - 16px,
+);
+.v-application{
+
+	a{
+		color: #80d0ff 	!important;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #ffdf80 	!important;
+	}
+  h1, h2, h3, h4, h5, {
+    line-height: 1.75rem;
+    // font-family: $heading-font-family;
+    // color: #989f60 !important;
+  }
+  h1{
+    line-height: 1.75rem;
+ 
+  }  
+  h2{
+    line-height: 1.72rem;
+ 
+  }
+  h3{
+    line-height: 1.25rem;
+ 
+  }  
+  h4{
+    line-height: 1.15rem;
+ 
+  }  
+
+}
+   
+.fonta {
+  // font-family: $body-font-family;
+ 
+}
+ 
