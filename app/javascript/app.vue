@@ -6,7 +6,7 @@
           <div class="my-0 d-flex justify-start" >
             <!-- {{message}}  -->
           <!--    <v-app-bar-nav-icon small @click="drawer = true" class="d-md-none"></v-app-bar-nav-icon> -->
-                       <div  @click="drawer = true" class="d-md-none">меню</div>
+                       <v-icon  @click="drawer = true" class="d-md-none">{{mdiMenu}}</v-icon>
           </div>
           <v-spacer></v-spacer>
           <div class="justify-end align-center menu mx-0 px-0 d-none d-md-block"
@@ -62,9 +62,11 @@
 </template>
 
 <script>
+  import { mdiMenu } from '@mdi/js'
 export default {
   data: function () {
     return {
+       mdiMenu,
       parts: ['Обо мне','Образование','Как проходит консультация?','Отзывы','Стоимость','Контакты'],
       message: "Психолог Екатеринбург",
       drawer: false,
