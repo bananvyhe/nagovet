@@ -60,16 +60,15 @@ $material-dark: (
 // $heading-font-family: 'Roboto';
 $font-size-root: 1em ;
 $container-max-widths: (
-
-    'md': 1220px,
- 'lg': 1280px,
+  'md': 1220px,
+  'lg': 1280px,
 );
 $grid-breakpoints:  (
-    'xs': 0,
-    'sm': 756px,
-    'md': 1020px,
-    'lg': 1280px - 16px,
-    'xl': 1480px - 16px,
+  'xs': 0,
+  'sm': 810px,
+  'md': 1020px,
+  'lg': 1280px - 16px,
+  'xl': 1480px - 16px,
 );
 .v-application{
 

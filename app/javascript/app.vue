@@ -3,10 +3,11 @@
     <v-app>
       <v-app-bar  app dense flat hide-on-scroll rounded class=" py-0 " color="transparent">
         <v-container class="d-flex navigation ">
-          <div class="my-0 d-flex justify-start" >
-            <v-icon  @click="drawer = true" class="d-sm-none">
+          <div  @click="drawer = true" class="my-0 d-flex justify-start" >
+            <v-icon  class="d-sm-none">
               {{mdiMenu}}
             </v-icon>
+            <div class="cursor pl-1 d-sm-none">меню</div>              
           </div>
           <v-spacer></v-spacer>
           <v-card outlined class="menu d-flex mr-2">
@@ -20,12 +21,13 @@
               </v-btn> 
             </div>             
           </v-card>
- 
-          <v-btn
-            small 
-            color="primary">
-            Записаться
-          </v-btn>            
+          <div> 
+            <v-btn
+              small 
+              color="primary">
+              Записаться
+            </v-btn>             
+          </div>          
         </v-container>
       </v-app-bar> 
       <v-navigation-drawer
@@ -52,7 +54,15 @@
         <div class="head d-flex">
           <div class="head1 d-none d-md-block"></div>
           <div class="head2 d-none d-md-block"></div>
-          <div class="head3 d-flex justify-end align-end"><div class="frontclouds">  </div></div>
+          <div class="head3 d-flex justify-end align-end">
+            <div class="frontclouds"></div>
+          </div>
+          <div class="titleb d-flex"> 
+            <div class="ludmila d-none d-sm-block"></div><div class="nagovets d-none d-sm-block"></div>
+          </div>
+          <div class="titles "> 
+            <div class="ludmila d-sm-none"></div><div class="nagovets d-sm-none"></div>
+          </div>
         </div>
         </v-container>
       </v-main>  
@@ -76,14 +86,44 @@ export default {
 </script>
 
 <style scoped>
+.cursor{
+  cursor: pointer;
+}
+.titleb, .titles{
+  position: absolute;
+}
+.titleb{
+  margin-top: 100px;
+  margin-left: 20px;
+}
+.titles{
+  margin-top: 60px;
+  margin-left: 20px;
+}
+.ludmila{
+  width: 271px;
+  height: 58px;
+  background-image: url('./images/ludmila.png');
+}
+.nagovets{
+  height:77px;
+  width: 210px;
+  background-image: url('./images/nagovets.png');
+}
 .frontclouds{
-   width: 416px;   
-   height: 137px;
-   background-image: url('./images/frontclouds.png');
+  width: 416px;   
+  height: 137px;
+  background-image: url('./images/frontclouds.png');
 }
 .main{
   background-repeat: repeat-x;
   background-image: url('./images/head2.jpg');
+}
+.head{
+  position: relative;
+  margin-top: -48px;
+  /*background-color: #dad;*/
+  height: 263px;
 }
 .head1{
   height: 263px;
@@ -101,11 +141,6 @@ export default {
   width: 915px;
   background-image: url('./images/head3.jpg');
   background-position: right;
-}
-.head{
-  margin-top: -48px;
-  /*background-color: #dad;*/
-  height: 263px;
 }
 .menu{
   /*border: 1px #999  solid; */
