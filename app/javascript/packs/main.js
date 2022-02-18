@@ -3,6 +3,7 @@ import App from '../app.vue'
 // import 'vuetify/dist/vuetify.min.css'
 Vue.use(Vuetify, {
   components: {
+    VCard,
     VToolbar,
     VApp,
     VAppBar,
@@ -21,6 +22,7 @@ Vue.use(Vuetify, {
   }
 }) 
 import Vuetify, {
+  VCard,
   VToolbar,
   VApp,
   VAppBar,

@@ -2,22 +2,25 @@
   <div>
     <v-app>
       <v-app-bar  app dense flat hide-on-scroll rounded class=" py-0 " color="transparent">
-        <v-container class="d-flex navigation px-0">
+        <v-container class="d-flex navigation ">
           <div class="my-0 d-flex justify-start" >
             <v-icon  @click="drawer = true" class="d-sm-none">
               {{mdiMenu}}
             </v-icon>
           </div>
           <v-spacer></v-spacer>
-          <div 
-            class="justify-end align-center menu mx-0 px-0 d-none d-sm-block"
-            v-for="(item, index) in parts">
-            <v-btn
-              x-small text
-              color="primary">
-              {{item}}
-            </v-btn> 
-          </div>  
+          <v-card outlined class="menu d-flex mr-2">
+            <div 
+              class="justify-end align-center mx-0 px-0 d-none d-sm-block"
+              v-for="(item, index) in parts">
+              <v-btn
+                x-small text
+                color="primary">
+                {{item}}
+              </v-btn> 
+            </div>             
+          </v-card>
+ 
           <v-btn
             small 
             color="primary">
@@ -45,12 +48,12 @@
       </v-navigation-drawer>
 
       <v-main >
-        <v-container class="main">
-<!--         <div class="head d-flex">
-          <div class="head1">1</div>
-          <div class="head2">2</div>
-          <div class="head3 justify-end">3</div>
-        </div> -->
+        <v-container class="main px-0 py-0">
+        <div class="head d-flex">
+          <div class="head1 d-none d-md-block"></div>
+          <div class="head2 d-none d-md-block"></div>
+          <div class="head3 d-flex justify-end align-end"><div class="frontclouds">  </div></div>
+        </div>
         </v-container>
       </v-main>  
     </v-app>    
@@ -73,8 +76,14 @@ export default {
 </script>
 
 <style scoped>
+.frontclouds{
+   width: 416px;   
+   height: 137px;
+   background-image: url('./images/frontclouds.png');
+}
 .main{
-  background-color: #dad;
+  background-repeat: repeat-x;
+  background-image: url('./images/head2.jpg');
 }
 .head1{
   height: 263px;
@@ -83,23 +92,23 @@ export default {
 }
 .head2{
   height: 263px;
- 
- background-repeat: repeat-x;
-  background-image: url('./images/head2.jpg');
 }
 .head3{
+  margin-left: auto;
+  margin-right: 0px;
+  float: right;
   height: 263px;
   width: 915px;
   background-image: url('./images/head3.jpg');
+  background-position: right;
 }
 .head{
   margin-top: -48px;
- 
   /*background-color: #dad;*/
   height: 263px;
- 
 }
 .menu{
+  /*border: 1px #999  solid; */
   border-radius:4px;
   background-color: #fff;
 }
