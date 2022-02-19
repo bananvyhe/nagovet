@@ -52,17 +52,17 @@
       <v-main >
         <v-container class="main px-0 py-0">
         <div class="head d-flex">
-          <div class="head1 d-none d-md-block"></div>
-          <div class="head2 d-none d-md-block"></div>
-          <div class="head3 d-flex justify-end align-end">
-            <div class="frontclouds"></div>
-          </div>
-          <div class="titleb d-flex"> 
-            <div class="ludmila d-none d-sm-block"></div><div class="nagovets d-none d-sm-block"></div>
-          </div>
-          <div class="titles "> 
-            <div class="ludmila d-sm-none"></div><div class="nagovets d-sm-none"></div>
-          </div>
+                    <div class="head1 d-none d-md-block"></div>
+                    <div class="head2 d-none d-md-block"></div>
+                    <div class="head3 d-flex justify-end align-end">
+                      <div class="frontclouds "></div>
+                    </div>
+                    <div class="titleb d-flex"> 
+                      <div class="ludmila d-none d-sm-block"></div><div class="nagovets d-none d-sm-block"></div>
+                    </div>
+                    <div class="titles "> 
+                      <div class="ludmila d-sm-none"></div><div class="nagovets d-sm-none"></div>
+                    </div>
         </div>
         </v-container>
       </v-main>  
@@ -111,9 +111,10 @@ export default {
   background-image: url('./images/nagovets.png');
 }
 .frontclouds{
-  width: 416px;   
+  width: 100%;   
   height: 137px;
   background-image: url('./images/frontclouds.png');
+  background-position: right;
 }
 .main{
   background-repeat: repeat-x;
@@ -143,7 +144,6 @@ export default {
   background-position: right;
 }
 .menu{
-  /*border: 1px #999  solid; */
   border-radius:4px;
   background-color: #fff;
 }

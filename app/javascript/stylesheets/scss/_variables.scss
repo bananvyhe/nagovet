@@ -12,25 +12,25 @@
 // @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 // @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 // @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,700&display=swap');
-html {
-  overflow-y: scroll;
-  scrollbar-face-color: #646464;
-  scrollbar-base-color: #646464;
-  scrollbar-dlight-color: #646464;
-  scrollbar-highlight-color: #646464;
-  scrollbar-track-color: #222;
-  scrollbar-arrow-color: #222;
-  scrollbar-shadow-color: #646464;
-  scrollbar-dark-shadow-color: #646464;
-}
+// html {
+//   overflow-y: scroll;
+//   scrollbar-face-color: #646464;
+//   scrollbar-base-color: #646464;
+//   scrollbar-dlight-color: #646464;
+//   scrollbar-highlight-color: #646464;
+//   scrollbar-track-color: #222;
+//   scrollbar-arrow-color: #222;
+//   scrollbar-shadow-color: #646464;
+//   scrollbar-dark-shadow-color: #646464;
+// }
 
-::-webkit-scrollbar { width: 8px; height: 3px;}
-::-webkit-scrollbar-button {  background-color: #666; }
-::-webkit-scrollbar-track {  background-color: #646464;}
-::-webkit-scrollbar-track-piece { background-color: #222;}
-::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
-::-webkit-scrollbar-corner { background-color: #646464;}
-::-webkit-resizer { background-color: #666;}
+// ::-webkit-scrollbar { width: 8px; height: 3px;}
+// ::-webkit-scrollbar-button {  background-color: #666; }
+// ::-webkit-scrollbar-track {  background-color: #646464;}
+// ::-webkit-scrollbar-track-piece { background-color: #222;}
+// ::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
+// ::-webkit-scrollbar-corner { background-color: #646464;}
+// ::-webkit-resizer { background-color: #666;}
  
 
 $color-pack: false;
@@ -60,12 +60,13 @@ $material-dark: (
 // $heading-font-family: 'Roboto';
 $font-size-root: 1em ;
 $container-max-widths: (
-  'md': 1220px,
+ 
+  'md': 1020px,
   'lg': 1280px,
 );
 $grid-breakpoints:  (
   'xs': 0,
-  'sm': 810px,
+  'sm': 850px,
   'md': 1020px,
   'lg': 1280px - 16px,
   'xl': 1480px - 16px,
