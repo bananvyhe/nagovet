@@ -52,21 +52,34 @@
       <v-main >
         <v-container class="main px-0 py-0">
         <div class="head d-flex">
-                    <div class="head1 d-none d-md-block"></div>
-                    <div class="head2 d-none d-md-block"></div>
-                    <div class="head3 d-flex justify-end align-end">
-                      <div class="frontclouds "></div>
-                    </div>
-                    <div class="titleb d-flex"> 
-                      <div class="ludmila d-none d-sm-block"></div><div class="nagovets d-none d-sm-block nagb"></div>
-                    </div>
-                    <div class="bgdf d-sm-none ml-14"></div>
-                    <div class="bgdf d-sm-none mt-7"></div>
-                    <div class="titles "> 
-                      <div class="ludmila d-sm-none"></div><div class="nagovets d-sm-none nags"></div>
-                    </div>
+          <div class="head1 d-none d-md-block"></div>
+          <div class="head2 d-none d-md-block"></div>
+          <div class="head3 d-flex justify-end align-end">
+            <div class="frontclouds "></div>
+          </div>
+          <div class="titleb d-flex"> 
+            <div class="ludmila d-none d-sm-block"></div><div class="nagovets d-none d-sm-block nagb"></div>
+          </div>
+          <div class="bgdf d-sm-none ml-14"></div>
+          <div class="bgdf d-sm-none mt-7"></div>
+          <div class="titles "> 
+            <div class="ludmila d-sm-none"></div><div class="nagovets d-sm-none nags"></div>
+          </div>
         </div>
         </v-container>
+       <!--  <v-container class="d-flex" >
+    
+            <v-spacer class="about">
+              <div class="foto">
+                
+              </div>
+            </v-spacer >
+            <div class="education">
+              456
+            </div>            
+       
+
+        </v-container> -->
       </v-main>  
     </v-app>    
   </div>
@@ -88,12 +101,30 @@ export default {
 </script>
 
 <style >
+.foto{
+  z-index: 1000;
+  position: relative;
+  margin-top: -85px;
+  float: right;
+  width: 282px;
+  height: 324px;
+  background-image: url('./images/foto.png');
+}
+.education{
+  width: 300px;
+  float: right;
+}
+.about{
+  height: 239px; 
+  background-image: url('./images/bg_books.jpg');
+  background-repeat: repeat-x;
+}
 .cursor{
   cursor: pointer;
 }
 .bgdf{
   left: 70px;
-  top: 118px;
+  top: 83px;
   position: absolute;
   height: 28px;
   width: 185px;
@@ -104,11 +135,11 @@ export default {
   position: absolute;
 }
 .titleb{
-  margin-top: 100px;
+  margin-top: 52px;
   margin-left: 20px;
 }
 .titles{
-  margin-top: 105px;
+  margin-top: 70px;
   margin-left: 10px;
 
 
@@ -133,7 +164,7 @@ export default {
 }
 .frontclouds{
   width: 100%;   
-  height: 137px;
+  height: 121px;
   background-image: url('./images/frontclouds.png');
   background-position: right;
 }
@@ -145,21 +176,21 @@ export default {
   position: relative;
   margin-top: -48px;
   /*background-color: #dad;*/
-  height: 263px;
+  height: 215px;
 }
 .head1{
-  height: 263px;
+  height: 215px;
   width: 201px;
   background-image: url('./images/head1.jpg');
 }
 .head2{
-  height: 263px;
+  height: 215px;
 }
 .head3{
   margin-left: auto;
   margin-right: 0px;
   float: right;
-  height: 263px;
+  height: 215px;
   width: 915px;
   background-image: url('./images/head3.jpg');
   background-position: right;
