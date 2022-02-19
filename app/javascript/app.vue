@@ -58,10 +58,12 @@
                       <div class="frontclouds "></div>
                     </div>
                     <div class="titleb d-flex"> 
-                      <div class="ludmila d-none d-sm-block"></div><div class="nagovets d-none d-sm-block"></div>
+                      <div class="ludmila d-none d-sm-block"></div><div class="nagovets d-none d-sm-block nagb"></div>
                     </div>
+                    <div class="bgdf d-sm-none ml-14"></div>
+                    <div class="bgdf d-sm-none mt-7"></div>
                     <div class="titles "> 
-                      <div class="ludmila d-sm-none"></div><div class="nagovets d-sm-none"></div>
+                      <div class="ludmila d-sm-none"></div><div class="nagovets d-sm-none nags"></div>
                     </div>
         </div>
         </v-container>
@@ -85,9 +87,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
 .cursor{
   cursor: pointer;
+}
+.bgdf{
+  left: 70px;
+  top: 118px;
+  position: absolute;
+  height: 28px;
+  width: 185px;
+  /*background-color: #dad*/
+  backdrop-filter: blur(2px);
 }
 .titleb, .titles{
   position: absolute;
@@ -97,18 +108,28 @@ export default {
   margin-left: 20px;
 }
 .titles{
-  margin-top: 60px;
-  margin-left: 20px;
+  margin-top: 105px;
+  margin-left: 10px;
+
+
 }
 .ludmila{
-  width: 271px;
-  height: 58px;
-  background-image: url('./images/ludmila.png');
+  width: 250px;
+  height: 87px;
+  background-image: url('./images/ludmila80.png');
 }
 .nagovets{
-  height:77px;
-  width: 210px;
-  background-image: url('./images/nagovets.png');
+  height: 82px;
+  width: 215px;
+  background-image: url('./images/nagovets80.png');
+}
+.nagb{
+  margin-left: -30px;
+  margin-top: 20px;
+}
+.nags{
+  margin-left: 82px;
+  margin-top: -120px;
 }
 .frontclouds{
   width: 100%;   
