@@ -67,20 +67,26 @@
           </div>
         </div>
         </v-container>
-        <v-container class=" px-0 d-flex" >
+        <v-container class=" px-0 d-flex " >
           <div class="aboutBg"> 
             <div class="d-flex justify-end fotoframe">
               <div class="books"></div>
               <div class="foto"></div>
             </div>
-            <div class="about px-4      "> <div class="aboutTitle pl-4"><h3>Обо мне</h3></div>
-              <span>
-                Здравствуйте, рада приветствовать Вас на моей страничке!
-                Я – психолог-психоаналитик. Опыт работы - 13 лет.
-                В процессе терапии для меня важно создание безопасной доверительной обстановки, принятия, поддержки и понимания. В такой атмосфере человек получает возможность раскрыться, исследовать свои трудности, а также возможности и ресурсы. Нередко мы неосознанно следуем старым сценариям, которые мешают получать удовольствие от жизни, достигать целей и строить здоровые отношения. Психоаналитическая терапия помогает проложить новые пути, найти выход и изменить качество жизни.  
-              </span>                      
-            </div>                  
-          </div>
+            <div class="about px-4 "> 
+              <div class="aboutTitle ">
+                <h2>Обо мне</h2>
+              </div>
+              <div>
+                        <span>
+                  Здравствуйте, рада приветствовать Вас на моей страничке!
+                  Я – психолог-психоаналитик. Опыт работы - 13 лет.
+                  В процессе терапии для меня важно создание безопасной доверительной обстановки, принятия, поддержки и понимания. В такой атмосфере человек получает возможность раскрыться, исследовать свои трудности, а также возможности и ресурсы. Нередко мы неосознанно следуем старым сценариям, которые мешают получать удовольствие от жизни, достигать целей и строить здоровые отношения. Психоаналитическая терапия помогает проложить новые пути, найти выход и изменить качество жизни.  
+                </span>          
+              </div>
+              
+              </div>
+            </div>
           <v-col cols="4" class="education d-none d-sm-block">
              
           </v-col>
@@ -128,8 +134,10 @@ export default {
 }
 .textabout{
   z-index: 5000;
+
 }
 .textabout span {
+
   display: inline;
   /*box-shadow: -10px 0 0 rgba(0, 0, 0, 0.5), 10px 0 0 rgba(0, 0, 0, 0.5);*/
   background-color: rgba(255, 255, 255, 0.7);
@@ -137,7 +145,8 @@ export default {
 .relative{
   position: relative;
 }
-.books{border-radius: 25% 10%;
+.books{  
+  border-radius: 60px 10px;
   position: absolute;
   z-index: 1;
   width: 398px;
@@ -159,11 +168,11 @@ export default {
 }
 .foto{
   /*position: relative;*/
- border-radius: 25% 10%;
+  border-radius: 60px 10px;
 /*  right: 0;
   bottom: 0;*/
   /*position: absolute;*/
-  z-index: 1000;
+  z-index: 3;
   
   margin-top: -42px;
  
@@ -177,16 +186,20 @@ export default {
 /*  width: 1400px;*/
  
 }
-.about{
-  text-align: bottom;
+.about{ 
+  /*background-color: #dad;*/
+    /*display: table-cell;*/
+  /*vertical-align: bottom;*/
   /*flex-direction: column;*/
   position: relative;
-  z-index: 1000;
+  z-index: 3;
   height: 239px; 
-  /*background-image: url('./images/bg_books.jpg');*/
+ 
   background-repeat: repeat-x;
 }
+
 .about span {
+ 
   display: inline;
   background-color: rgba(255, 255, 255, 0.8);
   box-shadow: -10px 0 0 rgba(255, 255, 255, 0.8), 10px 0 0 rgba(255, 255, 255, 0.8);
@@ -194,7 +207,7 @@ export default {
 .aboutBg{
   background-image: url('./images/bg_books.jpg');
   background-repeat: repeat-x;
-  border-radius: 25% 10%;
+  border-radius: 60px 10px;
   /*background-image: radial-gradient(circle farthest-corner at top right, #49cff5, #fff);*/
 }
 .cursor{
