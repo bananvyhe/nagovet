@@ -146,7 +146,7 @@ export default {
   position: relative;
 }
 .books{  
-  border-radius: 60px 10px;
+  border-radius: 25px 10px;
   position: absolute;
   z-index: 1;
   width: 398px;
@@ -168,7 +168,7 @@ export default {
 }
 .foto{
   /*position: relative;*/
-  border-radius: 60px 10px;
+  border-radius: 25px 10px;
 /*  right: 0;
   bottom: 0;*/
   /*position: absolute;*/
@@ -176,9 +176,9 @@ export default {
   
   margin-top: -42px;
  
-  width: 276px;
+  width: 247px;
   height: 281px;
-  background-image: url('./images/foto2.png');
+  background-image: url('./images/foto4.png');
   /*background-color: #dad;*/
 }
 .education{
