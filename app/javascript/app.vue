@@ -67,19 +67,37 @@
           </div>
         </div>
         </v-container>
-       <!--  <v-container class="d-flex" >
-    
-            <v-spacer class="about">
-              <div class="foto">
-                
-              </div>
-            </v-spacer >
-            <div class="education">
-              456
-            </div>            
+        <v-container class=" px-0 d-flex" >
+          <div class="aboutBg"> 
+            <div class="d-flex justify-end fotoframe">
+              <div class="books"></div>
+              <div class="foto"></div>
+            </div>
+            <div class="about px-4      "> <div class="aboutTitle pl-4"><h3>Обо мне</h3></div>
+              <span>
+                Здравствуйте, рада приветствовать Вас на моей страничке!
+                Я – психолог-психоаналитик. Опыт работы - 13 лет.
+                В процессе терапии для меня важно создание безопасной доверительной обстановки, принятия, поддержки и понимания. В такой атмосфере человек получает возможность раскрыться, исследовать свои трудности, а также возможности и ресурсы. Нередко мы неосознанно следуем старым сценариям, которые мешают получать удовольствие от жизни, достигать целей и строить здоровые отношения. Психоаналитическая терапия помогает проложить новые пути, найти выход и изменить качество жизни.  
+              </span>                      
+            </div>                  
+          </div>
+          <v-col cols="4" class="education d-none d-sm-block">
+             
+          </v-col>
+
+               
+              
+                      <!-- <div class="blankfoto"> </div> -->
+  
+     
+                              
+   <!--            </v-spacer>
+
+            </v-spacer > -->
+         
        
 
-        </v-container> -->
+        </v-container>
       </v-main>  
     </v-app>    
   </div>
@@ -101,23 +119,83 @@ export default {
 </script>
 
 <style >
-.foto{
-  z-index: 1000;
+.fotoframe{
   position: relative;
-  margin-top: -85px;
   float: right;
-  width: 282px;
-  height: 324px;
-  background-image: url('./images/foto.png');
+}
+.blankfoto{
+  width: 50px;
+}
+.textabout{
+  z-index: 5000;
+}
+.textabout span {
+  display: inline;
+  /*box-shadow: -10px 0 0 rgba(0, 0, 0, 0.5), 10px 0 0 rgba(0, 0, 0, 0.5);*/
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.relative{
+  position: relative;
+}
+.books{border-radius: 25% 10%;
+  position: absolute;
+  z-index: 1;
+  width: 398px;
+  height: 239px;
+  background-position: right;
+  background-image: url('./images/books.jpg');
+  /*background-color: #dad;*/
+}
+.fotoBlank{
+  width: 300px;
+  background-color: #ada;
+}
+.abcont{
+  position: relative;
+  background-color: #dad;
+}
+.aboutTitle{
+  
+}
+.foto{
+  /*position: relative;*/
+ border-radius: 25% 10%;
+/*  right: 0;
+  bottom: 0;*/
+  /*position: absolute;*/
+  z-index: 1000;
+  
+  margin-top: -42px;
+ 
+  width: 276px;
+  height: 281px;
+  background-image: url('./images/foto2.png');
+  /*background-color: #dad;*/
 }
 .education{
-  width: 300px;
-  float: right;
+ /*background-color: #dad;*/
+/*  width: 1400px;*/
+ 
 }
 .about{
+  text-align: bottom;
+  /*flex-direction: column;*/
+  position: relative;
+  z-index: 1000;
   height: 239px; 
+  /*background-image: url('./images/bg_books.jpg');*/
+  background-repeat: repeat-x;
+}
+.about span {
+  display: inline;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: -10px 0 0 rgba(255, 255, 255, 0.8), 10px 0 0 rgba(255, 255, 255, 0.8);
+}
+.aboutBg{
   background-image: url('./images/bg_books.jpg');
   background-repeat: repeat-x;
+  border-radius: 25% 10%;
+  /*background-image: radial-gradient(circle farthest-corner at top right, #49cff5, #fff);*/
 }
 .cursor{
   cursor: pointer;

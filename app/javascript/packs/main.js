@@ -3,6 +3,8 @@ import App from '../app.vue'
 // import 'vuetify/dist/vuetify.min.css'
 Vue.use(Vuetify, {
   components: {
+    VCol,
+    VRow,
     VCard,
     VToolbar,
     VApp,
@@ -22,6 +24,8 @@ Vue.use(Vuetify, {
   }
 }) 
 import Vuetify, {
+  VCol,
+  VRow,
   VCard,
   VToolbar,
   VApp,
