@@ -68,14 +68,14 @@
         </div>
         </v-container>
         <v-container class=" px-0 d-flex " >
-          <div class="aboutBg"> 
+          <div class="aboutBg">
             <div class="d-flex justify-end fotoframe">
               <div class="books"></div>
               <div class="foto"></div>
             </div>
-            <div class="about px-4 "> 
-              <div class="aboutTitle ">
-                <h2>Обо мне</h2>
+            <div class="about px-4"> 
+              <div class="aboutTitle pt-1 pl-2 iskes" v-bind:class="{ikses: $vuetify.breakpoint.xs}" > 
+                <h2 >Обо мне </h2>
               </div>
               <div>
                         <span>
@@ -120,11 +120,31 @@ export default {
       drawer: false,
       group: null,
     }
+  },
+  mounted(){
+    console.log(this.$vuetify.breakpoint)
   }
+
 }
 </script>
 
 <style >
+
+.aboutTitle{
+  color: #43a4dc;
+  display: flex;
+  align-self: center;
+}
+.ikses{
+  white-space: nowrap;
+  color: #fff;
+   /*backdrop-filter: blur(2px);*/
+   background-color: rgb(79.688, 71.652, 47.813, .2);
+  /*text-shadow: 1px 1px 2px #ffffff;*/
+}
+.ikses h2 {
+ 
+}
 .fotoframe{
   position: relative;
   float: right;
@@ -163,16 +183,14 @@ export default {
   position: relative;
   background-color: #dad;
 }
-.aboutTitle{
-  
-}
+
 .foto{
   /*position: relative;*/
   border-radius: 25px 10px;
 /*  right: 0;
   bottom: 0;*/
   /*position: absolute;*/
-  z-index: 3;
+  z-index: 4;
   
   margin-top: -42px;
  
@@ -213,24 +231,25 @@ export default {
 .cursor{
   cursor: pointer;
 }
-.bgdf{
+.bgdf{border-radius: 30% 15%;
   left: 70px;
-  top: 83px;
+  top: 93px;
   position: absolute;
-  height: 28px;
-  width: 185px;
+  height: 26px;
+  width: 190px;
   /*background-color: #dad*/
-  backdrop-filter: blur(2px);
+  /*backdrop-filter: blur(2px);*/
+  background-color: rgb(79.688, 71.652, 47.813, .2);
 }
 .titleb, .titles{
   position: absolute;
 }
 .titleb{
-  margin-top: 52px;
+  margin-top: 72px;
   margin-left: 20px;
 }
 .titles{
-  margin-top: 70px;
+  margin-top: 80px;
   margin-left: 10px;
 
 
