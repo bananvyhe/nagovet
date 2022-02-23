@@ -75,7 +75,7 @@
               <div class="foto"></div>
             </div>
             <div class="about px-4"> 
-              <div class="aboutTitle pt-1 pl-2 iskes" v-bind:class="{ikses: $vuetify.breakpoint.xs}" > 
+              <div class="aboutTitle pt-1 iskes" v-bind:class="{ikses: $vuetify.breakpoint.xs}" > 
                 <h2 >Обо мне </h2>
               </div>
               <div>
@@ -86,7 +86,7 @@
                 </span>          
               </div>              
             </div>
-            <div>
+            <div class="konsultBlock">
               <h2>Как проходит консультация?</h2>
 
               Хочу немного рассказать о том, как происходит процесс психотерапии.
@@ -94,7 +94,7 @@
               На последующих консультациях мы вместе выявляем неосознанные модели реакций и поведения, которые приводят к проблеме и постепенно меняем их.
               В результате такой совместной работы, Вы сможете справиться с депрессией, тревогой, неуверенностью в себе, стабилизировать эмоциональную сферу.
             </div>
-           <div>
+           <div class="zaprosBlock">
              <h2>С какими запросами я работаю?</h2>
              Я могу Вам помочь:
             <ul>
@@ -227,7 +227,13 @@ export default {
 </script>
 
 <style >
- 
+.konsultBlock, .zaprosBlock{
+  padding-left: 1em;
+}
+.konsultBlock h2, .zaprosBlock h2{
+  color: #43a4dc;
+  padding-left: 1em;
+}
 .education{
  
  border-radius: 12px;
@@ -248,14 +254,12 @@ export default {
 }
 .ikses{
   white-space: nowrap;
-  color: #fff;
+  color: #fff !important;
    /*backdrop-filter: blur(2px);*/
    background-color: rgb(79.688, 71.652, 47.813, .2);
   /*text-shadow: 1px 1px 2px #ffffff;*/
 }
-.ikses h2 {
- 
-}
+
 .fotoframe{
 
   position: relative;
