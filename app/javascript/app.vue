@@ -161,10 +161,25 @@
                 <div >
                   <div class="headpsy aboutTitle d-flex justify-center">
                     <h2>Образование</h2>
-       
+                      
                   </div>
+                  <v-list-item-content class="py-0 px-4">
+                    1. Психологическое: УрГПУ, психолог
+преподаватель психологии</v-list-item-content>
+<v-list-item-content class="py-1 px-4">
+2. Восточно-Европейский Институт Психоанализа
+психоаналитик</v-list-item-content>
+<div>
+ Прошла дополнительное обучение по профессиональным программам: 
+</div>
+
                    <div v-for="(item, index) in items"> 
-                      {{item}}
+                    <ul>
+                      <li>
+                        {{item}}
+                      </li>
+                    </ul>
+
                    </div> 
                 </div>
               </div>
