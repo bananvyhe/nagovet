@@ -1,8 +1,16 @@
 import Vue from 'vue'
+
+import 'vuetify/dist/vuetify.min.css'
 import App from '../app.vue'
-// import 'vuetify/dist/vuetify.min.css'
+ 
 Vue.use(Vuetify, {
   components: {
+    VFlex,
+    VVirtualScroll,
+    VDivider,
+    VExpandTransition,
+    VListItemContent,
+    VListItemSubtitle,
     VCol,
     VRow,
     VCard,
@@ -24,6 +32,12 @@ Vue.use(Vuetify, {
   }
 }) 
 import Vuetify, {
+  VFlex,
+  VVirtualScroll,
+  VDivider,
+  VExpandTransition,
+  VListItemSubtitle,
+  VListItemContent,
   VCol,
   VRow,
   VCard,

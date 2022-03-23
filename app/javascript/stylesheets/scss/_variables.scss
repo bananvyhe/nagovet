@@ -34,7 +34,6 @@
 // ::-webkit-scrollbar-corner { background-color: #646464;}
 // ::-webkit-resizer { background-color: #666;}
  
-
 $color-pack: false;
 $headings: (
  	'h5': (
@@ -62,15 +61,15 @@ $body-font-family: 'Roboto Slab';
 $heading-font-family: 'Roboto';
 $font-size-root: 0.9em ;
 $container-max-widths: (
- 
+
+  'sm': 1280px,
   'md': 1280px,
   'lg': 1280px,
-  'xl': 1280px,
 );
-$grid-breakpoints:  (
-  'xs': 0,
+$grid-breakpoints: (
+  'xs': 0px,
   'sm': 850px,
-  'md': 1020px,
+  'md': 1080px,
   'lg': 1280px - 16px,
   'xl': 1480px - 16px,
 );
@@ -110,9 +109,5 @@ $grid-breakpoints:  (
   }  
 
 }
-   
-.fonta {
-  // font-family: $body-font-family;
  
-}
  

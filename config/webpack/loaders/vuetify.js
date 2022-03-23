@@ -32,7 +32,12 @@ module.exports = {
           options: {
  
           // This is the path to your variables
-          // additionalData: "@import '@/app/javascript/stylesheets/scss/_variables.scss';"
+              // additionalData: "@import './app/javascript/stylesheets/scss/_variables.scss';",
+ 
+        
+              
+                // additionalData: "app/javascript/stylesheets/scss/_variables.scss";,
+                // implementation: require("sass"),
           },
         },
       ],  
