@@ -156,7 +156,7 @@
               </div>
             </v-col>
             
-            <v-col class="d-flex" cols="12"    sm="12" md="6" lg="5" >
+            <v-col class="d-flex py-0" cols="12"    sm="12" md="6" lg="5" >
               <div class="d-flex align-stretch obraz">
                 <div >
                   <div class="headpsy aboutTitle d-flex justify-center">
