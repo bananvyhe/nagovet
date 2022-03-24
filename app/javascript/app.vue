@@ -82,7 +82,7 @@
 
           <v-row >
 
-            <v-col class=" d-flex flex-column py-1" cols="12"  sm="6" md="7" lg="7" >
+            <v-col class=" d-flex flex-column py-1" cols="12"  sm="12" md="6" lg="7" >
               <div class="about "> 
                 <div class="bg_books"></div>
                 <div class="books"></div>
@@ -113,7 +113,7 @@
                 <div class="psyholog_bg"></div>
                 <div class="psyholog"></div>
                 <v-container>
-                  <div class="headpsy aboutTitle" v-bind:class="{ikses: $vuetify.breakpoint.xs }">
+                  <div class="headpsy aboutTitle">
                     <h2>С какими запросами я работаю?</h2>
                     Я могу Вам помочь:
                   </div>
@@ -156,7 +156,7 @@
               </div>
             </v-col>
             
-            <v-col class="d-flex" cols="12"    sm="6" md="5" lg="5" >
+            <v-col class="d-flex" cols="12"    sm="12" md="6" lg="5" >
               <div class="d-flex align-stretch obraz">
                 <div >
                   <div class="headpsy aboutTitle d-flex justify-center">
