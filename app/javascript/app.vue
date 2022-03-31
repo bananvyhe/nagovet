@@ -6,7 +6,7 @@
         <v-container class= "px-0 ">
           <div class="d-flex d-sm-flex px-2"> 
  
-            <div  @click="drawer = true" class="d-flex hidden-sm-and-up">
+            <div  @click="drawer = true" class="d-flex hidden-sm-and-up menbg px-1">
               <v-icon  class=" ">
                 {{mdiMenu}}
               </v-icon>
@@ -221,6 +221,10 @@ export default {
 </script>
 
 <style >
+.menbg{
+  border-radius: 4px;
+  background-color: #fff;
+}
 .appbar{
   position: relative;
   z-index: 5;
