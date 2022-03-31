@@ -227,7 +227,7 @@ export default {
 }
 .appbar{
   position: relative;
-  z-index: 5;
+  /*z-index: 5;*/
 }
 .obraz{
   
@@ -505,6 +505,7 @@ margin-top: 14px;
   bottom: 0;
 }
 .main{
+  z-index: 1;
   /*margin-top: -60px;*/
   position: relative;
   border-right-color: #4dd;
