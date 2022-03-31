@@ -55,7 +55,7 @@
             active-class="deep-purple--text text--accent-4">
             <div v-for="(item, index) in parts"> 
               <v-list-item>
-                <v-list-item-title>{{item}}</v-list-item-title>
+                <v-list-item-title> <h3>{{item}}</h3> </v-list-item-title>
               </v-list-item>
             </div>
           </v-list-item-group>
