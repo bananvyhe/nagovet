@@ -1,8 +1,9 @@
 <template>
   <div>
-    <v-app>
-      <v-app-bar  app dense flat hide-on-scroll rounded class="   " color="transparent">
-        <v-container class= "navigation ">
+    <v-app >
+      
+      <v-app-bar dense fixed flat hide-on-scroll rounded color="transparent" class="appbar">
+        <v-container class= "px-0 ">
           <div class="d-flex d-sm-flex px-2"> 
  
             <div  @click="drawer = true" class="d-flex hidden-sm-and-up">
@@ -14,7 +15,7 @@
 
             <v-spacer></v-spacer>
             <div class="d-flex align-center">
-            <v-card outlined class="d-flex  menu mr-2  d-xs-none d-sm-flex">
+            <v-card outlined class="d-flex menu mr-2 d-xs-none d-sm-flex">
 
               <div  v-for="(item, index) in parts">
                 <v-btn
@@ -38,10 +39,14 @@
           </div>
         </v-container>
       </v-app-bar> 
+
+
       <v-navigation-drawer
         v-model="drawer" 
-        absolute
+        fixed
+
         temporary>
+ 
         <v-list
           nav
           dense>
@@ -58,7 +63,7 @@
       </v-navigation-drawer>
 
       <v-main>
-        <v-container class="main">
+        <v-container class="main px-0 py-0">
           <div class="headsite">
             <div class="d-xs-none   d-md-flex head1"></div>
  
@@ -78,15 +83,13 @@
             </div>
           </div>
         </v-container>
-        <v-container class=" py-2" >
-
+        <v-container class=" py-2 " >
           <v-row >
-
             <v-col class=" d-flex flex-column py-1" cols="12"  sm="12" md="6" lg="7" >
               <div class="about "> 
                 <div class="bg_books"></div>
                 <div class="books"></div>
-                <div class="about_block my-0 px-2">
+                <div class="about_block my-0 ">
                   <div>
                     <div class="aboutTitle " v-bind:class="{ikses: $vuetify.breakpoint.md || $vuetify.breakpoint.xs}" > 
                       <h2 >Обо мне </h2>
@@ -218,7 +221,10 @@ export default {
 </script>
 
 <style >
-
+.appbar{
+  position: relative;
+  z-index: 5;
+}
 .obraz{
   
 }
@@ -293,7 +299,8 @@ export default {
   /*background-color: #43a4dc;*/
 }
 .aboutTitle{
- 
+ margin-left: -10px;
+ padding-left: 10px;
   color: #43a4dc;
   /*display: flex;*/
   /*align-self: center;*/
@@ -494,7 +501,7 @@ margin-top: 14px;
   bottom: 0;
 }
 .main{
-  margin-top: -60px;
+  /*margin-top: -60px;*/
   position: relative;
   border-right-color: #4dd;
 }
