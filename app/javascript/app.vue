@@ -299,8 +299,8 @@ export default {
   /*background-color: #43a4dc;*/
 }
 .aboutTitle{
- margin-left: -10px;
- padding-left: 10px;
+ margin-left: -12px;
+ padding-left: 12px;
   color: #43a4dc;
   /*display: flex;*/
   /*align-self: center;*/
