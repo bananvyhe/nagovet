@@ -187,24 +187,53 @@
                 </div>
               </div>
             </v-col>
-
           </v-row>
 
         </v-container>
         <v-container>
-                            <div class="headpsy aboutTitle d-flex justify-center pb-1">
-                    <h2>Отзывы</h2>
-                      
-                  </div>
-            <masonry-wall :items="reviews" :ssr-columns="1" :column-width="300" :gap="16">
-              <template #default="{ item, index }">
-                <div class="px-2 py-2 newsBlock">
-                  <div>{{ item.description }}</div>
-                  <div class="d-flex justify-end subtitle-2">{{ item.autor }}</div>
-                </div>
-              </template>
-            </masonry-wall>
+          <div class="headpsy aboutTitle d-flex justify-center pb-1">
+            <h2>Отзывы</h2>
+          </div>
+          <masonry-wall :items="reviews" :ssr-columns="1" :column-width="300" :gap="16">
+            <template #default="{ item, index }">
+              <div class="px-2 py-2 newsBlock">
+                <div>{{ item.description }}</div>
+                <div class="d-flex justify-end subtitle-2">{{ item.autor }}</div>
+              </div>
+            </template>
+          </masonry-wall>
         </v-container>
+          <div class="headpsy aboutTitle d-flex justify-center pb-1">
+            <h2>Стоимость</h2>
+          </div>
+        <v-simple-table dense>
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-left priceHead">
+                  <h3>Наименование услуги:</h3>
+                </th>
+                <th class="text-left priceHead">
+                  <h3></h3>
+                </th>
+                <th class="text-left priceHead">
+                  <h3>Длительность:</h3>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="item in services"
+                :key="item.name"
+              >
+                <td>{{ item.name }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.time }}</td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
+
       </v-main>  
     </v-app>    
   </div>
@@ -215,6 +244,14 @@
 export default {
   data: function () {
     return {
+      services: [
+        {
+          name: 'Индивидуальная консультация',
+          price: '3500 руб.',
+          time: '50',
+        },
+        
+      ],      
       reviews: [
         { description: 'Людмила помогла увидеть картину с другой стороны и увидеть выход из этого адского замкнутого круга. Это действительно адское состояние, когда пытаешься всем угодить во вред себе, нелюбовь к себе и непонимание себя. Ещё много работы впереди, но уже виден просвет и это радует.',autor: 'Ирина'},
         { description: 'К Людмиле Юрьевне я хожу на психотерапию чуть больше трёх месяцев. Изначально у меня не было конкретного запроса, мне хотелось просто лучше понимать себя. Во время терапии я чувствую поддержку и принятие со стороны Людмилы Юрьевны, и это дает мне стимул к необходимым мне изменениям. Самое важное для меня сейчас - это повышение моего уровня осознанности, избавление от автоматизмов как в мыслях, так и в поведении. Иногда очень сложно узнавать о себе что-то новое, то, чего ты раньше не понимал и не знал. Но это определенно и радостно, потому что теперь хотя бы немного лучше понимаешь себя и свои области, требующие изменений. Хочу поблагодарить Людмилу Юрьевну за работу со мной.',autor: 'Алёна'},
@@ -242,6 +279,9 @@ export default {
 </script>
 
 <style >
+.priceHead{
+  background-color: #edf0eac9;
+}
 .newsBlock{
   background-color: #e6f8eaa3;
 }

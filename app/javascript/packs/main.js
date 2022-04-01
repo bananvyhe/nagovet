@@ -6,6 +6,7 @@ import MasonryWall from '@yeger/vue2-masonry-wall'
 Vue.use(MasonryWall)
 Vue.use(Vuetify, {
   components: {
+    VSimpleTable,
     VFlex,
     VVirtualScroll,
     VDivider,
@@ -33,6 +34,7 @@ Vue.use(Vuetify, {
   }
 }) 
 import Vuetify, {
+  VSimpleTable,
   VFlex,
   VVirtualScroll,
   VDivider,
