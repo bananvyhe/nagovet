@@ -2,7 +2,8 @@ import Vue from 'vue'
 
 import 'vuetify/dist/vuetify.min.css'
 import App from '../app.vue'
- 
+import MasonryWall from '@yeger/vue2-masonry-wall'
+Vue.use(MasonryWall)
 Vue.use(Vuetify, {
   components: {
     VFlex,
