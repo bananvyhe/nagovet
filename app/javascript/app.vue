@@ -300,6 +300,7 @@ export default {
 }
 .newsBlock{
   background-color: #e6f8eaa3;
+  border-radius: 4px;
 }
 .menbg{
   border-radius: 4px;
@@ -316,16 +317,20 @@ export default {
   position: relative;
 }
 .list6b {
+   
   position: relative;
-    padding:0;
+
     list-style: none;
 }
 .list6b li{
-    padding:0px;
 
+    display: inline-block;
+    margin:2px;
+    padding:0px;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 .list6b li:before {
-   
+    
     padding-right:5px;
     font-weight: bold;
     color: #65ba7a;
@@ -342,7 +347,7 @@ export default {
   /*z-index: 6;*/
 }
 .psyholog_bg{ 
- border-radius: 25px 10px;
+ border-radius: 10px 10px;
   /*top: 0;*/
   position: absolute;
   background-image: url('./images/psy_bg.jpg');
@@ -351,7 +356,7 @@ export default {
   height: 271px;
 }
 .psyholog{
- border-radius: 25px 10px;
+ border-radius: 10px 10px;
   height: 271px;
   position: absolute;
   width: 100%;
