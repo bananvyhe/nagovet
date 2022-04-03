@@ -191,15 +191,16 @@
 
         </v-container>
         <v-container>
-          <div class="headpsy aboutTitle d-flex justify-center pb-1">
+          <div class="headpsy aboutTitle d-flex justify-center pb-3">
             <h2>Отзывы</h2>
           </div>
           <masonry-wall :items="reviews" :ssr-columns="1" :column-width="300" :gap="16">
             <template #default="{ item, index }">
-              <div class="px-2 py-2 newsBlock">
+              <v-card>
+              <div class="px-4 py-3 newsBlock">
                 <div>{{ item.description }}</div>
                 <div class="d-flex justify-end subtitle-2">{{ item.autor }}</div>
-              </div>
+              </div></v-card>
             </template>
           </masonry-wall>
         </v-container>
@@ -256,6 +257,7 @@
 </template>
 
 <script>
+  import gsap from "gsap";
   import { mdiMenu } from '@mdi/js'
 export default {
   data: function () {
@@ -299,7 +301,8 @@ export default {
   background-color: #edf0eac9;
 }
 .newsBlock{
-  background-color: #e6f8eaa3;
+  /*background-color: rgba(239.13, 255, 223, 0.4);*/
+  background-color: rgba(233.08, 247, 231, 0.3);
   border-radius: 4px;
 }
 .menbg{

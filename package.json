@@ -8,6 +8,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
     "@yeger/vue2-masonry-wall": "^2.0.23",
+    "gsap": "^3.10.2",
     "sass-loader": "^10",
     "style-loader": "^2",
     "turbolinks": "^5.2.0",
