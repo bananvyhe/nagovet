@@ -70,6 +70,7 @@
             <div class="titleb ">
               <div class="d-xs-none d-sm-flex ludmila"></div>
               <div class="d-xs-none d-sm-flex nagb nagovets"></div>
+              <div class="d-xs-none d-sm-flex justify-end subti"> ПСИХОЛОГ - ПСИХОАНАЛИТИК</div>
             </div>
  
             <div class="titles d-flex hidden-sm-and-up"> 
@@ -77,6 +78,7 @@
               <div class="nagovets  nags"></div>
               <div class="bgdfa   "> </div>
               <div class="bgdfb  "> </div>
+              <div class="subti">ПСИХОЛОГ - ПСИХОАНАЛИТИК</div>
             </div>            
             <div class="head3">
               <div class="frontclouds "></div>
@@ -307,6 +309,23 @@ export default {
 </script>
 
 <style >
+.titleb .subti{
+   
+  color: #fff;
+  z-index: 5;
+  position: relative;
+  margin-top: -10px;
+  width: 445px;
+  /*background-color: #dad;*/
+}
+.titles .subti{
+ margin-top: 68px;
+  margin-left: -222px;
+  color: #fff;
+  z-index: 5;
+  position: relative;
+  width: 245px;
+}
 .map{
   width: 100%;
 }
@@ -568,8 +587,8 @@ margin-top: 14px;
 
 }
 .titleb .nagovets{
-    margin-top: -70px;
-    margin-left: 220px;
+    margin-top: -92px;
+    margin-left: 250px;
  
 }
 .titles .nagovets{
