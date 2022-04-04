@@ -402,7 +402,7 @@ export default {
     /*text-align: center;*/
   /*background-color: #43a4dc;*/
 }
-.aboutTitle{
+.aboutTitle{ position: relative;
   /*background-color: #dad;*/
   margin-left: -12px;
   padding-left: 12px;
@@ -410,6 +410,7 @@ export default {
   /*display: flex;*/
   /*align-self: center;*/
 }
+ 
 .ikses{ 
   white-space: nowrap;
   color: #fff !important;
