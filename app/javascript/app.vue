@@ -70,7 +70,8 @@
             <div class="titleb  ">
               <div class="d-xs-none d-sm-flex ludmila"></div>
               <div class="d-xs-none d-sm-flex nagb nagovets"></div>
-              <div class="d-xs-none d-sm-flex  subti"> ПСИХОЛОГ - ПСИХОАНАЛИТИК</div>
+              <!-- <div class="d-xs-none d-sm-flex  subti"> ПСИХОЛОГ - ПСИХОАНАЛИТИК</div> -->
+              <div class="d-xs-none d-sm-flex  subti"> психолог - психоаналитик</div>
             </div>
  
             <div class="titles d-flex hidden-sm-and-up"> 
@@ -78,7 +79,7 @@
               <div class="nagovets  nags"></div>
               <div class="bgdfa   "> </div>
               <div class="bgdfb  "> </div>
-              <div class="subti  "> ПСИХОЛОГ - ПСИХОАНАЛИТИК </div>
+              <div class="subti  "> психолог - психоаналитик </div>
             </div>            
             <div class="head3">
               <div class="frontclouds "></div>
@@ -572,7 +573,7 @@ margin-top: 14px;
 }
 .subti{
   border-radius: 2px;
-  font-family: "Roboto Condensed";
+  font-family: "Roboto Slab";
   padding-left: 5px;
   padding-right: 5px;
   z-index: 1;
@@ -580,10 +581,10 @@ margin-top: 14px;
 .titleb .subti{
 
     margin-top: -8px;
-    margin-left: 250px;
- /*background-color: rgb(79.688, 71.652, 47.813, .2);*/
-  color: #222;
- 
+    margin-left: 240px;
+ background-color: rgb(79.688, 71.652, 47.813, .2);
+  /*color: #222;*/
+ color: #fff;
   /*position: relative;*/
   position: absolute;
 /*  margin-top: -10px;
@@ -593,9 +594,9 @@ margin-top: 14px;
 }
 .titles .subti{
   margin-top: 71px;
-  margin-left: 37px;
+  margin-left: 33px;
 
-  background-color: rgb(79.688, 71.652, 47.813, .4);
+  background-color: rgb(79.688, 71.652, 47.813, .3);
 /* margin-top: 68px;
   margin-left: -222px;*/
   color: #fff;
