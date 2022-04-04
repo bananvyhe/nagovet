@@ -355,7 +355,13 @@ export default {
 .list6b li:hover:before {
     color: #337AB7;
     content: "\2714";
-}    
+}  
+.list6b li{
+  padding-left: 8px;
+}  
+ul.list6b{
+  padding-left: 0px !important;
+}
 .zap_text{
 /*background-color: #ada;*/
   position: relative;
@@ -410,7 +416,7 @@ export default {
   /*display: flex;*/
   /*align-self: center;*/
 }
- 
+
 .ikses{ 
   white-space: nowrap;
   color: #fff !important;
