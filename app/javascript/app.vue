@@ -237,26 +237,30 @@
         </v-simple-table>
         </v-container>
         <v-container>
-          <div class="headpsy aboutTitle d-flex justify-center pb-4">
+          <div class="aboutTitle d-flex justify-center pb-4">
             <h2>Контакты</h2>
-                </div>
-                <div>
+          </div>
+       
           <!-- <v-row > -->
             <!-- <v-col class=" d-flex flex-column py-1" cols="12"  sm="6" md="6" lg="7" >  -->
               <div class="d-flex flex-column justify-center align-center pb-4"> 
 
                 <h4>Консультирую:</h4>
-                <div class="body-1 my-1">ОНЛАЙН - по видеосвязи (мессенджеры: Scype, WhatsApp, Viber, Telegram)</div>
-                <div class="body-1 my-1">ОЧНО - в Екатеринбурге по адресу: Тверитина 34, корпус 5.</div>
-
-                <div class="d-flex justify-center" style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/54/yekaterinburg/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Екатеринбург</a><a href="https://yandex.ru/maps/54/yekaterinburg/house/ulitsa_tveritina_34_5/YkkYcAVlQEYEQFtsfXRzc3lgbA==/?ll=60.625933%2C56.822538&source=wizgeo&utm_medium=mapframe&utm_source=maps&z=17" style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Тверитина, 34/5 — Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/-/CCUB6JWA9A" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                <div class="body-1 my-2 mb-1">ОНЛАЙН - по видеосвязи (мессенджеры: Scype, WhatsApp, Viber, Telegram)
+                </div>
+                <div class="body-1 mt-0 mb-3">ОЧНО - в Екатеринбурге по адресу: Тверитина 34, корпус 5.</div>
+                <div  style="position:relative;overflow:hidden;width:100%;">
+                  <a href="https://yandex.ru/maps/54/yekaterinburg/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Екатеринбург</a>
+                  <a href="https://yandex.ru/maps/54/yekaterinburg/house/ulitsa_tveritina_34_5/YkkYcAVlQEYEQFtsfXRzc3lgbA==/?ll=60.625933%2C56.822538&source=wizgeo&utm_medium=mapframe&utm_source=maps&z=17" style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Тверитина, 34/5 — Яндекс Карты</a>
+                  <iframe  src="https://yandex.ru/map-widget/v1/-/CCUB6JWA9A"  height="600" frameborder="1" allowfullscreen="true" style="position:relative;width:100%;"></iframe>
+                </div>
     <!--         </v-col> -->
 <!--             <v-col class=" d-flex flex-column justify-start" cols="12"  sm="6" md="6" lg="5" > 
              
             </v-col> -->
           <!-- </v-row>  -->
                 </div> 
-              </div> 
+              
         </v-container> 
       </v-main>  
     </v-app>    
@@ -304,6 +308,9 @@ export default {
 </script>
 
 <style >
+.map{
+  width: 100%;
+}
 .priceHead{
   background-color: #edf0eac9;
 }
@@ -323,9 +330,7 @@ export default {
 .obraz{
   
 }
-.headpsy{
-  position: relative;
-}
+ 
 .list6b {
    
   position: relative;
@@ -398,8 +403,9 @@ export default {
   /*background-color: #43a4dc;*/
 }
 .aboutTitle{
- margin-left: -12px;
- padding-left: 12px;
+  /*background-color: #dad;*/
+  margin-left: -12px;
+  padding-left: 12px;
   color: #43a4dc;
   /*display: flex;*/
   /*align-self: center;*/
@@ -455,7 +461,7 @@ export default {
  
 .abcont{
   position: relative;
-  background-color: #dad;
+  /*background-color: #dad;*/
 }
 .bg_books{
  
