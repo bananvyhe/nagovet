@@ -581,8 +581,8 @@ margin-top: 14px;
 .titleb .subti{
 
     margin-top: -8px;
-    margin-left: 240px;
- background-color: rgb(79.688, 71.652, 47.813, .2);
+    margin-left: 150px;
+ background-color: rgb(79.688, 71.652, 47.813, .1);
   /*color: #222;*/
  color: #fff;
   /*position: relative;*/
