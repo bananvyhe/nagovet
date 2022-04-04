@@ -539,7 +539,8 @@ ul.list6b{
   width: 190px;
   /*background-color: #dad*/
   /*backdrop-filter: blur(2px);*/
-  background-color: rgb(79.688, 71.652, 47.813, .2);
+  /*background-color: rgb(79.688, 71.652, 47.813, .2);*/
+    background-color: rgba(94.629, 156.55, 192.25, 0.4);
 }
 .bgdfa{
   /*background-color: #dad;*/
