@@ -67,10 +67,10 @@
           <div class="headsite">
             <div class="d-xs-none   d-md-flex head1"></div>
  
-            <div class="titleb ">
+            <div class="titleb  ">
               <div class="d-xs-none d-sm-flex ludmila"></div>
               <div class="d-xs-none d-sm-flex nagb nagovets"></div>
-              <div class="d-xs-none d-sm-flex justify-end subti"> ПСИХОЛОГ - ПСИХОАНАЛИТИК</div>
+              <div class="d-xs-none d-sm-flex  subti"> ПСИХОЛОГ - ПСИХОАНАЛИТИК</div>
             </div>
  
             <div class="titles d-flex hidden-sm-and-up"> 
@@ -78,7 +78,7 @@
               <div class="nagovets  nags"></div>
               <div class="bgdfa   "> </div>
               <div class="bgdfb  "> </div>
-              <div class="subti">ПСИХОЛОГ - ПСИХОАНАЛИТИК</div>
+              <div class="subti  "> ПСИХОЛОГ - ПСИХОАНАЛИТИК </div>
             </div>            
             <div class="head3">
               <div class="frontclouds "></div>
@@ -309,23 +309,7 @@ export default {
 </script>
 
 <style >
-.titleb .subti{
-   
-  color: #fff;
-  z-index: 5;
-  position: relative;
-  margin-top: -10px;
-  width: 445px;
-  /*background-color: #dad;*/
-}
-.titles .subti{
- margin-top: 68px;
-  margin-left: -222px;
-  color: #fff;
-  z-index: 5;
-  position: relative;
-  width: 245px;
-}
+
 .map{
   width: 100%;
 }
@@ -570,8 +554,8 @@ margin-top: 14px;
 .titleb, .titles{
   /*position: absolute;*/
 }
-.titleb{
-  width: 700px;
+.titleb{ z-index: 5;
+  /*width: 700px;*/
   position: absolute;
   margin-top: 70px;
   margin-left: 20px;
@@ -583,8 +567,42 @@ margin-top: 14px;
   margin-left: 10px;
  
     height: 40px;
-    width: 589;
+    width: 589px;
 
+}
+.subti{
+  border-radius: 2px;
+  font-family: "Roboto Condensed";
+  padding-left: 5px;
+  padding-right: 5px;
+  z-index: 1;
+}
+.titleb .subti{
+
+    margin-top: -8px;
+    margin-left: 250px;
+ /*background-color: rgb(79.688, 71.652, 47.813, .2);*/
+  color: #222;
+ 
+  /*position: relative;*/
+  position: absolute;
+/*  margin-top: -10px;
+  width: 445px;
+  margin-left: 30px;*/
+  /*background-color: #dad;*/
+}
+.titles .subti{
+  margin-top: 71px;
+  margin-left: 37px;
+
+  background-color: rgb(79.688, 71.652, 47.813, .4);
+/* margin-top: 68px;
+  margin-left: -222px;*/
+  color: #fff;
+
+  /*position: relative;*/
+  position: absolute;
+  
 }
 .titleb .nagovets{
     margin-top: -92px;
