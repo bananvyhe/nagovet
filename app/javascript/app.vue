@@ -594,7 +594,7 @@ margin-top: 14px;
   /*background-color: #dad;*/
 }
 .titles .subti{
-  margin-top: 71px;
+  margin-top: 75px;
   margin-left: 33px;
 
   background-color: rgb(79.688, 71.652, 47.813, .3);
