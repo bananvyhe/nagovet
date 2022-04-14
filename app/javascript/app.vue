@@ -12,16 +12,17 @@
               </v-icon>
               <div class="cursor  ">меню</div>
             </div>
-
+            <!-- <v-btn  @click="handler">234</v-btn> -->
             <v-spacer></v-spacer>
             <div class="d-flex align-center">
             <v-card outlined class="d-flex menu mr-2 d-xs-none d-sm-flex">
 
               <div  v-for="(item, index) in parts">
                 <v-btn
+                @click="handler"
                   x-small text
                   color="primary">
-                  {{item}}
+                  {{item.name}}
                 </v-btn> 
               </div>   
 
@@ -55,7 +56,7 @@
             active-class="deep-purple--text text--accent-4">
             <div v-for="(item, index) in parts"> 
               <v-list-item>
-                <v-list-item-title> <h3>{{item}}</h3> </v-list-item-title>
+                <v-list-item-title ref="button" @click="handler(item.name, item.classname)"> <h3>{{item.name}}</h3> </v-list-item-title>
               </v-list-item>
             </div>
           </v-list-item-group>
@@ -92,7 +93,7 @@
               <div class="about "> 
                 <div class="bg_books"></div>
                 <div class="books"></div>
-                <div class="about_block my-0 px-2">
+                <div class="about_block my-0 px-2"  id='about_block'>
                   <div>
                     <div class="aboutTitle " v-bind:class="{ikses: $vuetify.breakpoint.md || $vuetify.breakpoint.xs}" > 
                       <h2 >Обо мне </h2>
@@ -164,7 +165,7 @@
             <v-col class="d-flex py-0" cols="12"    sm="12" md="6" lg="5" >
               <div class="d-flex align-stretch obraz">
                 <div >
-                  <div class="headpsy aboutTitle d-flex justify-center">
+                  <div class="know_block headpsy aboutTitle d-flex justify-center">
                     <h2>Образование</h2>
                       
                   </div>
@@ -193,7 +194,7 @@
 
         </v-container>
         <v-container>
-          <div class="headpsy aboutTitle d-flex justify-center pb-3">
+          <div class="rev_block headpsy aboutTitle d-flex justify-center pb-3">
             <h2>Отзывы</h2>
           </div>
           <masonry-wall :items="reviews" :ssr-columns="1" :column-width="300" :gap="16">
@@ -207,7 +208,7 @@
           </masonry-wall>
         </v-container>
         <v-container>
-          <div class="headpsy aboutTitle d-flex justify-center pb-1">
+          <div class="price_block headpsy aboutTitle d-flex justify-center pb-1">
             <h2>Стоимость</h2>
           </div>
         <v-simple-table dense>
@@ -239,7 +240,7 @@
         </v-simple-table>
         </v-container>
         <v-container>
-          <div class="aboutTitle d-flex justify-center pb-4">
+          <div class="contact_block aboutTitle d-flex justify-center pb-4">
             <h2>Контакты</h2>
           </div>
        
@@ -294,10 +295,19 @@ export default {
       benched: 0,
       show: false,
       mdiMenu,
-      parts: ['Обо мне','Образование','Как проходит консультация?','Отзывы','Стоимость','Контакты'],
+      parts: [{name: 'Обо мне', classname:'#about_block'},{name: 'Образование', classname: '.know_block'},{name: 'Как проходит консультация?', classname: '.konsultBlock'},{name:'Отзывы', classname: '.rev_block'},{name:'Стоимость', classname: '.price_block'},{name:'Контакты', classname: '.contact_block'}],
       message: "Психолог Екатеринбург",
       drawer: false,
       group: null,
+    }
+  },
+  methods:{
+    handler: function (da, ta) {
+      this.$vuetify.goTo(ta,{ offset: 18 })
+      this.drawer = false
+      // console.log(da)
+      // console.log(ta)
+      // $vuetify.goTo('#about_block')
     }
   },
   mounted(){

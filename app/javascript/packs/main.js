@@ -34,6 +34,7 @@ Vue.use(Vuetify, {
   }
 }) 
 import Vuetify, {
+  VScroll,
   VSimpleTable,
   VFlex,
   VVirtualScroll,
