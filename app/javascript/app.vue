@@ -19,7 +19,7 @@
 
               <div  v-for="(item, index) in parts">
                 <v-btn
-                @click="handler"
+                @click="handler(item.name, item.classname)"
                   x-small text
                   color="primary">
                   {{item.name}}
