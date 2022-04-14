@@ -303,10 +303,13 @@ export default {
   },
   methods:{
     handler: function (da, ta) {
-      // if (da = 'Обо мне'){
-      //     console.log(da)
-      // }
-      this.$vuetify.goTo(ta,{ offset: 18 })
+      var offs = 18
+      if (da == 'Обо мне'){
+          offs = 30
+          console.log(da)
+
+      }
+      this.$vuetify.goTo(ta,{ offset: offs })
       this.drawer = false
       // console.log(da)
       // console.log(ta)
