@@ -19,7 +19,7 @@
 
               <div  v-for="(item, index) in parts">
                 <v-btn
-                @click="handler(item.name, item.classname)"
+                  @click="handler(item.name, item.classname)"
                   x-small text
                   color="primary">
                   {{item.name}}
@@ -303,6 +303,9 @@ export default {
   },
   methods:{
     handler: function (da, ta) {
+      // if (da = 'Обо мне'){
+      //     console.log(da)
+      // }
       this.$vuetify.goTo(ta,{ offset: 18 })
       this.drawer = false
       // console.log(da)
@@ -701,6 +704,7 @@ margin-top: 14px;
 .menu{
   border-radius:4px;
   background-color: #fff;
+  padding-bottom: 2px;
 }
 .navigation{
   /*background-color: #dad;*/
