@@ -28,18 +28,110 @@
 
             </v-card> 
             </div>
-            <div class="d-flex "> 
-              <v-btn
-                small 
 
-                color="primary">
-                Записаться
-              </v-btn>             
-            </div>
+
+      <v-dialog
+        v-model="dialog"
+        width="500">
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            small 
+            color="primary"
+            dark
+            v-bind="attrs"
+            v-on="on"
+          >
+            Записаться
+          </v-btn>
+        </template>
+        <v-card>
+ 
+          <v-form
+            class="mx-3"
+            ref="form"
+            v-model="valid"
+            lazy-validation>
+            <v-text-field
+              v-model="name"
+              :counter="10"
+              :rules="nameRules"
+              label="Имя"
+              required>
+            </v-text-field>
+            <v-text-field
+              v-model="email"
+              :rules="emailRules"
+              label="Е-мейл"
+              required>
+            </v-text-field>
+            <v-textarea
+              filled
+              name="input-7-4"
+              label="Задайте вопрос"
+              value="">
+            </v-textarea>
+<!--             <v-select
+              v-model="select"
+              :items="items"
+              :rules="[v => !!v || 'Item is required']"
+              label="Item"
+              required
+            ></v-select>
+
+            <v-checkbox
+              v-model="checkbox"
+              :rules="[v => !!v || 'You must agree to continue!']"
+              label="Do you agree?"
+              required
+            ></v-checkbox> -->
+
+          <!--     <v-btn
+              :disabled="!valid"
+              color="success"
+              class="mr-4"
+              @click="validate"
+            >
+              Validate
+            </v-btn>
+
+            <v-btn
+              color="error"
+              class="mr-4"
+              @click="reset"
+            >
+              Reset Form
+            </v-btn>
+
+            <v-btn
+              color="warning"
+              @click="resetValidation"
+            >
+              Reset Validation
+            </v-btn> -->
+            <v-btn
+              color="primary"
+              text
+              @click="dialog = false">
+              Отправить
+            </v-btn>
+          </v-form>
+          
+
+         <!--  <v-divider></v-divider> -->
+          <v-card-actions>
+            <!-- <v-spacer></v-spacer> -->
+
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+
 
           </div>
         </v-container>
       </v-app-bar> 
+
+
+
 
 
       <v-navigation-drawer
@@ -276,6 +368,30 @@
 export default {
   data: function () {
     return {
+ valid: true,
+      name: '',
+      nameRules: [
+        v => !!v || 'Как вас зовут?',
+        v => (v && v.length <= 20) || 'Вы превысили лимит 20 знаков',
+      ],
+      email: '',
+      emailRules: [
+        v => !!v || 'Е-мейл необходим для связи',
+        v => /.+@.+\..+/.test(v) || 'Е-мейл введен некорректно',
+      ],
+      select: null,
+      items: [
+        'Item 1',
+        'Item 2',
+        'Item 3',
+        'Item 4',
+      ],
+      checkbox: false,
+
+
+
+
+      dialog: false,
       services: [
         {
           name: 'Индивидуальная консультация',
@@ -302,6 +418,16 @@ export default {
     }
   },
   methods:{
+  validate () {
+        this.$refs.form.validate()
+      },
+      reset () {
+        this.$refs.form.reset()
+      },
+      resetValidation () {
+        this.$refs.form.resetValidation()
+      },
+
     handler: function (da, ta) {
       var offs = 18
       if (da == 'Обо мне'){

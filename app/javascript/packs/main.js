@@ -6,6 +6,13 @@ import MasonryWall from '@yeger/vue2-masonry-wall'
 Vue.use(MasonryWall)
 Vue.use(Vuetify, {
   components: {
+    VTextarea,
+    VCardActions,
+    VCheckbox,
+    VSelect,
+    VTextField,
+    VForm,
+    VDialog,
     VSimpleTable,
     VFlex,
     VVirtualScroll,
@@ -34,6 +41,13 @@ Vue.use(Vuetify, {
   }
 }) 
 import Vuetify, {
+  VTextarea,
+  VCardActions,
+  VCheckbox,
+  VSelect,
+  VTextField,
+  VForm,
+  VDialog,
   VScroll,
   VSimpleTable,
   VFlex,
