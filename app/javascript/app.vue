@@ -61,7 +61,7 @@
             <v-text-field
               v-model="email"
               :rules="emailRules"
-              label="Е-мейл"
+              label="E-mail"
               required>
             </v-text-field>
             <v-textarea
@@ -376,8 +376,8 @@ export default {
       ],
       email: '',
       emailRules: [
-        v => !!v || 'Е-мейл необходим для связи',
-        v => /.+@.+\..+/.test(v) || 'Е-мейл введен некорректно',
+        v => !!v || 'E-mail необходим для связи',
+        v => /.+@.+\..+/.test(v) || 'E-mail введен некорректно',
       ],
       select: null,
       items: [
@@ -418,20 +418,10 @@ export default {
     }
   },
   methods:{
-  validate () {
-        this.$refs.form.validate()
-      },
-      reset () {
-        this.$refs.form.reset()
-      },
-      resetValidation () {
-        this.$refs.form.resetValidation()
-      },
-
     handler: function (da, ta) {
       var offs = 18
       if (da == 'Обо мне'){
-          offs = 30
+          offs = 35
           console.log(da)
 
       }
