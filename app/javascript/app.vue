@@ -114,7 +114,17 @@
               @click="dialog = false">
               Отправить
             </v-btn>
-             <v-date-picker v-model="picker"></v-date-picker>
+            <v-expansion-panels  accordion>
+              <v-expansion-panel>
+                <v-expansion-panel-header> желаемое время приема</v-expansion-panel-header>
+                <v-expansion-panel-content>
+                  <v-date-picker v-model="picker"></v-date-picker>
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+            </v-expansion-panels>
+
+
+             
           </v-form>
           
 

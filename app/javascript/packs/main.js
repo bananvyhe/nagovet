@@ -7,6 +7,10 @@ import ru from 'vuetify/src/locale/ru'
 Vue.use(MasonryWall)
 Vue.use(Vuetify, {
   components: {
+    VExpansionPanelContent,
+    VExpansionPanels,
+    VExpansionPanelHeader,
+    VExpansionPanel,
     VDatePicker,
     VTextarea,
     VCardActions,
@@ -43,6 +47,10 @@ Vue.use(Vuetify, {
   }
 }) 
 import Vuetify, {
+  VExpansionPanelContent,
+  VExpansionPanels,
+  VExpansionPanelHeader,
+  VExpansionPanel,
   VDatePicker,
   VTextarea,
   VCardActions,
