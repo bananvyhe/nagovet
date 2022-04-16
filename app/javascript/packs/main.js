@@ -3,9 +3,11 @@ import Vue from 'vue'
 import 'vuetify/dist/vuetify.min.css'
 import App from '../app.vue'
 import MasonryWall from '@yeger/vue2-masonry-wall'
+import ru from 'vuetify/src/locale/ru'
 Vue.use(MasonryWall)
 Vue.use(Vuetify, {
   components: {
+    VDatePicker,
     VTextarea,
     VCardActions,
     VCheckbox,
@@ -41,6 +43,7 @@ Vue.use(Vuetify, {
   }
 }) 
 import Vuetify, {
+  VDatePicker,
   VTextarea,
   VCardActions,
   VCheckbox,
@@ -81,6 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const apw = new Vue({
   	el: '#app',
   	vuetify: new Vuetify({
+      lang: {
+        locales: {ru },
+        current: 'ru',
+      },
 		  // theme: { 
 		  // 	dark: {
 		  // 		primary: '#3b8839',

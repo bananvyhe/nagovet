@@ -114,6 +114,7 @@
               @click="dialog = false">
               Отправить
             </v-btn>
+             <v-date-picker v-model="picker"></v-date-picker>
           </v-form>
           
 
@@ -148,7 +149,7 @@
             active-class="deep-purple--text text--accent-4">
             <div v-for="(item, index) in parts"> 
               <v-list-item>
-                <v-list-item-title ref="button" @click="handler(item.name, item.classname)"> <h3>{{item.name}}</h3> </v-list-item-title>
+                <v-list-item-title locale="ar-SA" ref="button" @click="handler(item.name, item.classname)"> <h3>{{item.name}}</h3> </v-list-item-title>
               </v-list-item>
             </div>
           </v-list-item-group>
@@ -368,7 +369,8 @@
 export default {
   data: function () {
     return {
- valid: true,
+      picker: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+      valid: true,
       name: '',
       nameRules: [
         v => !!v || 'Как вас зовут?',
