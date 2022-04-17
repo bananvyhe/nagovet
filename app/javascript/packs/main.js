@@ -7,6 +7,8 @@ import ru from 'vuetify/src/locale/ru'
 Vue.use(MasonryWall)
 Vue.use(Vuetify, {
   components: {
+    VSheet,
+    VCalendar,
     VExpansionPanelContent,
     VExpansionPanels,
     VExpansionPanelHeader,
@@ -47,6 +49,8 @@ Vue.use(Vuetify, {
   }
 }) 
 import Vuetify, {
+  VSheet,
+  VCalendar,
   VExpansionPanelContent,
   VExpansionPanels,
   VExpansionPanelHeader,
