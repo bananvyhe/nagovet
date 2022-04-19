@@ -652,11 +652,11 @@ ul.list6b{
   /*position: absolute;*/
   z-index: 4;
   float: right;
-  margin-top: -70px;
+  margin-top: -79px;
  
   width: 247px;
-  height: 281px;
-  background-image: url('./images/foto6.png');
+  height: 290px;
+  background-image: url('./images/foto7.png');
   /*background-color: #dad;*/
 }
 .about{ 
