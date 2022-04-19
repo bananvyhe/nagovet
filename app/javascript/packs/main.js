@@ -4,7 +4,7 @@ import 'vuetify/dist/vuetify.min.css'
 import App from '../app.vue'
 import MasonryWall from '@yeger/vue2-masonry-wall'
 import ru from 'vuetify/src/locale/ru'
-
+import 'vue2-datepicker/locale/ru';
 Vue.use(MasonryWall)
 Vue.use(Vuetify, {
   components: {
