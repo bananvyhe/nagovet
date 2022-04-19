@@ -656,7 +656,7 @@ ul.list6b{
  
   width: 247px;
   height: 290px;
-  background-image: url('./images/foto7.png');
+  background-image: url('./images/foto10.png');
   /*background-color: #dad;*/
 }
 .about{ 
