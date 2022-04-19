@@ -4,15 +4,10 @@ import 'vuetify/dist/vuetify.min.css'
 import App from '../app.vue'
 import MasonryWall from '@yeger/vue2-masonry-wall'
 import ru from 'vuetify/src/locale/ru'
+
 Vue.use(MasonryWall)
 Vue.use(Vuetify, {
   components: {
-    VSheet,
-    VCalendar,
-    VExpansionPanelContent,
-    VExpansionPanels,
-    VExpansionPanelHeader,
-    VExpansionPanel,
     VDatePicker,
     VTextarea,
     VCardActions,
@@ -49,12 +44,6 @@ Vue.use(Vuetify, {
   }
 }) 
 import Vuetify, {
-  VSheet,
-  VCalendar,
-  VExpansionPanelContent,
-  VExpansionPanels,
-  VExpansionPanelHeader,
-  VExpansionPanel,
   VDatePicker,
   VTextarea,
   VCardActions,
