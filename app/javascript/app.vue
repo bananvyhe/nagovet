@@ -206,7 +206,7 @@
               <div class="about "> 
                 <div class="bg_books"></div>
                 <div class="books"></div>
-                <div class="about_block my-0 px-2"  id='about_block'>
+                <div class="about_block my-0 px-0"  id='about_block'>
                   <div>
                     <div class="aboutTitle " v-bind:class="{ikses: $vuetify.breakpoint.md || $vuetify.breakpoint.xs}" > 
                       <h2 >Обо мне </h2>
@@ -656,7 +656,7 @@ ul.list6b{
  
   width: 247px;
   height: 281px;
-  background-image: url('./images/foto4.png');
+  background-image: url('./images/foto6.png');
   /*background-color: #dad;*/
 }
 .about{ 
