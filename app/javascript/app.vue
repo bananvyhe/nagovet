@@ -462,6 +462,39 @@ export default {
     }
   },
   mounted(){
+    function intro() {
+   //   gsap.set(".voodoo", {
+      //  scale: 0.01,
+  
+      // });
+      gsap.set(".foto", {
+
+        opacity: 0, 
+
+        // color: "#9f0000", 
+      });
+
+      var tl =  gsap.timeline();
+        tl.to(".foto", {
+         // repeat: 1,
+
+        opacity: 1, 
+        duration: 0.5,  
+        delay: 0.5,
+         ease: "sine.in",
+          
+      })
+    }
+    var master = gsap.timeline();
+
+    master.add(intro())
+
+    // .add(cloud()) 
+    // .add(cloud2()) 
+    // .add(brightness() ) 
+    // .add(flash() ) 
+
+
     console.log(this.$vuetify.breakpoint)
   },
   computed: {
@@ -724,6 +757,7 @@ margin-top: 14px;
   margin-left: 20px;
 }
 .titles{
+
   z-index: 5;
   position: absolute;
   margin-top: 80px;
