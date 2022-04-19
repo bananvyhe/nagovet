@@ -47,7 +47,7 @@
         <v-card>
  
           <v-form
-            class="mx-3"
+            class="mx-3 pt-2"
             ref="form"
             v-model="valid"
             lazy-validation>
@@ -110,8 +110,8 @@
             </v-btn> -->
 
             <date-picker 
+              :lang="lang"
               :disabled-date="disabledDate"
-              :lang="lang" 
               v-model="time1" 
               valueType="format"
               placeholder="дата приема">
