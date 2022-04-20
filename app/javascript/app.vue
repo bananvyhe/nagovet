@@ -121,9 +121,9 @@
               class="ma-2"
               v-model="time2"
               :time-picker-options="{
-                start: '08:30',
-                step: '00:30',
-                end: '18:30',
+                start: '08:00',
+                step: '01:00',
+                end: '18:00',
               }"
                 format="HH"
    
@@ -479,8 +479,8 @@ export default {
 
         // backgroundPositionX: 0,
         opacity: 1, 
-        delay: 1.2,
-        duration: 1.2,  
+        delay: 1,
+        duration: 1.3,  
         ease: "sine.out",
           
       })               
@@ -488,7 +488,7 @@ export default {
     function nagovets() {
       gsap.set(".nagovets", {
         opacity: 0, 
-        x: -300,
+        x: -30,
         // backgroundPositionX: 165,
       }); 
       var tl =  gsap.timeline();
@@ -497,7 +497,7 @@ export default {
         // backgroundPositionX: 0,
         opacity: 1, 
         delay: 0.4,
-        duration: 1.9,  
+        duration: 2.9,  
         ease: "expo.out",
           
       })                   
@@ -505,7 +505,7 @@ export default {
     function ludmila() {
       gsap.set(".ludmila", {
         opacity: 0, 
-        x: -300,
+        x: -30,
         // backgroundPositionX: 165,
       }); 
       var tl =  gsap.timeline();
@@ -514,7 +514,7 @@ export default {
         // backgroundPositionX: 0,
         opacity: 1, 
         delay: 0.2,
-        duration: 1.6,  
+        duration: 2.6,  
         ease: "expo.out",
           
       })                   
@@ -545,8 +545,8 @@ export default {
       var tl =  gsap.timeline();
         tl.to(".foto", {
         opacity: 1, 
-        duration: 3.6,  
-        delay: 1.2,
+        duration: 2.8,  
+        delay: 1,
          ease: "expo.out",
           
       })
