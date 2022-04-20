@@ -4,14 +4,15 @@
       
       <v-app-bar dense fixed flat hide-on-scroll rounded color="transparent" class="appbar">
         <v-container class= "px-0 ">
-          <div class="d-flex d-sm-flex px-2"> 
- 
-            <div  @click="drawer = true" class="d-flex hidden-sm-and-up menbg px-1">
+          <div class="d-flex d-sm-flex px-2" > 
+            <v-hover>
+ <template v-slot:default="{ hover }">
+            <div  @click="drawer = true" class="d-flex hidden-sm-and-up menbg pa-2" :class="`elevation-${hover ? 6 : 4}`">
               <v-icon  class=" ">
                 {{mdiMenu}}
               </v-icon>
-              <div class="cursor  ">меню</div>
-            </div>
+              <div class="cursor">меню</div>
+            </div></template></v-hover>
             <!-- <v-btn  @click="handler">234</v-btn> -->
             <v-spacer></v-spacer>
             <div class="d-flex align-center">

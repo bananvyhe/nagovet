@@ -8,6 +8,7 @@ import 'vue2-datepicker/locale/ru';
 Vue.use(MasonryWall)
 Vue.use(Vuetify, {
   components: {
+    VHover,
     VDatePicker,
     VTextarea,
     VCardActions,
@@ -44,6 +45,7 @@ Vue.use(Vuetify, {
   }
 }) 
 import Vuetify, {
+  VHover,
   VDatePicker,
   VTextarea,
   VCardActions,
