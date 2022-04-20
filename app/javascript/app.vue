@@ -3,7 +3,7 @@
     <v-app >
       
       <v-app-bar dense fixed flat hide-on-scroll rounded color="transparent" class="appbar">
-        <v-container class= "px-0 ">
+        <v-container class= "px-0">
           <div class="d-flex d-sm-flex px-2" > 
             <v-hover>
  <template v-slot:default="{ hover }">
@@ -34,7 +34,7 @@
       <v-dialog
         v-model="dialog"
         width="500">
-        <template v-slot:activator="{ on, attrs }">
+        <template v-slot:activator="{ on, attrs }" >
           <v-btn
             small 
             color="primary"
@@ -463,7 +463,7 @@ export default {
           x: -7,
         // backgroundPositionX: 0,
         // opacity: 1, 
-        // delay: 0.2,
+        delay: 0.2,
         duration: 0.6 ,  
         ease: "elastic.in",
           
