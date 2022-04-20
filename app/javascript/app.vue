@@ -496,7 +496,7 @@ export default {
           x: 0,
         // backgroundPositionX: 0,
         opacity: 1, 
-        delay: 1,
+        delay: 0.4,
         duration: 1.9,  
         ease: "expo.out",
           
