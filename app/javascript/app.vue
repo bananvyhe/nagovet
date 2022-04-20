@@ -479,7 +479,7 @@ export default {
 
         // backgroundPositionX: 0,
         opacity: 1, 
-        delay: 2.8,
+        delay: 1.2,
         duration: 1.2,  
         ease: "sine.out",
           
@@ -545,8 +545,8 @@ export default {
       var tl =  gsap.timeline();
         tl.to(".foto", {
         opacity: 1, 
-        duration: 3.2,  
-        delay: 2.2,
+        duration: 3.6,  
+        delay: 1.2,
          ease: "expo.out",
           
       })
