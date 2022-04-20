@@ -7,7 +7,7 @@
           <div class="d-flex d-sm-flex px-2" > 
             <v-hover>
  <template v-slot:default="{ hover }">
-            <div  @click="drawer = true" class="d-flex hidden-sm-and-up menbg pa-2" :class="`elevation-${hover ? 6 : 4}`">
+            <div  @click="drawer = true" class="d-flex hidden-sm-and-up menbg px-2 py-1" :class="`elevation-${hover ? 6 : 4}`">
               <v-icon  class=" ">
                 {{mdiMenu}}
               </v-icon>
