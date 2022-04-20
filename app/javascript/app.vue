@@ -212,17 +212,17 @@
               <div class="about "> 
                 <div class="bg_books"></div>
                 <div class="books"></div>
-                <div class="about_block my-0 px-0"  id='about_block'>
+                <div class="about_block my-0 px-0" >
                   <div>
-                    <div class="aboutTitle " v-bind:class="{ikses: $vuetify.breakpoint.md || $vuetify.breakpoint.xs}" > 
+                    <div  id='about_block' class="aboutTitle " v-bind:class="{ikses: $vuetify.breakpoint.md || $vuetify.breakpoint.xs}" > 
                       <h2 >Обо мне </h2>
                     </div>
                     <div class="foto"></div>
-                <span  >
-                  Здравствуйте, рада приветствовать Вас на моей страничке!
-                  Я – психолог-психоаналитик. Опыт работы - 13 лет.
-                  В процессе терапии для меня важно создание безопасной доверительной обстановки, принятия, поддержки и понимания. В такой атмосфере человек получает возможность раскрыться, исследовать свои трудности, а также возможности и ресурсы. Нередко мы неосознанно следуем старым сценариям, которые мешают получать удовольствие от жизни, достигать целей и строить здоровые отношения. Психоаналитическая терапия помогает проложить новые пути, найти выход и изменить качество жизни.  
-                </span> 
+                    <span  >
+                    Здравствуйте, рада приветствовать Вас на моей страничке!
+                    Я – психолог-психоаналитик. Опыт работы - 13 лет.
+                    В процессе терапии для меня важно создание безопасной доверительной обстановки, принятия, поддержки и понимания. В такой атмосфере человек получает возможность раскрыться, исследовать свои трудности, а также возможности и ресурсы. Нередко мы неосознанно следуем старым сценариям, которые мешают получать удовольствие от жизни, достигать целей и строить здоровые отношения. Психоаналитическая терапия помогает проложить новые пути, найти выход и изменить качество жизни.  
+                    </span> 
                   </div>
                 </div>              
               </div>
@@ -281,10 +281,10 @@
               </div>
             </v-col>
             
-            <v-col class="d-flex py-0" cols="12"    sm="12" md="6" lg="5" >
+            <v-col class="know_block d-flex py-0" cols="12"    sm="12" md="6" lg="5" >
               <div class="d-flex align-stretch obraz">
                 <div >
-                  <div class="know_block headpsy aboutTitle d-flex justify-center">
+                  <div class="headpsy aboutTitle d-flex justify-center">
                     <h2>Образование</h2>
                       
                   </div>
@@ -312,8 +312,8 @@
           </v-row>
 
         </v-container>
-        <v-container>
-          <div class="rev_block headpsy aboutTitle d-flex justify-center pb-3">
+        <v-container class="rev_block">
+          <div class="aboutTitle headpsy d-flex justify-center pb-3">
             <h2>Отзывы</h2>
           </div>
           <masonry-wall :items="reviews" :ssr-columns="1" :column-width="300" :gap="16">
@@ -326,8 +326,8 @@
             </template>
           </masonry-wall>
         </v-container>
-        <v-container>
-          <div class="price_block headpsy aboutTitle d-flex justify-center pb-1">
+        <v-container class="price_block">
+          <div class="headpsy aboutTitle d-flex justify-center pb-1">
             <h2>Стоимость</h2>
           </div>
         <v-simple-table dense>
@@ -358,8 +358,8 @@
           </template>
         </v-simple-table>
         </v-container>
-        <v-container>
-          <div class="contact_block aboutTitle d-flex justify-center pb-4">
+        <v-container class="contact_block">
+          <div class="aboutTitle d-flex justify-center pb-4">
             <h2>Контакты</h2>
           </div>
        
@@ -448,6 +448,36 @@ export default {
     }
   },
   methods:{
+    blinkup(ta) {
+      // console.log(ta)
+      gsap.set(ta, {
+        scale: 1,
+        // opacity: 0, 
+        // x: -30,
+        // backgroundPositionX: 165,
+      }); 
+      var tl =  gsap.timeline();
+      tl.to(ta, {
+        // scale: 1.008,
+          x: -7,
+        // backgroundPositionX: 0,
+        // opacity: 1, 
+        // delay: 0.2,
+        duration: 0.6 ,  
+        ease: "elastic.in",
+          
+      }).to(ta, {
+        scale: 1,
+          x: 0,
+        // backgroundPositionX: 0,
+        // opacity: 1, 
+        // delay: 0.7,
+        duration: 0.6,  
+        ease: "elastic.out",
+          
+      })    
+             
+    },
     disabledDate(date) {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
@@ -461,6 +491,7 @@ export default {
         // console.log(da)
       }
       this.$vuetify.goTo(ta,{ offset: offs })
+      this.blinkup(ta) 
       this.drawer = false
       // console.log(da)
       // console.log(ta)
@@ -483,7 +514,8 @@ export default {
         duration: 1.3,  
         ease: "sine.out",
           
-      })               
+      })   
+
     }
     function nagovets() {
       gsap.set(".nagovets", {
