@@ -120,9 +120,13 @@
             <date-picker
               class="ma-2"
               v-model="time2"
-              :hour-options="hours"
+              :time-picker-options="{
+                start: '08:30',
+                step: '00:30',
+                end: '18:30',
+              }"
                 format="HH"
-              value-type="format"
+   
               type="time"
               placeholder="время приема">
             </date-picker>
