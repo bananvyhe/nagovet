@@ -110,6 +110,7 @@
             </v-btn> -->
 
             <date-picker 
+              class="ma-2"
               :lang="lang"
               :disabled-date="disabledDate"
               v-model="time1" 
@@ -117,6 +118,7 @@
               placeholder="дата приема">
             </date-picker>
             <date-picker
+              class="ma-2"
               v-model="time2"
               :hour-options="hours"
                 format="HH"
@@ -462,36 +464,96 @@ export default {
     }
   },
   mounted(){
-    function intro() {
-   //   gsap.set(".voodoo", {
-      //  scale: 0.01,
-  
-      // });
-      gsap.set(".foto", {
-
+    function subti() {
+      gsap.set(".subti, .bgdfa, .bgdfb", {
         opacity: 0, 
+ 
+        // backgroundPositionX: 165,
+      }); 
+      var tl =  gsap.timeline();
+      tl.to(".subti, .bgdfa, .bgdfb", {
 
-        // color: "#9f0000", 
+        // backgroundPositionX: 0,
+        opacity: 1, 
+        delay: 2.8,
+        duration: 1.2,  
+        ease: "sine.out",
+          
+      })               
+    }
+    function nagovets() {
+      gsap.set(".nagovets", {
+        opacity: 0, 
+        x: -300,
+        // backgroundPositionX: 165,
+      }); 
+      var tl =  gsap.timeline();
+      tl.to(".nagovets", {
+          x: 0,
+        // backgroundPositionX: 0,
+        opacity: 1, 
+        delay: 1,
+        duration: 1.9,  
+        ease: "expo.out",
+          
+      })                   
+    }    
+    function ludmila() {
+      gsap.set(".ludmila", {
+        opacity: 0, 
+        x: -300,
+        // backgroundPositionX: 165,
+      }); 
+      var tl =  gsap.timeline();
+      tl.to(".ludmila", {
+          x: 0,
+        // backgroundPositionX: 0,
+        opacity: 1, 
+        delay: 0.2,
+        duration: 1.6,  
+        ease: "expo.out",
+          
+      })                   
+    }
+    function frontclouds() {
+      gsap.set(".frontclouds", {
+        opacity: 0.2, 
+        x: 70,
+        // backgroundPositionX: 165,
+      });   
+      var tl =  gsap.timeline();
+        tl.to(".frontclouds", {
+          x: 0,
+        // backgroundPositionX: 0,
+        opacity: 1, 
+        delay: 0,
+        duration: 2.2,  
+         ease: "sine.out",
+          
+      })         
+    }
+
+    function intro() {
+      gsap.set(".foto", {
+        opacity: 0, 
       });
 
       var tl =  gsap.timeline();
         tl.to(".foto", {
-         // repeat: 1,
-
         opacity: 1, 
-        duration: 0.5,  
-        delay: 0.5,
-         ease: "sine.in",
+        duration: 3.2,  
+        delay: 2.2,
+         ease: "expo.out",
           
       })
     }
     var master = gsap.timeline();
 
     master.add(intro())
-
-    // .add(cloud()) 
-    // .add(cloud2()) 
-    // .add(brightness() ) 
+      .add(frontclouds()) 
+    .add(ludmila()) 
+    .add(nagovets()) 
+    .add(subti() ) 
     // .add(flash() ) 
 
 
