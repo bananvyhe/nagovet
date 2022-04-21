@@ -56,7 +56,7 @@
               v-model="name"
               :counter="20"
               :rules="nameRules"
-              label="Ваше имя?"
+              label="Как к вас зовут?"
               required>
             </v-text-field>
             <v-text-field
@@ -411,7 +411,7 @@ export default {
       time1: null,
       time2: null,
       nameRules: [
-        v => !!v || 'Как вас зовут?',
+        v => !!v || 'Ваше имя?',
         v => (v && v.length <= 20) || 'Вы превысили лимит 20 знаков',
       ],
       email: '',
