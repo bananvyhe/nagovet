@@ -54,9 +54,9 @@
             lazy-validation>
             <v-text-field
               v-model="name"
-              :counter="10"
+              :counter="20"
               :rules="nameRules"
-              label="Имя"
+              label="Ваше имя?"
               required>
             </v-text-field>
             <v-text-field
