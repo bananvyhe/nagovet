@@ -1,10 +1,21 @@
 import Vue from 'vue'
-
+// import axios from 'axios'
 import 'vuetify/dist/vuetify.min.css'
 import App from '../app.vue'
 import MasonryWall from '@yeger/vue2-masonry-wall'
 import ru from 'vuetify/src/locale/ru'
 import 'vue2-datepicker/locale/ru';
+import router from './router'
+import VueAxios from 'vue-axios'
+import { securedAxiosInstance, plainAxiosInstance } from './backend/axios'
+
+// Vue.prototype.$http = axios
+Vue.config.productionTip = false
+ Vue.use(VueAxios, {
+  secured: securedAxiosInstance,
+  plain: plainAxiosInstance
+})
+console.log( )
 Vue.use(MasonryWall)
 Vue.use(Vuetify, {
   components: {
@@ -86,6 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const apw = new Vue({
   	el: '#app',
+    router,
+    securedAxiosInstance,
+    plainAxiosInstance,
   	vuetify: new Vuetify({
       lang: {
         locales: {ru },

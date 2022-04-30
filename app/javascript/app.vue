@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app >
-      
+     
       <v-app-bar dense fixed flat hide-on-scroll rounded color="transparent" class="appbar">
         <v-container class= "px-0">
           <div class="d-flex d-sm-flex px-2" > 
@@ -30,6 +30,10 @@
             </v-card> 
             </div>
 
+            <v-btn x-small text
+              color="primary" @click="testhandler">
+              cbcvb
+            </v-btn>
 
       <v-dialog
         v-model="dialog"
@@ -143,8 +147,8 @@
             </v-btn>
              
           </v-form>
-          
-
+          <!-- <signin></signin> -->
+ <router-view></router-view>
          <!--  <v-divider></v-divider> -->
           <v-card-actions>
             <!-- <v-spacer></v-spacer> -->
@@ -392,12 +396,13 @@
 
 <script>
   import DatePicker from 'vue2-datepicker';
-
+import Signin from './packs/components/Signin.vue';
+import Signup from './packs/components/Signup.vue';
 import 'vue2-datepicker/index.css';
   import gsap from "gsap";
   import { mdiMenu } from '@mdi/js'
 export default {
-  components: { DatePicker },
+  components: { DatePicker, Signin, Signup },
   data: function () {
     return {
        hours: Array.from({ length: 8 }).map((_, i) => i + 10),
@@ -449,6 +454,16 @@ export default {
     }
   },
   methods:{
+    testhandler(){
+        // console.log(this.plain)
+      // this.$http.secured.get('/todos')
+         this.$http.plain.post('/signup', { email: "sdvsdv@fdf.ru", password: "sdvesv", password_confirmation: "sdvesv" })
+//          .catch(error => {
+// console.log("ERRRR:: ",error.response.data);});
+         // .then(response => this.signupSuccessful(response))
+         // .catch(error => this.signupFailed(error)) 
+    },
+    
     blinkup(ta) {
       // console.log(ta)
       gsap.set(ta, {
@@ -594,7 +609,7 @@ export default {
     // .add(flash() ) 
 
 
-    console.log(this.$vuetify.breakpoint)
+    // console.log(this.$vuetify.breakpoint)
   },
   computed: {
  
@@ -603,7 +618,10 @@ export default {
 </script>
 
 <style >
-
+.li{
+  display: flex;
+    justify-content: space-around;
+}
 .map{
   width: 100%;
 }
