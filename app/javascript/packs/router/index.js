@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Signin from '../components/Signin.vue'
 import Signup from '../components/Signup.vue'
-import List from '../components/todos/List.vue'
+import List from '../components/todos/list.vue'
 
 Vue.use(Router)
 
@@ -24,5 +24,5 @@ export default new Router({
       component: List
     },
   ],
-  mode: 'history'
+  // mode: 'history'
 })

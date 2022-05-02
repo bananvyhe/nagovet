@@ -149,6 +149,9 @@
           </v-form>
           <!-- <signin></signin> -->
  <router-view></router-view>
+ <div class="sign-out float-right">
+  <label @click="signOut">Sign out</label>
+</div>
          <!--  <v-divider></v-divider> -->
           <v-card-actions>
             <!-- <v-spacer></v-spacer> -->
@@ -454,6 +457,18 @@ export default {
     }
   },
   methods:{
+    setError (error, text) {
+      this.error = (error.response && error.response.data && error.response.data.error) || text
+    },
+    signOut () {
+      this.$http.secured.delete('/signin')
+        .then(response => {
+          delete localStorage.csrf
+          delete localStorage.signedIn
+          this.$router.replace('/')
+         })
+         .catch(error => this.setError(error, 'Cannot sign out'))
+    },   
     testhandler(){
         // console.log(this.plain)
       // this.$http.secured.get('/todos')
