@@ -1,17 +1,17 @@
 <template>
   <form class="form-signin" @submit.prevent="signin">
     <div class="alert alert-danger" v-if="error">{{ error }}</div>
-    <div class="form-group">
-      <label for="email">Email address</label>
-      <input v-model="email" type="email" class="form-control" id="email" placeholder="email@example.com">
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input v-model="password" type="password" class="form-control" id="password" placeholder="Password">
-    </div>
-    <button type="submit" class="btn btn-primary mb-3">Sign in</button>
-    <div>
-      <router-link to="/signup">Sign up</router-link>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input v-model="email" type="email" class="form-control" id="email" placeholder="email@example.com">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input v-model="password" type="password" class="form-control" id="password" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary mb-3">Sign in</button>
+      <div>
+      
     </div>
   </form>
 </template>
