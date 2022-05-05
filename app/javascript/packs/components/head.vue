@@ -20,7 +20,8 @@
 
 
             <div class="d-flex align-center">
-              <router-link to="/signup">Sign up</router-link>
+              <router-link to="/Signup">Sign up</router-link>
+              <router-link to="/Signin">Sign in</router-link>
               <v-btn
                 x-small 
                 text
@@ -415,25 +416,9 @@ export default {
           
       })         
     }
-
-    function intro() {
-      gsap.set(".foto", {
-        opacity: 0, 
-      });
-
-      var tl =  gsap.timeline();
-        tl.to(".foto", {
-        opacity: 1, 
-        duration: 2.8,  
-        delay: 1,
-         ease: "expo.out",
-          
-      })
-    }
     var master = gsap.timeline();
 
-    master.add(intro())
-      .add(frontclouds()) 
+    master.add(frontclouds()) 
     .add(ludmila()) 
     .add(nagovets()) 
     .add(subti() ) 
