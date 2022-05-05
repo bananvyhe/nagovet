@@ -15,7 +15,7 @@
     </div>
     <button type="submit" class="btn btn-primary mb-3">Sign up</button>
     <div>
-      <router-link to="/">Sign in</router-link>
+
     </div>
   </form>
 </template>
@@ -56,7 +56,8 @@ export default {
       this.$router.replace('/todos')
     },
     signupFailed (error) {
-      this.error = (error.response && error.response.data && error.response.data.error) || 'Something went wrong'
+      console.log(error)
+      this.error = (error.response && error.response.data && error.response.data.error) || error.data.errors
       delete localStorage.csrf
       delete localStorage.signedIn
     },
