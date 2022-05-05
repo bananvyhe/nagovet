@@ -310,7 +310,7 @@ export default {
     }
   },
   mounted(){
-    function intro() {
+    function foto() {
       gsap.set(".foto", {
         opacity: 0, 
       });
@@ -320,12 +320,12 @@ export default {
         opacity: 1, 
         duration: 2.8,  
         delay: 1,
-         ease: "expo.out",
+        ease: "expo.out",
           
       })
     }
     var master = gsap.timeline();
-    master.add(intro())
+    master.add(foto())
     // .add(flash() ) 
     // console.log(this.$vuetify.breakpoint)
   },
