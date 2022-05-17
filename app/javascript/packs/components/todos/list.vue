@@ -61,7 +61,7 @@ export default {
       if (!value) {
         return
       }
-      this.$http.plain.post('/todos', { todo: { title: this.newTodo } })
+      this.$http.secured.post('/todos', { todo: { title: this.newTodo } })
         .then(response => {
           this.todos.push(response.data)
           this.newTodo = ''
