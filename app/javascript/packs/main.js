@@ -1,5 +1,4 @@
 import Vue from 'vue'
-// import axios from 'axios'
 import 'vuetify/dist/vuetify.min.css'
 import App from '../app.vue'
 import MasonryWall from '@yeger/vue2-masonry-wall'
@@ -15,7 +14,7 @@ Vue.config.productionTip = false
   secured: securedAxiosInstance,
   plain: plainAxiosInstance
 })
-console.log( )
+// console.log( )
 Vue.use(MasonryWall)
 Vue.use(Vuetify, {
   components: {

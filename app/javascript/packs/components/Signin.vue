@@ -39,11 +39,14 @@ export default {
         .catch(error => this.signinFailed(error))
     },
     signinSuccessful (response) {
+      // console.log(response)
       if (!response.data.csrf) {
         this.signinFailed(response)
         return
       }
+      // console.log(response.data.csrf)
       localStorage.csrf = response.data.csrf
+      // console.log(localStorage.csrf)
       localStorage.signedIn = true
       this.error = ''
       this.$router.replace('/todos')

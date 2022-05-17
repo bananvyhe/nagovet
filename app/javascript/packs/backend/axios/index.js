@@ -34,7 +34,6 @@ securedAxiosInstance.interceptors.request.use(config => {
     }
   }
   return config
-  console.log(config)
 })
 
 securedAxiosInstance.interceptors.response.use(null, error => {

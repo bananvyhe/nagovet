@@ -8,6 +8,7 @@ import NotFound from '../components/404.vue'
 Vue.use(Router)
 
 export default new Router({
+  
   routes: [
     {
       path: '/',
@@ -35,5 +36,5 @@ export default new Router({
       component: NotFound
     },
   ],
-  mode: 'history'
+  // mode: 'history'
 })

@@ -2,6 +2,7 @@
   <div class="todos">
     <div class="alert alert-danger" v-if="error">{{ error }}</div>
     <h3>Todos</h3>
+    <!-- {{todos}} -->
     <input class="form-control"
       autofocus autocomplete="off"
       placeholder="What needs to be done?"
@@ -43,7 +44,11 @@ export default {
       this.$router.replace('/')
     } else {
       this.$http.secured.get('/todos')
-        .then(response => { this.todos = response.data })
+        .then(response => { 
+          console.log(response.data)
+          this.todos = response.data 
+
+        })
         .catch(error => this.setError(error, 'Something went wrong'))
     }
   },
@@ -56,7 +61,7 @@ export default {
       if (!value) {
         return
       }
-      this.$http.secured.post('/todos', { todo: { title: this.newTodo } })
+      this.$http.plain.post('/todos', { todo: { title: this.newTodo } })
         .then(response => {
           this.todos.push(response.data)
           this.newTodo = ''

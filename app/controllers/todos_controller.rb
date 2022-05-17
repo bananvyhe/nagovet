@@ -1,11 +1,14 @@
 class TodosController < ApplicationController
+	# before_action :set_default_format
+	# skip_before_action :verify_authenticity_token
   before_action :authorize_access_request!
   before_action :set_todo, only: [:show, :update, :destroy]
-
   # GET /todos
   def index
+		puts "================="
     @todos = current_user.todos
-
+    puts @todos
+    puts "--------------"
     render json: @todos
   end
 

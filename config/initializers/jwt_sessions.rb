@@ -1,1 +1,2 @@
-JWTSessions.encryption_key = Rails.application.credentials.secret_key_base 
+JWTSessions.encryption_key = Rails.application.secret_key_base
+JWTSessions.token_store = :redis, { redis_url: "redis://127.0.0.1:6379" }
