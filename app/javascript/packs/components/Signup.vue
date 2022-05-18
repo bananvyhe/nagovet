@@ -1,23 +1,23 @@
 <template>
-  <form class="form-signup" @submit.prevent="signup">
+  <v-form class="form-signup" @submit.prevent="signup">
     <div class="alert alert-danger" v-if="error">{{ error }}</div>
     <div class="form-group">
-      <label for="email">Email address</label>
-      <input v-model="email" type="email" class="form-control" id="email" placeholder="email@example.com">
+      <!-- <label for="email">Email</label> -->
+      <v-text-field v-model="email" :rules="emailRules"   id="email" placeholder="email@example.com"></v-text-field>
     </div>
     <div class="form-group">
-      <label for="password">Password</label>
-      <input v-model="password" type="password" class="form-control" id="password" placeholder="Password">
+      <!-- <label for="password">Придумайте пароль</label> -->
+      <v-text-field v-model="password" type="password" id="password" placeholder="Придумайте пароль"></v-text-field>
     </div>
     <div class="form-group">
-      <label for="password">Password Confirmation</label>
-      <input v-model="password_confirmation" type="password" class="form-control" id="password_confirmation" placeholder="Password Confirmation">
+      <!-- <label for="password">Повторите пароль</label> -->
+      <v-text-field v-model="password_confirmation" type="password" id="password_confirmation" placeholder="Повторите пароль"></v-text-field>
     </div>
-    <button type="submit" class="btn btn-primary mb-3">Sign up</button>
+    <v-btn type="submit" class="btn btn-primary my-3">Зарегистрироваться</v-btn>
     <div>
 
     </div>
-  </form>
+  </v-form>
 </template>
 
 <script>
@@ -26,6 +26,10 @@ export default {
   name: 'Signup',
   data () {
     return {
+      emailRules: [
+        v => !!v || 'E-mail необходим для регистрации',
+        v => /.+@.+\..+/.test(v) || 'E-mail введен некорректно',
+      ],      
       email: '',
       password: '',
       password_confirmation: '',
