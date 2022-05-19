@@ -7,9 +7,11 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
+    "@vue/composition-api": "^1.6.1",
     "@yeger/vue2-masonry-wall": "^2.0.23",
     "axios": "^0.27.1",
     "gsap": "^3.10.2",
+    "pinia": "^2.0.14",
     "sass-loader": "^10",
     "style-loader": "^2",
     "turbolinks": "^5.2.0",
@@ -28,6 +30,8 @@
     "css-loader": "^0.28.11",
     "deepmerge": "^4.2.2",
     "sass": "~1.32",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4",
     "webpack-dev-server": "^3"
   }
 }

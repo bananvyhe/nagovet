@@ -7,7 +7,10 @@ import 'vue2-datepicker/locale/ru';
 import router from './router'
 import VueAxios from 'vue-axios'
 import { securedAxiosInstance, plainAxiosInstance } from './backend/axios'
+import VueCompositionAPI from '@vue/composition-api'
+import { createPinia } from 'pinia'
 
+Vue.use(VueCompositionAPI)
 // Vue.prototype.$http = axios
 Vue.config.productionTip = false
  Vue.use(VueAxios, {
