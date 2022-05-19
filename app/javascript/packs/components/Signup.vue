@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
       <!-- <label for="password">Повторите пароль</label> -->
-      <v-text-field v-model="password_confirmation" type="password" id="password_confirmation" placeholder="Повторите пароль"></v-text-field>
+      <v-text-field v-model="password_confirmation" :rules="confirmRules" type="password" id="password_confirmation" placeholder="Повторите пароль"></v-text-field>
     </div>
     <v-btn type="submit" class="btn btn-primary my-3">Зарегистрироваться</v-btn>
     <div>
@@ -26,6 +26,12 @@ export default {
   name: 'Signup',
   data () {
     return {
+      confirmRules: [
+        v => !!v || 'нужно ввести пароль',
+        v => v.length >= 5 || 'Пароль должен содержать более 6 символов',
+                    // v => (v || '').indexOf(' ') < 0 ||  'Пробелов не должно быть'
+        v => v == this.password || "Пароли не совпадают"
+      ],  
       emailRules: [
         v => !!v || 'E-mail необходим для регистрации',
         v => /.+@.+\..+/.test(v) || 'E-mail введен некорректно',
