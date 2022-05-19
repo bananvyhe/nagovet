@@ -1,19 +1,19 @@
 <template>
-  <form class="form-signin" @submit.prevent="signin">
+  <v-form class="form-signin" @submit.prevent="signin">
     <div class="alert alert-danger" v-if="error">{{ error }}</div>
       <div class="form-group">
-        <label for="email">Email address</label>
-        <input v-model="email" type="email" class="form-control" id="email" placeholder="email@example.com">
+        <label for="email">Войти на сайт</label>
+        <v-text-field v-model="email" type="email" class="form-control" id="email" placeholder="email@example.com"></v-text-field>
       </div>
       <div class="form-group">
-        <label for="password">Password</label>
-        <input v-model="password" type="password" class="form-control" id="password" placeholder="Password">
+        <!-- <label for="password">Пароль</label> -->
+        <v-text-field v-model="password" type="password" class="form-control" id="password" placeholder="Password"></v-text-field>
       </div>
-      <button type="submit" class="btn btn-primary mb-3">Sign in</button>
+      <v-btn type="submit" class="btn btn-primary my-3">Sign in</v-btn>
       <div>
       
     </div>
-  </form>
+  </v-form>
 </template>
 
 <script>

@@ -2,7 +2,7 @@
   <v-form class="form-signup" @submit.prevent="signup">
     <div class="alert alert-danger" v-if="error">{{ error }}</div>
     <div class="form-group">
-      <!-- <label for="email">Email</label> -->
+      <label for="email">Зарегистрироваться</label>
       <v-text-field v-model="email" :rules="emailRules"   id="email" placeholder="email@example.com"></v-text-field>
     </div>
     <div class="form-group">
@@ -13,7 +13,7 @@
       <!-- <label for="password">Повторите пароль</label> -->
       <v-text-field v-model="password_confirmation" :rules="confirmRules" type="password" id="password_confirmation" placeholder="Повторите пароль"></v-text-field>
     </div>
-    <v-btn type="submit" class="btn btn-primary my-3">Зарегистрироваться</v-btn>
+    <v-btn type="submit" class="btn btn-primary my-3">Отправить</v-btn>
     <div>
 
     </div>
