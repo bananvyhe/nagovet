@@ -17,7 +17,18 @@
 </template>
 
 <script>
+   import { mapState } from 'pinia'
+ import { mapActions } from 'pinia'
+ import { useLogStore } from 'store.js'
 export default {
+  //  setup() {
+  //   const store = uselogStore()
+  //   return {
+  //     // you can return the whole store instance to use it in the template
+  //     store,
+  //   }
+ 
+  // },  
   name: 'Signin',
   data () {
     return {
@@ -26,6 +37,9 @@ export default {
       error: ''
     }
   },
+  computed: {
+
+  },    
   created () {
     this.checkSignedIn()
   },
@@ -33,13 +47,23 @@ export default {
     this.checkSignedIn()
   },
   methods: {
+    ...mapActions(useLogStore, ["logined"]),    
+    // ...mapActions(useLogStore, {
+    //   logstat: "logined",
+    // }),
+    ...mapActions(useLogStore, {
+      logstat: "logouted",
+    }),    
     signin () {
       this.$http.plain.post('/signin', { email: this.email, password: this.password })
         .then(response => this.signinSuccessful(response))
         .catch(error => this.signinFailed(error))
     },
     signinSuccessful (response) {
-      // console.log(response)
+      this.logined()
+      console.log(response)
+      console.log("signinSuccessful")
+      // console.log(this.logstat)
       if (!response.data.csrf) {
         this.signinFailed(response)
         return
@@ -52,13 +76,19 @@ export default {
       this.$router.replace('/todos')
     },
     signinFailed (error) {
+       this.logouted()
       this.error = (error.response && error.response.data && error.response.data.error) || ''
       delete localStorage.csrf
       delete localStorage.signedIn
+      
     },
     checkSignedIn () {
       if (localStorage.signedIn) {
         this.$router.replace('/todos')
+        // store.thislog = true
+        // uselogStore.$patch({
+        //   thislog: true
+        // })
       }
     }
   }

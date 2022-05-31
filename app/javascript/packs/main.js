@@ -8,10 +8,12 @@ import router from './router'
 import VueAxios from 'vue-axios'
 import { securedAxiosInstance, plainAxiosInstance } from './backend/axios'
 import VueCompositionAPI from '@vue/composition-api'
-import { createPinia } from 'pinia'
-
 Vue.use(VueCompositionAPI)
-// Vue.prototype.$http = axios
+import { createPinia, PiniaVuePlugin} from 'pinia'
+const pinia = createPinia()
+Vue.use(pinia)
+Vue.use(PiniaVuePlugin)
+
 Vue.config.productionTip = false
  Vue.use(VueAxios, {
   secured: securedAxiosInstance,
@@ -113,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		  // 	},
 		  // },
   	}),
+    pinia,
   	// store: store,
     render: h => h(App)
   })

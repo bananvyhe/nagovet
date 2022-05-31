@@ -16,18 +16,20 @@
             </v-hover>
             <!-- <v-btn  @click="handler">234</v-btn> -->
             <v-spacer></v-spacer>
-
-
-
             <div class="d-flex align-center">
-              <router-link to="/Signup">Sign up</router-link>
-              <router-link to="/Signin">Sign in</router-link>
-              <v-btn
-                x-small 
-                text
-                color="primary"  
-                @click="signOut">выйти
-              </v-btn>              
+              <div v-if="" >
+                <v-btn
+                  x-small 
+                  text
+                  color="primary"  
+                  @click="signOut">выйти
+                </v-btn>  
+              </div>  
+              <!-- <div else> -->
+                <router-link to="/Signup">Sign up</router-link>
+              
+                <router-link to="/Signin">Sign in</router-link>
+              <!-- </div>           -->
             </div>
 
 
@@ -229,6 +231,9 @@
       </div>
     </template>
     <script>
+ 
+ import { mapActions } from 'pinia'
+  import { useLogStore } from 'store.js'
   import DatePicker from 'vue2-datepicker';
 import Signin from '../../packs/components/Signin.vue';
 import Signup from '../../packs/components/Signup.vue';
@@ -236,7 +241,16 @@ import Head from '../../packs/components/head.vue'
 import 'vue2-datepicker/index.css';
   import gsap from "gsap";
   import { mdiMenu } from '@mdi/js'
+
 export default {
+  //  setup() {
+  //   const store = uselogStore()
+  //   return {
+  //     // you can return the whole store instance to use it in the template
+  //     store,
+  //   }
+ 
+  // },
   components: { Head, DatePicker, Signin, Signup },
   data: function () {
     return {
@@ -273,11 +287,17 @@ export default {
       group: null,
     }
   },
-  methods:{
+  methods:{  
+    ...mapActions(useLogStore, ["logouted"]),  
+    logcheck () {
+
+
+    }, 
     setError (error, text) {
       this.error = (error.response && error.response.data && error.response.data.error) || text
     },
     signOut () {
+      this.logouted()
       this.$http.secured.delete('/signin')
         .then(response => {
           delete localStorage.csrf
@@ -345,6 +365,9 @@ export default {
       // console.log(ta)
       // $vuetify.goTo('#about_block')
     }
+  },
+  updated(){
+ 
   },
   mounted(){
     function subti() {
@@ -426,6 +449,9 @@ export default {
 
 
     // console.log(this.$vuetify.breakpoint)
+  },
+  created () {
+    this.logcheck()
   },
   computed: {
  
