@@ -4,7 +4,7 @@
       <headpart></headpart>  
 
       <v-main>
-{{this.logstat}}
+<!-- {{this.logstat}} -->
         <router-view></router-view>
 
       </v-main>

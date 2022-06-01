@@ -17,7 +17,8 @@
             <!-- <v-btn  @click="handler">234</v-btn> -->
             <v-spacer></v-spacer>
             <div class="d-flex align-center">
-              <div v-if="" >
+              <div v-if="this.logstat == true" >
+
                 <v-btn
                   x-small 
                   text
@@ -25,11 +26,11 @@
                   @click="signOut">выйти
                 </v-btn>  
               </div>  
-              <!-- <div else> -->
-                <router-link to="/Signup">Sign up</router-link>
-              
-                <router-link to="/Signin">Sign in</router-link>
-              <!-- </div>           -->
+              <div v-if="this.logstat == false">
+                <router-link class="mx-1" to="/Signup">Регистрация</router-link>
+                
+                <router-link class="mx-2 pr-1" to="/Signin">Войти</router-link>
+              </div>          
             </div>
 
 
@@ -231,8 +232,8 @@
       </div>
     </template>
     <script>
- 
- import { mapActions } from 'pinia'
+  import { mapState } from 'pinia'
+  import { mapActions } from 'pinia'
   import { useLogStore } from 'store.js'
   import DatePicker from 'vue2-datepicker';
 import Signin from '../../packs/components/Signin.vue';
@@ -286,6 +287,11 @@ export default {
       drawer: false,
       group: null,
     }
+  },
+  computed: {
+    ...mapState(useLogStore, {
+      logstat: "thislog",
+    }) 
   },
   methods:{  
     ...mapActions(useLogStore, ["logouted"]),  
@@ -452,9 +458,6 @@ export default {
   },
   created () {
     this.logcheck()
-  },
-  computed: {
- 
   },
 }
 </script>

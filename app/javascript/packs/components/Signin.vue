@@ -17,9 +17,9 @@
 </template>
 
 <script>
-   import { mapState } from 'pinia'
- import { mapActions } from 'pinia'
- import { useLogStore } from 'store.js'
+  import { mapState } from 'pinia'
+  import { mapActions } from 'pinia'
+  import { useLogStore } from 'store.js'
 export default {
   //  setup() {
   //   const store = uselogStore()
@@ -73,7 +73,8 @@ export default {
       // console.log(localStorage.csrf)
       localStorage.signedIn = true
       this.error = ''
-      this.$router.replace('/todos')
+      // this.$router.replace('/todos')
+      this.$router.replace('/')
     },
     signinFailed (error) {
        this.logouted()
@@ -84,7 +85,8 @@ export default {
     },
     checkSignedIn () {
       if (localStorage.signedIn) {
-        this.$router.replace('/todos')
+        // this.$router.replace('/todos')
+        this.$router.replace('/')
         // store.thislog = true
         // uselogStore.$patch({
         //   thislog: true

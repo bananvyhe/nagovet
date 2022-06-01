@@ -21,7 +21,8 @@
 </template>
 
 <script>
-  
+  import { mapActions } from 'pinia' 
+  import { useLogStore } from 'store.js'
 export default {
   name: 'Signup',
   data () {
@@ -49,6 +50,7 @@ export default {
     this.checkSignedIn()
   },
   methods: {
+    ...mapActions(useLogStore, ["logined"]),     
     signup () {
       // console.log()
       this.$http.plain.post('/signup', { email: this.email, password: this.password, password_confirmation: this.password_confirmation })
@@ -60,10 +62,12 @@ export default {
         this.signupFailed(response)
         return
       }
+      this.logined()
       localStorage.csrf = response.data.csrf
       localStorage.signedIn = true
       this.error = ''
-      this.$router.replace('/todos')
+      // this.$router.replace('/todos')
+      this.$router.replace('/')
     },
     signupFailed (error) {
       console.log(error)
@@ -73,7 +77,8 @@ export default {
     },
     checkSignedIn () {
       if (localStorage.signedIn) {
-        this.$router.replace('/todos')
+        // this.$router.replace('/todos')
+        this.$router.replace('/')
       }
     }
   }
