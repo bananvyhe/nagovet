@@ -318,8 +318,8 @@ export default {
       var tl =  gsap.timeline();
         tl.to(".foto", {
         opacity: 1, 
-        duration: 2.8,  
-        delay: 1,
+        duration: 1.8,  
+        delay: 0.5,
         ease: "expo.out",
           
       })
