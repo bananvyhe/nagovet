@@ -167,7 +167,7 @@
             </v-btn>
              
           </v-form>
-          <signin></signin>
+          <!-- <signin></signin> -->
 
          <!--  <v-divider></v-divider> -->
           <v-card-actions>
