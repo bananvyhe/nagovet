@@ -1,6 +1,6 @@
 import axios from 'axios'
 // const API_URL = 'http://localhost:3000'
-const API_URL = 'https://127.0.0.1:3000'
+const API_URL = 'https://nagovets.ru'
 
 // export default axios.create({
 //   baseURL: API_URL,
@@ -14,6 +14,7 @@ const securedAxiosInstance = axios.create({
   withCredentials: true,
   headers: {
     'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': '*',
     'Content-Type': 'application/json',
   }
 })
@@ -23,6 +24,7 @@ const plainAxiosInstance = axios.create({
   withCredentials: true,
   headers: {
     'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': '*',
     'Content-Type': 'application/json',
   }
 })
