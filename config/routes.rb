@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 	root to: 'welcome#index'
 	# get '/*path', to: 'welcome#index', format: false
 	# root 'welcome#index'
-	# get '/*path', to: 'welcome#index' 
+	get '/*path', to: 'welcome#index' 
 	post 'refresh', controller: :refresh, action: :create
 	post 'signin', controller: :signin, action: :create
 	post 'signup', controller: :signup, action: :create
