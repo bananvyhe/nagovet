@@ -359,11 +359,13 @@ export default {
       return date < today || date > new Date(today.getTime() + 7 * 24 * 3600 * 1000);
     },
     handler: function (da, ta) {
+      this.$router.replace('/')
       var offs = 18
       if (da == 'Обо мне'){
         offs = 35
         // console.log(da)
       }
+
       this.$vuetify.goTo(ta,{ offset: offs })
       this.blinkup(ta) 
       this.drawer = false
