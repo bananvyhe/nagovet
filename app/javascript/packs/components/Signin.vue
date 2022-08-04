@@ -9,7 +9,7 @@
         <!-- <label for="password">Пароль</label> -->
         <v-text-field v-model="password" type="password" class="form-control" id="password" placeholder="Password"></v-text-field>
       </div>
-      <v-btn type="submit" class="btn btn-primary my-3">Sign in</v-btn>
+      <v-btn type="submit" class="btn btn-primary my-3">Войти</v-btn>
       <div>
       
     </div>
