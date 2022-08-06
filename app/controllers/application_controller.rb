@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
 	# protect_from_forgery with: :exception
 	include JWTSessions::RailsAuthorization
   rescue_from JWTSessions::Errors::Unauthorized, with: :not_authorized
- 
+  protect_from_forgery with: :null_session,
+  if: Proc.new { |c| c.request.format =~ %r{application/json} }
 	private
 
   def set_html_format

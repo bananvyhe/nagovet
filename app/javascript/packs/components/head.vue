@@ -162,7 +162,7 @@
               class="my-4"
               color="primary"
               text
-              @click="dialog = false">
+              @click="meshandl()">
               Отправить
             </v-btn>
              
@@ -294,6 +294,16 @@ export default {
     }) 
   },
   methods:{  
+    meshandl() {
+      this.dialog = false
+      this.$http.plain.post('/meshandl', { name: this.name})
+        .then(response => {
+
+        })
+        .catch(error => {
+
+        })
+    },     
     ...mapActions(useLogStore, ["logouted"]),  
     logcheck () {
 
