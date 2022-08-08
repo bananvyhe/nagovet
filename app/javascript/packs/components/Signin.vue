@@ -47,6 +47,8 @@ export default {
     this.checkSignedIn()
   },
   methods: {
+    ...mapActions(useLogStore, ["setCurrentUser"]), 
+    ...mapActions(useLogStore, ["unsetCurrentUser"]),  
     ...mapActions(useLogStore, ["logined"]),    
     // ...mapActions(useLogStore, {
     //   logstat: "logined",
@@ -69,10 +71,17 @@ export default {
         return
       }
       // console.log(response.data.csrf)
-      localStorage.csrf = response.data.csrf
+      // localStorage.csrf = response.data.csrf
       // console.log(localStorage.csrf)
-      localStorage.signedIn = true
-      this.error = ''
+      // localStorage.signedIn = true
+        this.$http.plain.get('/me')
+        .then(meResponse => {
+          // this.$store.commit('setCurrentUser', { currentUser: meResponse.data, csrf: response.data.csrf })
+          this.setCurrentUser(meResponse.data, response.data.csrf)
+          this.error = ''
+          // this.$router.replace('/todos')
+        })
+        .catch(error => this.signinFailed(error))
       // this.$router.replace('/todos')
       this.$router.replace('/')
     },
@@ -81,6 +90,7 @@ export default {
       this.error = (error.response && error.response.data && error.response.data.error) || ''
       delete localStorage.csrf
       delete localStorage.signedIn
+      this.unsetCurrentUser()
       
     },
     checkSignedIn () {
