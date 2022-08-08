@@ -80,21 +80,22 @@ export default {
           this.setCurrentUser(meResponse.data, response.data.csrf)
           this.error = ''
           // this.$router.replace('/todos')
+               this.$router.replace('/')
         })
         .catch(error => this.signinFailed(error))
       // this.$router.replace('/todos')
-      this.$router.replace('/')
+ 
     },
     signinFailed (error) {
-       this.logouted()
+       // this.logouted()
       this.error = (error.response && error.response.data && error.response.data.error) || ''
-      delete localStorage.csrf
-      delete localStorage.signedIn
+      // delete localStorage.csrf
+      // delete localStorage.signedIn
       this.unsetCurrentUser()
       
     },
     checkSignedIn () {
-      if (localStorage.signedIn) {
+      if (this.signedIn == true) {
         // this.$router.replace('/todos')
         this.$router.replace('/')
         // store.thislog = true

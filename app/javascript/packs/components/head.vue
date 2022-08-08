@@ -17,7 +17,7 @@
             <!-- <v-btn  @click="handler">234</v-btn> -->
             <v-spacer></v-spacer>
             <div class="d-flex align-center">
-              <div v-if="this.logstat == true" >
+              <div v-if="this.signedIn == true" >
 
                 <v-btn
                   x-small 
@@ -26,7 +26,7 @@
                   @click="signOut">выйти
                 </v-btn>  
               </div>  
-              <div v-if="this.logstat == false">
+              <div v-if="this.signedIn == false">
                 <router-link class="mx-1" to="/Signup">Регистрация</router-link>
                 
                 <router-link class="mx-2 pr-1" to="/Signin">Войти</router-link>
@@ -264,10 +264,11 @@ export default {
   },
   computed: {
     ...mapState(useLogStore, {
-      logstat: "thislog",
-    }) 
+      signedIn: "thissignedIn",
+    }),  
   },
   methods:{  
+    ...mapActions(useLogStore, ["unsetCurrentUser"]), 
     meshandl() {
       this.dialog = false
       this.$http.plain.post('/meshandl', { name: this.name})
@@ -278,33 +279,22 @@ export default {
 
         })
     },     
-    ...mapActions(useLogStore, ["logouted"]),  
-    logcheck () {
-
-
-    }, 
+    // ...mapActions(useLogStore, ["logouted"]),  
+ 
     setError (error, text) {
       this.error = (error.response && error.response.data && error.response.data.error) || text
     },
     signOut () {
-      this.logouted()
       this.$http.secured.delete('/signin')
         .then(response => {
-          delete localStorage.csrf
-          delete localStorage.signedIn
+          // delete localStorage.csrf
+          // delete localStorage.signedIn
+          this.unsetCurrentUser()
           this.$router.replace('/')
          })
          .catch(error => this.setError(error, 'Cannot sign out'))
     },   
-    testhandler(){
-        // console.log(this.plain)
-      // this.$http.secured.get('/todos')
-         this.$http.plain.post('/signup', { email: "sdvsdv@fdf.ru", password: "sdvesv", password_confirmation: "sdvesv" })
-//          .catch(error => {
-// console.log("ERRRR:: ",error.response.data);});
-         // .then(response => this.signupSuccessful(response))
-         // .catch(error => this.signupFailed(error)) 
-    },
+ 
     
     blinkup(ta) {
       // console.log(ta)
@@ -443,7 +433,7 @@ export default {
     // console.log(this.$vuetify.breakpoint)
   },
   created () {
-    this.logcheck()
+ 
   },
 }
 </script>

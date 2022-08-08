@@ -44,13 +44,13 @@ export default {
     }
   },
   created () {
-    this.checkSignedIn()
+    // this.checkSignedIn()
   },
   updated () {
-    this.checkSignedIn()
+    // this.checkSignedIn()
   },
   methods: {
-    ...mapActions(useLogStore, ["logined"]),     
+    // ...mapActions(useLogStore, ["logined"]),     
     signup () {
       // console.log()
       this.$http.plain.post('/signup', { email: this.email, password: this.password, password_confirmation: this.password_confirmation })
@@ -63,8 +63,8 @@ export default {
         return
       }
       this.logined()
-      localStorage.csrf = response.data.csrf
-      localStorage.signedIn = true
+      // localStorage.csrf = response.data.csrf
+      // localStorage.signedIn = true
       this.error = ''
       // this.$router.replace('/todos')
       this.$router.replace('/')
@@ -72,11 +72,12 @@ export default {
     signupFailed (error) {
       console.log(error)
       this.error = (error.response && error.response.data && error.response.data.error) || error.data.errors
-      delete localStorage.csrf
-      delete localStorage.signedIn
+      // delete localStorage.csrf
+      // delete localStorage.signedIn
+      this.unsetCurrentUser()
     },
     checkSignedIn () {
-      if (localStorage.signedIn) {
+      if (this.signedIn == true) {
         // this.$router.replace('/todos')
         this.$router.replace('/')
       }

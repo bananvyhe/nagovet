@@ -4,8 +4,9 @@ class SigninController < ApplicationController
   def create
     user = User.find_by!(email: params[:email])
     if user.authenticate(params[:password])
-      payload  = { user_id: user.id }
-      session = JWTSessions::Session.new(payload: payload, refresh_by_access_allowed: true)
+      payload  = { user_id: user.id, aud: [user.role] }
+      session = JWTSessions::Session.new(payload: payload, refresh_by_access_allowed: true,
+         namespace: "user_#{user.id}")
       tokens = session.login
       response.set_cookie(JWTSessions.access_cookie,
                           value: tokens[:access],
@@ -19,7 +20,7 @@ class SigninController < ApplicationController
   end	
   def destroy
   	puts "1222222222222222222222"
-    session = JWTSessions::Session.new(payload: payload)
+    session = JWTSessions::Session.new(payload: payload, namespace: "user_#{payload['user_id']}")
     session.flush_by_access_payload
     render json: :ok
   end

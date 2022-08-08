@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 	# protect_from_forgery with: :exception
 	include JWTSessions::RailsAuthorization
   rescue_from JWTSessions::Errors::Unauthorized, with: :not_authorized
+  # rescue_from JWTSessions::Errors::ClaimsVerification, with: :forbidden
   protect_from_forgery with: :null_session,
   if: Proc.new { |c| c.request.format =~ %r{application/json} }
 	private
@@ -23,5 +24,8 @@ class ApplicationController < ActionController::Base
   
   def not_authorized
     render json: { error: 'ошибка jwt авторизации' }, status: :unauthorized
+  end  
+  def forbidden
+    render json: { error: 'Forbidden' }, status: :forbidden
   end  
 end
