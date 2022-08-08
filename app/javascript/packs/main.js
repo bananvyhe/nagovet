@@ -13,6 +13,10 @@ import { createPinia, PiniaVuePlugin} from 'pinia'
 const pinia = createPinia()
 Vue.use(pinia)
 Vue.use(PiniaVuePlugin)
+// import VuePhoneNumberInput from "vue-phone-number-input" 
+// import { VuePhoneNumberInput } from "vue-phone-number-input" 
+import 'vue-phone-number-input/dist/vue-phone-number-input.css';
+// Vue.component('vue-phone-number-input', VuePhoneNumberInput);
 
 Vue.config.productionTip = false
  Vue.use(VueAxios, {

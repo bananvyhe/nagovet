@@ -78,61 +78,34 @@
             lazy-validation>
             <v-text-field
               v-model="name"
-              :counter="20"
+              :counter="30"
               :rules="nameRules"
-              label="Как к вас зовут?"
+              label="Как к вам обращаться?"
               required>
             </v-text-field>
-            <v-text-field
+
+            <div class="my-2">
+            </div>
+            <VuePhoneNumberInput
+            :translations="{
+              countrySelectorLabel: 'Код страны',
+              countrySelectorError: 'Ошибка',
+              phoneNumberLabel: 'Номер телефона',
+              example: 'Exemple :'
+            }"
+            class="mb-2"
               v-model="email"
               :rules="emailRules"
               label="E-mail"
-              required>
-            </v-text-field>
+               >
+            </VuePhoneNumberInput>
             <v-textarea
               filled
               name="input-7-4"
               label="Задайте вопрос"
               value="">
             </v-textarea>
-<!--             <v-select
-              v-model="select"
-              :items="items"
-              :rules="[v => !!v || 'Item is required']"
-              label="Item"
-              required
-            ></v-select>
-
-            <v-checkbox
-              v-model="checkbox"
-              :rules="[v => !!v || 'You must agree to continue!']"
-              label="Do you agree?"
-              required
-            ></v-checkbox> -->
-
-          <!--     <v-btn
-              :disabled="!valid"
-              color="success"
-              class="mr-4"
-              @click="validate"
-            >
-              Validate
-            </v-btn>
-
-            <v-btn
-              color="error"
-              class="mr-4"
-              @click="reset"
-            >
-              Reset Form
-            </v-btn>
-
-            <v-btn
-              color="warning"
-              @click="resetValidation"
-            >
-              Reset Validation
-            </v-btn> -->
+ 
 
             <date-picker 
               class="ma-2"
@@ -242,7 +215,7 @@ import Head from '../../packs/components/head.vue'
 import 'vue2-datepicker/index.css';
   import gsap from "gsap";
   import { mdiMenu } from '@mdi/js'
-
+import VuePhoneNumberInput from "vue-phone-number-input" 
 export default {
   //  setup() {
   //   const store = uselogStore()
@@ -252,7 +225,8 @@ export default {
   //   }
  
   // },
-  components: { Head, DatePicker, Signin, Signup },
+  components: { Head, DatePicker, Signin, Signup, VuePhoneNumberInput },
+ 
   data: function () {
     return {
        hours: Array.from({ length: 8 }).map((_, i) => i + 10),
@@ -267,7 +241,7 @@ export default {
       time2: null,
       nameRules: [
         v => !!v || 'Ваше имя?',
-        v => (v && v.length <= 20) || 'Вы превысили лимит 20 знаков',
+        v => (v && v.length <= 30) || 'Вы превысили лимит 30 знаков',
       ],
       email: '',
       emailRules: [
