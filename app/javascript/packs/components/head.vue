@@ -78,7 +78,7 @@
             lazy-validation>
             <v-text-field
               v-model="name"
-              :counter="30"
+              :counter="45"
               :rules="nameRules"
               label="Как к вам обращаться?"
               required>
@@ -241,7 +241,7 @@ export default {
       time2: null,
       nameRules: [
         v => !!v || 'Ваше имя?',
-        v => (v && v.length <= 30) || 'Вы превысили лимит 30 знаков',
+        v => (v && v.length <= 45) || 'Вы превысили лимит 45 знаков',
       ],
       email: '',
       emailRules: [
