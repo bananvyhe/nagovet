@@ -245,24 +245,6 @@ export default {
     setError (error, text) {
       this.error = (error.response && error.response.data && error.response.data.error) || text
     },
-    signOut () {
-      this.$http.secured.delete('/signin')
-        .then(response => {
-          delete localStorage.csrf
-          delete localStorage.signedIn
-          this.$router.replace('/')
-         })
-         .catch(error => this.setError(error, 'Cannot sign out'))
-    },   
-    testhandler(){
-        // console.log(this.plain)
-      // this.$http.secured.get('/todos')
-         this.$http.plain.post('/signup', { email: "sdvsdv@fdf.ru", password: "sdvesv", password_confirmation: "sdvesv" })
-//          .catch(error => {
-// console.log("ERRRR:: ",error.response.data);});
-         // .then(response => this.signupSuccessful(response))
-         // .catch(error => this.signupFailed(error)) 
-    },
     
     blinkup(ta) {
       // console.log(ta)

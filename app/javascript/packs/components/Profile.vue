@@ -5,8 +5,8 @@
     <template v-slot:activator="{ on, attrs }">
       <v-btn
         color="success"
-        class="mx-1"
-        dark
+        class="mx-1 "
+         
         v-bind="attrs"
         v-on="on"
         x-small>
@@ -103,10 +103,10 @@ export default {
   methods: {
     ...mapActions(useLogStore, ["setCurrentUser"]), 
     ...mapActions(useLogStore, ["unsetCurrentUser"]),     
-    signOut () {
+    signOut () {this.unsetCurrentUser()
       this.$http.secured.delete('/signin')
         .then(response => {
-          this.unsetCurrentUser()
+          
           this.$router.replace('/')
          })
          .catch(error => this.setError(error, 'Cannot sign out'))
