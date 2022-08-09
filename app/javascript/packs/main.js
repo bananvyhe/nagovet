@@ -13,6 +13,8 @@ import { createPinia, PiniaVuePlugin} from 'pinia'
 const pinia = createPinia()
 Vue.use(pinia)
 Vue.use(PiniaVuePlugin)
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+pinia.use(piniaPluginPersistedstate)
 // import VuePhoneNumberInput from "vue-phone-number-input" 
 // import { VuePhoneNumberInput } from "vue-phone-number-input" 
 import 'vue-phone-number-input/dist/vue-phone-number-input.css';
@@ -27,6 +29,7 @@ Vue.config.productionTip = false
 Vue.use(MasonryWall)
 Vue.use(Vuetify, {
   components: {
+    VMenu,
     VHover,
     VDatePicker,
     VTextarea,
@@ -64,6 +67,7 @@ Vue.use(Vuetify, {
   }
 }) 
 import Vuetify, {
+  VMenu,
   VHover,
   VDatePicker,
   VTextarea,

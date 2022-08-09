@@ -12,28 +12,42 @@
                   <div class="cursor">меню</div>
                 </div>
               </template>
-
             </v-hover>
-            <!-- <v-btn  @click="handler">234</v-btn> -->
+
             <v-spacer></v-spacer>
             <div class="d-flex align-center">
               <div v-if="this.signedIn == true" >
+                 <v-menu
+                      top
+                      :close-on-content-click="closeOnContentClick"
+                    >
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-btn
+                          color="primary"
+                          dark
+                          v-bind="attrs"
+                          v-on="on"
+                        >
+                          Dropdown
+                        </v-btn>
+                      </template>
 
+     <!-- <profile></profile> -->
+                    </v-menu>
                 <v-btn
                   x-small 
                   text
                   color="primary"  
                   @click="signOut">выйти
                 </v-btn>  
-              </div>  
+
+              </div>  {{this.signedIn}}
               <div v-if="this.signedIn == false">
                 <router-link class="mx-1" to="/Signup">Регистрация</router-link>
                 
                 <router-link class="mx-2 pr-1" to="/Signin">Войти</router-link>
               </div>          
             </div>
-
-
 
             <div class="d-flex align-center">
             <v-card outlined class="d-flex menu mr-2 d-xs-none d-sm-flex">
@@ -46,15 +60,8 @@
                   {{item.name}}
                 </v-btn> 
               </div>   
-
             </v-card> 
             </div>
-
-
-
-
-
-
       <v-dialog
         v-model="dialog"
         width="500">
@@ -129,8 +136,6 @@
               placeholder="время приема">
             </date-picker>
 
-    <!-- <date-picker :lang="lang" v-model="time2" type="datetime"></date-picker> -->
-
             <v-btn
               class="my-4"
               color="primary"
@@ -140,31 +145,17 @@
             </v-btn>
              
           </v-form>
-          <!-- <signin></signin> -->
-
-         <!--  <v-divider></v-divider> -->
           <v-card-actions>
-            <!-- <v-spacer></v-spacer> -->
-
           </v-card-actions>
         </v-card>
       </v-dialog>
-
-
           </div>
         </v-container>
       </v-app-bar> 
-
-
-
-
-
       <v-navigation-drawer
         v-model="drawer" 
         fixed
-
         temporary>
- 
         <v-list
           nav
           dense>
@@ -209,6 +200,7 @@
   import { mapActions } from 'pinia'
   import { useLogStore } from 'store.js'
   import DatePicker from 'vue2-datepicker';
+  import Profile from '../../packs/components/Profile.vue';
 import Signin from '../../packs/components/Signin.vue';
 import Signup from '../../packs/components/Signup.vue';
 import Head from '../../packs/components/head.vue'
@@ -225,10 +217,11 @@ export default {
   //   }
  
   // },
-  components: { Head, DatePicker, Signin, Signup, VuePhoneNumberInput },
+  components: { Head, DatePicker, Signin, Signup, VuePhoneNumberInput, Profile },
  
   data: function () {
     return {
+      closeOnContentClick: true,
        hours: Array.from({ length: 8 }).map((_, i) => i + 10),
        second: false,
        lang: {

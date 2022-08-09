@@ -49,20 +49,20 @@ export default {
   methods: {
     ...mapActions(useLogStore, ["setCurrentUser"]), 
     ...mapActions(useLogStore, ["unsetCurrentUser"]),  
-    ...mapActions(useLogStore, ["logined"]),    
+    // ...mapActions(useLogStore, ["logined"]),    
     // ...mapActions(useLogStore, {
     //   logstat: "logined",
     // }),
-    ...mapActions(useLogStore, {
-      logstat: "logouted",
-    }),    
+    // ...mapActions(useLogStore, {
+    //   logstat: "logouted",
+    // }),    
     signin () {
       this.$http.plain.post('/signin', { email: this.email, password: this.password })
         .then(response => this.signinSuccessful(response))
         .catch(error => this.signinFailed(error))
     },
     signinSuccessful (response) {
-      this.logined()
+      // this.logined()
       console.log(response)
       console.log("signinSuccessful")
       // console.log(this.logstat)
@@ -96,7 +96,7 @@ export default {
     },
     checkSignedIn () {
       if (this.signedIn == true) {
-        // this.$router.replace('/todos')
+ 
         this.$router.replace('/')
         // store.thislog = true
         // uselogStore.$patch({

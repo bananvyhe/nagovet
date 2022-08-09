@@ -4,7 +4,7 @@ export const useLogStore = defineStore("logStore", {
   state: () => ({
     ctsrf: null, 
     signedIn: false,
-    log: localStorage.signedIn ? true : false 
+    currentUser: {},
 
   }),
   getters: {
@@ -31,12 +31,7 @@ export const useLogStore = defineStore("logStore", {
       this.signedIn = true
       this.ctsrf = csrf
     },    
-    logined() {
-      this.log = true
-    },
-    logouted() {
-      this.log = false
-    }
+ 
   }, 
   persist: true,
 })
