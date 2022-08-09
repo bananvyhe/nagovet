@@ -76,7 +76,7 @@
               countrySelectorLabel: 'Код страны',
               countrySelectorError: 'Ошибка',
               phoneNumberLabel: 'Номер телефона',
-              example: 'Exemple :'
+              example: 'Например:'
             }"
             class="mb-2"
               v-model="email"

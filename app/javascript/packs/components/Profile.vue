@@ -43,7 +43,7 @@
       <div v-if="this.signedIn == true" class="d-flex justify-space-between">
         <div  class="d-flex">
           {{ this.currentUser.email}} 
-        </div>
+        </div> 
         <div  class="d-flex">
           статус: {{ this.currentUser.role}} 
         </div>        
