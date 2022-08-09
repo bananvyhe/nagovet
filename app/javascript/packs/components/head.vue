@@ -16,36 +16,14 @@
 
             <v-spacer></v-spacer>
             <div class="d-flex align-center">
-              <div v-if="this.signedIn == true" >
-                 <v-menu
-                      top
-                      :close-on-content-click="closeOnContentClick"
-                    >
-                      <template v-slot:activator="{ on, attrs }">
-                        <v-btn
-                          color="primary"
-                          dark
-                          v-bind="attrs"
-                          v-on="on"
-                        >
-                          Dropdown
-                        </v-btn>
-                      </template>
-
-     <!-- <profile></profile> -->
-                    </v-menu>
-                <v-btn
-                  x-small 
-                  text
-                  color="primary"  
-                  @click="signOut">выйти
-                </v-btn>  
-
-              </div>  {{this.signedIn}}
+              <!-- {{this.signedIn}} -->
+              <!-- <div v-if="this.signedIn == true" > -->
+              <profile></profile>
+              <!-- </div>   -->
+              <!-- {{this.signedIn}} -->
               <div v-if="this.signedIn == false">
-                <router-link class="mx-1" to="/Signup">Регистрация</router-link>
-                
-                <router-link class="mx-2 pr-1" to="/Signin">Войти</router-link>
+                <!-- <router-link class="mx-1" to="/Signup">Регистрация</router-link> -->
+                <!-- <router-link class="mx-2 pr-1" to="/Signin">Войти</router-link> -->
               </div>          
             </div>
 
@@ -61,10 +39,10 @@
                 </v-btn> 
               </div>   
             </v-card> 
-            </div>
-      <v-dialog
-        v-model="dialog"
-        width="500">
+          </div>
+        <v-dialog
+          v-model="dialog"
+          width="500">
         <template v-slot:activator="{ on, attrs }" >
           <v-btn
             small 
@@ -201,8 +179,8 @@
   import { useLogStore } from 'store.js'
   import DatePicker from 'vue2-datepicker';
   import Profile from '../../packs/components/Profile.vue';
-import Signin from '../../packs/components/Signin.vue';
-import Signup from '../../packs/components/Signup.vue';
+// import Signin from '../../packs/components/Signin.vue';
+// import Signup from '../../packs/components/Signup.vue';
 import Head from '../../packs/components/head.vue'
 import 'vue2-datepicker/index.css';
   import gsap from "gsap";
@@ -217,11 +195,11 @@ export default {
   //   }
  
   // },
-  components: { Head, DatePicker, Signin, Signup, VuePhoneNumberInput, Profile },
+  components: { Head, DatePicker, VuePhoneNumberInput, Profile },
  
   data: function () {
     return {
-      closeOnContentClick: true,
+
        hours: Array.from({ length: 8 }).map((_, i) => i + 10),
        second: false,
        lang: {
@@ -277,16 +255,16 @@ export default {
     setError (error, text) {
       this.error = (error.response && error.response.data && error.response.data.error) || text
     },
-    signOut () {
-      this.$http.secured.delete('/signin')
-        .then(response => {
-          // delete localStorage.csrf
-          // delete localStorage.signedIn
-          this.unsetCurrentUser()
-          this.$router.replace('/')
-         })
-         .catch(error => this.setError(error, 'Cannot sign out'))
-    },   
+    // signOut () {
+    //   this.$http.secured.delete('/signin')
+    //     .then(response => {
+    //       // delete localStorage.csrf
+    //       // delete localStorage.signedIn
+    //       this.unsetCurrentUser()
+    //       this.$router.replace('/')
+    //      })
+    //      .catch(error => this.setError(error, 'Cannot sign out'))
+    // },   
  
     
     blinkup(ta) {

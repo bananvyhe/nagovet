@@ -1,12 +1,78 @@
 <template>
-   <div>4343</div>
+<div>
+  <v-menu offset-y
+    :close-on-content-click="closeOnContentClick">
+    <template v-slot:activator="{ on, attrs }">
+      <v-btn
+        color="success"
+        class="mx-1"
+        dark
+        v-bind="attrs"
+        v-on="on"
+        x-small>
+        <div  v-if="signedIn == true">
+          Аккаунт      
+        </div> 
+        <div  v-if="signedIn == false">
+          Войти
+        </div>
+      </v-btn>
+    </template>
+    <v-card elevation="2"
+      class="px-2 py-2"
+       min-width="324"
+      max-width="474">
+
+    <signin v-if="!this.signedIn && regwin == false"></signin>
+    <signup v-if="!this.signedIn && regwin == true"></signup>  
+    <div class="register d-flex justify-center" v-if="this.signedIn == false">
+      <!-- {{this.regwin}} -->
+      <v-btn
+        @click="regwin = !regwin"
+        x-small text
+        color="primary"> 
+        <div v-if="regwin == true"> 
+          Войти
+        </div>        
+        <div v-if="regwin == false"> 
+          Не зарегистрированы? 
+        </div>
+      </v-btn>  
+    
+      </div>
+      <div v-if="this.signedIn == true" class="d-flex justify-space-between">
+        <div  class="d-flex">
+          {{ this.currentUser.email}} 
+        </div>
+        <div  class="d-flex">
+          статус: {{ this.currentUser.role}} 
+        </div>        
+        <div  class="d-flex ">
+        <v-btn   
+          v-if="this.signedIn == true"
+          x-small 
+          text
+          color="primary"  
+          @click="signOut">выйти
+        </v-btn>                
+         </div>
+      </div>
+      
+    </v-card>
+  </v-menu>   
+</div>
+ 
+   
 </template>
 
 <script>
   import { mapState } from 'pinia'
   import { mapActions } from 'pinia'
   import { useLogStore } from 'store.js'
+  import Signin from '../../packs/components/Signin.vue';
+  import Signup from '../../packs/components/Signup.vue';
 export default {
+  components: {Signin, Signup},
   //  setup() {
   //   const store = uselogStore()
   //   return {
@@ -18,22 +84,41 @@ export default {
   name: 'Profile',
   data () {
     return {
+      regwin: false,
+      closeOnContentClick: false,
       email: '',
       password: '',
       error: ''
     }
   },
   computed: {
-
+    ...mapState(useLogStore, {
+      currentUser: "thiscurrentUser",
+    }),      
+    ...mapState(useLogStore, {
+      signedIn: "thissignedIn",
+    }),  
   },    
  
   methods: {
-
+    ...mapActions(useLogStore, ["setCurrentUser"]), 
+    ...mapActions(useLogStore, ["unsetCurrentUser"]),     
+    signOut () {
+      this.$http.secured.delete('/signin')
+        .then(response => {
+          this.unsetCurrentUser()
+          this.$router.replace('/')
+         })
+         .catch(error => this.setError(error, 'Cannot sign out'))
+    },   
   }
 }
 </script>
 
 <style lang="css">
+.register{
+  cursor: pointer;
+}
 .form-signin {
   width: 70%;
   max-width: 500px;

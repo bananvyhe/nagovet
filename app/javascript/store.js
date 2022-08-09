@@ -8,6 +8,9 @@ export const useLogStore = defineStore("logStore", {
 
   }),
   getters: {
+    thiscurrentUser(){
+      return this.currentUser
+    },    
     thiscsrf(){
       return this.ctsrf
     },   
