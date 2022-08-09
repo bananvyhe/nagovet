@@ -103,10 +103,10 @@ export default {
   methods: {
     ...mapActions(useLogStore, ["setCurrentUser"]), 
     ...mapActions(useLogStore, ["unsetCurrentUser"]),     
-    signOut () {this.unsetCurrentUser()
+    signOut () {
       this.$http.secured.delete('/signin')
         .then(response => {
-          
+          this.unsetCurrentUser()
           this.$router.replace('/')
          })
          .catch(error => this.setError(error, 'Cannot sign out'))
