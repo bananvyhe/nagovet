@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useLogStore } from 'store.js'
-const API_URL = 'http://localhost:3000'
+const API_URL = 'https://nagovets.ru'
 // const API_URL = 'https://nagovets.ru'
 
 // export default axios.create({
@@ -14,8 +14,8 @@ const securedAxiosInstance = axios.create({
   baseURL: API_URL,
   withCredentials: true,
   headers: {
-    // 'Access-Control-Allow-Origin': '*',
-    // 'Access-Control-Allow-Headers': '*',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': '*',
     'Content-Type': 'application/json',
   }
 })
@@ -24,8 +24,8 @@ const plainAxiosInstance = axios.create({
   baseURL: API_URL,
   withCredentials: true,
   headers: {
-    // 'Access-Control-Allow-Origin': '*',
-    // 'Access-Control-Allow-Headers': '*',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': '*',
     'Content-Type': 'application/json',
   }
 })
