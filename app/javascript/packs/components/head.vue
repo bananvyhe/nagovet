@@ -79,12 +79,13 @@
               example: 'Например:'
             }"
             class="mb-2"
-              v-model="email"
-              :rules="emailRules"
-              label="E-mail"
+              v-model="phone"
+           
+              label="phone"
                >
             </VuePhoneNumberInput>
             <v-textarea
+              v-model="text"
               filled
               name="input-7-4"
               label="Задайте вопрос"
@@ -199,10 +200,10 @@ export default {
  
   data: function () {
     return {
-
-       hours: Array.from({ length: 8 }).map((_, i) => i + 10),
-       second: false,
-       lang: {
+      text: '',
+      hours: Array.from({ length: 8 }).map((_, i) => i + 10),
+      second: false,
+      lang: {
           formatLocale: {
             firstDayOfWeek: 1,
           },
@@ -214,11 +215,11 @@ export default {
         v => !!v || 'Ваше имя?',
         v => (v && v.length <= 45) || 'Вы превысили лимит 45 знаков',
       ],
-      email: '',
-      emailRules: [
-        v => !!v || 'E-mail необходим для связи',
-        v => /.+@.+\..+/.test(v) || 'E-mail введен некорректно',
-      ],
+      phone: '',
+      // emailRules: [
+      //   v => !!v || 'E-mail необходим для связи',
+      //   v => /.+@.+\..+/.test(v) || 'E-mail введен некорректно',
+      // ],
       valid: true,
       name: '',
 
@@ -242,7 +243,7 @@ export default {
     ...mapActions(useLogStore, ["unsetCurrentUser"]), 
     meshandl() {
       this.dialog = false
-      this.$http.plain.post('/meshandl', { name: this.name})
+      this.$http.plain.post('/mes', { name: this.name, phone: this.phone, text: this.text, data: this.time1, time: this.time2 })
         .then(response => {
 
         })

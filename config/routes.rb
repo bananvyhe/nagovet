@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 	post 'signin', controller: :signin, action: :create
 	post 'signup', controller: :signup, action: :create
 	delete 'signin', controller: :signin, action: :destroy
-  post 'meshandl', controller: :meshandl, action: :mes 
+  post 'mes', controller: :meshandl, action: :mes 
   resources :todos
   get 'me', controller: :users, action: :me
   namespace :admin do
