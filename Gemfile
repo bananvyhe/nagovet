@@ -26,7 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "jwt_sessions"
 gem 'rack-cors'
 gem "httparty"
-gem 'uri'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'telegram-bot-ruby'
