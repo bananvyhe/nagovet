@@ -4,8 +4,9 @@ class MeshandlController < ApplicationController
 	skip_before_action :verify_authenticity_token
 	# encoding: utf-8
 	# require 'telegram/bot'
-require 'uri'
-	def mes
+	require 'uri'
+
+	def mesa
 		puts "123"
  		token = Rails.application.credentials.aws[:token]
  		mass = []
@@ -24,10 +25,10 @@ require 'uri'
  		mesa = 'имя: '+mass[0]+' тел: '+mass[1]+' сообщение: '+mass[2]+' дата: '+mass[3]+' время: '+mass[4]
  
  		mesa = 'https://api.telegram.org/bot5531512315:AAHmGCiQQQfdVzQrcja0c9woh5TxrrYldk8/sendMessage?chat_id=199874565&text='+mesa 
- 	# mesa = mesa.to_s
- 	paf = URI::Parser.new
- 	paf = paf.escape(mesa)
- 	puts paf
+ 		# mesa = mesa.to_s
+	 	paf = URI::Parser.new
+	 	paf = paf.escape(mesa)
+	 	puts paf
  		# +' date: '+ params[:date1].to_s+' time: '+ params[:date2].to_s
 
 		HTTParty.post(paf)

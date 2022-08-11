@@ -243,7 +243,7 @@ export default {
     ...mapActions(useLogStore, ["unsetCurrentUser"]), 
     meshandl() {
       this.dialog = false
-      this.$http.plain.post('/mes', { name: this.name, phone: this.phone, text: this.text, data: this.time1, time: this.time2 })
+      this.$http.plain.post('/mesa', { name: this.name, phone: this.phone, text: this.text, data: this.time1, time: this.time2 })
         .then(response => {
 
         })
