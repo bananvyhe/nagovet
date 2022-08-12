@@ -177,6 +177,9 @@
              
             </v-col> -->
           <!-- </v-row>  -->
+          <div class="">
+          разработка сайта: <a href="https://pixeltech.ru">pixeltech.ru</a> 
+          </div>
                 </div> 
               
         </v-container> 
