@@ -158,25 +158,19 @@
           <div class="aboutTitle d-flex justify-center pb-4">
             <h2>Контакты</h2>
           </div>
-       
-          <!-- <v-row > -->
-            <!-- <v-col class=" d-flex flex-column py-1" cols="12"  sm="6" md="6" lg="7" >  -->
+ 
               <div class="d-flex flex-column justify-center align-center pb-4"> 
 
                 <h4>Консультирую:</h4>
                 <div class="body-1 my-2 mb-1">ОНЛАЙН - по видеосвязи (мессенджеры: Scype, WhatsApp, Viber, Telegram)
                 </div>
                 <div class="body-1 mt-0 mb-3">ОЧНО - в Екатеринбурге по адресу: Тверитина 34, корпус 5.</div>
-                <div  style="position:relative;overflow:hidden;width:100%;">
+        <!--         <div  style="position:relative;overflow:hidden;width:100%;">
                   <a href="https://yandex.ru/maps/54/yekaterinburg/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Екатеринбург</a>
                   <a href="https://yandex.ru/maps/54/yekaterinburg/house/ulitsa_tveritina_34_5/YkkYcAVlQEYEQFtsfXRzc3lgbA==/?ll=60.625933%2C56.822538&source=wizgeo&utm_medium=mapframe&utm_source=maps&z=17" style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Тверитина, 34/5 — Яндекс Карты</a>
                   <iframe  src="https://yandex.ru/map-widget/v1/-/CCUB6JWA9A"  height="600" frameborder="1" allowfullscreen="true" style="position:relative;width:100%;"></iframe>
-                </div>
-    <!--         </v-col> -->
-<!--             <v-col class=" d-flex flex-column justify-start" cols="12"  sm="6" md="6" lg="5" > 
-             
-            </v-col> -->
-          <!-- </v-row>  -->
+                </div> -->
+ 
           <div class="">
           разработка сайта: <a href="https://pixeltech.ru">pixeltech.ru</a> 
           </div>
