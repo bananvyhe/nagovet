@@ -8,7 +8,7 @@ class MeshandlController < ApplicationController
 
 	def mesa
 		puts "123"
- 		token = Rails.application.credentials.aws[:token]
+ 		token = Rails.application.credentials[:token]
  		mass = []
  		params.each_value do |value|
  			
