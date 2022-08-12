@@ -2,14 +2,15 @@
     <div>
       <v-app-bar dense fixed flat hide-on-scroll rounded color="transparent" class="appbar">
         <v-container class= "px-0">
-          <div class="d-flex d-sm-flex px-2" > 
+          <div class="d-flex d-sm-flex " > 
             <v-hover>
               <template v-slot:default="{ hover }">
-                <div  @click="drawer = true" class="d-flex hidden-sm-and-up menbg px-2 py-1" :class="`elevation-${hover ? 6 : 4}`">
-                  <v-icon  class=" ">
+                <div   class="d-flex hidden-sm-and-up  " >
+
+                  <v-btn  @click="drawer = true"  small 
+            color="primary">                  <v-icon  class=" ">
                   {{mdiMenu}}
-                  </v-icon>
-                  <div class="cursor">меню</div>
+                  </v-icon>меню</v-btn>
                 </div>
               </template>
             </v-hover>
@@ -18,7 +19,7 @@
             <div class="d-flex align-center">
               <!-- {{this.signedIn}} -->
               <!-- <div v-if="this.signedIn == true" > -->
-              <profile></profile>
+              <profile class="d-flex align-center"></profile>
               <!-- </div>   -->
               <!-- {{this.signedIn}} -->
               <div v-if="this.signedIn == false">
