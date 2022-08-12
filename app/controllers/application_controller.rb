@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
   
   def not_authorized
-    render json: { error: 'ошибка jwt авторизации' }, status: :unauthorized
+    render json: { error: 'ошибка авторизации' }, status: :unauthorized
   end  
   def forbidden
     render json: { error: 'Forbidden' }, status: :forbidden

@@ -1,17 +1,17 @@
 <template>
-  <v-form class="form-signup" @submit.prevent="signup">
+  <v-form  @submit.prevent="signup" class="px-3 py-2">
     <div class="alert alert-danger" v-if="error">{{ error }}</div>
-    <div class="form-group">
+    <div >
       <label for="email">Зарегистрироваться</label>
-      <v-text-field v-model="email" :rules="emailRules"   id="email" placeholder="email@example.com"></v-text-field>
+      <v-text-field class="px-3" v-model="email" :rules="emailRules"   id="email" placeholder="email@example.com"></v-text-field>
     </div>
-    <div class="form-group">
+    <div >
       <!-- <label for="password">Придумайте пароль</label> -->
-      <v-text-field v-model="password" type="password" id="password" placeholder="Придумайте пароль"></v-text-field>
+      <v-text-field class="px-3" v-model="password" type="password" id="password" placeholder="Придумайте пароль"></v-text-field>
     </div>
-    <div class="form-group">
+    <div >
       <!-- <label for="password">Повторите пароль</label> -->
-      <v-text-field v-model="password_confirmation" :rules="confirmRules" type="password" id="password_confirmation" placeholder="Повторите пароль"></v-text-field>
+      <v-text-field class="px-3" v-model="password_confirmation" :rules="confirmRules" type="password" id="password_confirmation" placeholder="Повторите пароль"></v-text-field>
     </div>
     <v-btn type="submit" class="btn btn-primary my-3">Отправить</v-btn>
     <div>

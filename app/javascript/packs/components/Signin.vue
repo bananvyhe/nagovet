@@ -1,17 +1,13 @@
 <template>
-  <v-form class="form-signin" @submit.prevent="signin">
+  <v-form   @submit.prevent="signin" class="px-3 py-2">
+     <div for="email" class=" ">Войти на сайт</div>
     <div class="alert alert-danger" v-if="error">{{ error }}</div>
-      <div class="form-group">
-        <label for="email">Войти на сайт</label>
-        <v-text-field v-model="email" type="email" class="form-control" id="email" placeholder="email@example.com"></v-text-field>
-      </div>
-      <div class="form-group">
+        <v-text-field  class="px-2 pt-2" v-model="email"  :rules="emailRules" type="email" filled id="email" placeholder="email@example.ru">
+        </v-text-field>
         <!-- <label for="password">Пароль</label> -->
-        <v-text-field v-model="password" type="password" class="form-control" id="password" placeholder="Password"></v-text-field>
-      </div>
+        <v-text-field class="px-2" v-model="password" type="password" filled id="password" placeholder="Password"></v-text-field>
       <v-btn type="submit" class="btn btn-primary my-3">Войти</v-btn>
       <div>
-      
     </div>
   </v-form>
 </template>
@@ -32,6 +28,10 @@ export default {
   name: 'Signin',
   data () {
     return {
+      emailRules: [
+        v => !!v || 'E-mail необходим для авторизации',
+        v => /.+@.+\..+/.test(v) || 'E-mail введен некорректно',
+      ],        
       email: '',
       password: '',
       error: ''
@@ -109,10 +109,13 @@ export default {
 </script>
 
 <style lang="css">
+input:-webkit-autofill { 
+    -webkit-background-clip: text;
+}
 .form-signin {
-  width: 70%;
-  max-width: 500px;
-  padding: 10% 15px;
-  margin: 0 auto;
+  /*width: 70%;*/
+  /*max-width: 500px;*/
+  /*padding: 10% 15px;*/
+  /*margin: 0 auto;*/
 }
 </style>
