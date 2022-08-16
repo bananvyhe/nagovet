@@ -372,7 +372,7 @@ export default {
         // backgroundPositionX: 0,
         opacity: 1, 
         delay: 0.2,
-        duration: 2.6,  
+        duration: 1.6,  
         ease: "expo.out",
           
       })                   
@@ -389,8 +389,8 @@ export default {
         // backgroundPositionX: 0,
         opacity: 1, 
         delay: 0,
-        duration: 2.2,  
-         ease: "sine.out",
+        duration: 1.2,  
+         ease: "power.out",
           
       })         
     }
