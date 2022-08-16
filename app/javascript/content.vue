@@ -292,13 +292,15 @@ export default {
     function foto() {
       gsap.set(".foto", {
         opacity: 0, 
+         
       });
 
       var tl =  gsap.timeline();
         tl.to(".foto", {
+        
         opacity: 1, 
-        duration: 1.8,  
-        delay: 0.5,
+        duration: 0.9,  
+        delay: 0.3,
         ease: "expo.out",
           
       })
