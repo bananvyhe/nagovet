@@ -22,7 +22,9 @@
     "vue-phone-number-input": "^1.1.12",
     "vue-router": "3",
     "vue-template-compiler": "^2.6.14",
+    "vue-toastification": "^1.7.14",
     "vue2-datepicker": "^3.10.4",
+    "vuejs-datepicker": "^1.6.2",
     "vuetify": "^2.6.3",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
