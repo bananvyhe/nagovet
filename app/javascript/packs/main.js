@@ -20,6 +20,13 @@ pinia.use(piniaPluginPersistedstate)
 import 'vue-phone-number-input/dist/vue-phone-number-input.css';
 // Vue.component('vue-phone-number-input', VuePhoneNumberInput);
 
+import Toast from "vue-toastification" 
+import "vue-toastification/dist/index.css" 
+const optionz = {
+    // You can set your default options here
+};
+
+
 Vue.config.productionTip = false
  Vue.use(VueAxios, {
   secured: securedAxiosInstance,
@@ -106,6 +113,8 @@ import Vuetify, {
 } from 'vuetify/lib'
 
 document.addEventListener('DOMContentLoaded', () => {
+  
+Vue.use(Toast, optionz);
 
   const apw = new Vue({
   	el: '#app',

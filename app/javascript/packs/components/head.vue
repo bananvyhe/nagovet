@@ -92,8 +92,17 @@
               label="Задайте вопрос"
               value="">
             </v-textarea>
- 
 
+
+<!--    <v-date-picker
+      v-model="date"
+      :allowed-dates="allowedDates"
+      class="mt-4"
+ s
+   
+    ></v-date-picker> -->
+ 
+<!-- 
             <date-picker 
               class="ma-2"
               :lang="lang"
@@ -114,7 +123,7 @@
    
               type="time"
               placeholder="время приема">
-            </date-picker>
+            </date-picker> -->
 
             <v-btn
               class="my-4"
@@ -201,6 +210,8 @@ export default {
  
   data: function () {
     return {
+      els: ["2022-03-03", "2022-03-05"],
+      date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),      
       text: '',
       hours: Array.from({ length: 8 }).map((_, i) => i + 10),
       second: false,
@@ -241,11 +252,27 @@ export default {
     }),  
   },
   methods:{  
+    allowedDates: val => this.els.indexOf(val) !== -1,
     ...mapActions(useLogStore, ["unsetCurrentUser"]), 
     meshandl() {
       this.dialog = false
       this.$http.plain.post('/mesa', { name: this.name, phone: this.phone, text: this.text, data: this.time1, time: this.time2 })
         .then(response => {
+ 
+          this.$toast("Спасибо, ваше сообщение отправлено.", {
+            position: "bottom-right",
+            timeout: 5000,
+            closeOnClick: true,
+            pauseOnFocusLoss: true,
+            pauseOnHover: true,
+            draggable: true,
+            draggablePercent: 0.6,
+            showCloseButtonOnHover: false,
+            hideProgressBar: true,
+            closeButton: "button",
+            icon: true,
+            rtl: false
+          });
 
         })
         .catch(error => {
@@ -306,7 +333,7 @@ export default {
       return date < today || date > new Date(today.getTime() + 7 * 24 * 3600 * 1000);
     },
     handler: function (da, ta) {
-      this.$router.replace('/')
+      // this.$router.replace('/')
       var offs = 18
       if (da == 'Обо мне'){
         offs = 35
