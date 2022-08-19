@@ -13,7 +13,9 @@
       <!-- <label for="password">Повторите пароль</label> -->
       <v-text-field class="px-3" v-model="password_confirmation" :rules="confirmRules" type="password" id="password_confirmation" placeholder="Повторите пароль"></v-text-field>
     </div>
-    <v-btn type="submit" class="btn btn-primary my-3">Отправить</v-btn>
+    <div class="d-flex justify-center">
+      <v-btn type="submit" class="btn btn-primary my-3">Отправить</v-btn>
+    </div>
     <div>
 
     </div>

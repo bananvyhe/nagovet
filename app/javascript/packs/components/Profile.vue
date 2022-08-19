@@ -20,7 +20,7 @@
     </template>
     <v-card elevation="2"
       class="px-2 py-2"
-       min-width="214"
+       min-width="244"
       max-width="474">
 
     <signin v-if="!this.signedIn && regwin == false"></signin>

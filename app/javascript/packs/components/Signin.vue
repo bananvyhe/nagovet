@@ -1,12 +1,15 @@
 <template>
   <v-form   @submit.prevent="signin" class="px-3 py-2">
-     <div for="email" class=" ">Войти на сайт</div>
+     <div for="email" class="mb-2">Войти на сайт</div>
     <div class="alert alert-danger" v-if="error">{{ error }}</div>
         <v-text-field  class="px-2 pt-2" v-model="email"  :rules="emailRules" type="email" filled id="email" placeholder="email@example.ru">
         </v-text-field>
         <!-- <label for="password">Пароль</label> -->
         <v-text-field class="px-2" v-model="password" type="password" filled id="password" placeholder="Password"></v-text-field>
-      <v-btn type="submit" class="btn btn-primary my-3">Войти</v-btn>
+        <div class="d-flex justify-center">
+           <v-btn type="submit" class="btn btn-primary my-0">Войти</v-btn>
+        </div>
+     
       <div>
     </div>
   </v-form>

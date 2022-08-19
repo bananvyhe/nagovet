@@ -58,7 +58,7 @@
         <v-card>
  
           <v-form
-            class="mx-3 pt-2"
+            class="mx-4 pt-3"
             ref="form"
             v-model="valid"
             lazy-validation>
@@ -86,6 +86,7 @@
                >
             </VuePhoneNumberInput>
             <v-textarea
+              class="mt-3"
               v-model="text"
               filled
               name="input-7-4"
@@ -124,14 +125,16 @@
               type="time"
               placeholder="время приема">
             </date-picker> -->
+        <div class="d-flex justify-end">
+          <v-btn
+            class="my-2"
+            color="primary"
+            text
+            @click="meshandl()">
+            Отправить
+          </v-btn>  
+        </div>
 
-            <v-btn
-              class="my-4"
-              color="primary"
-              text
-              @click="meshandl()">
-              Отправить
-            </v-btn>
              
           </v-form>
           <v-card-actions>
