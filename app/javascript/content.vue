@@ -431,10 +431,11 @@ ul.list6b{
 }
 
 .ikses{ 
+ 
   white-space: nowrap;
   color: #fff !important;
    /*backdrop-filter: blur(2px);*/
-   background-color: rgb(79.688, 71.652, 47.813, .2);
+   background-color: rgb(179.688, 171.652, 147.813, .3);
   /*text-shadow: 1px 1px 2px #ffffff;*/
 }
 
