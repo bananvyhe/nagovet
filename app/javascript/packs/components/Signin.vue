@@ -7,7 +7,7 @@
         <!-- <label for="password">Пароль</label> -->
         <v-text-field class="px-2" v-model="password" type="password" filled id="password" placeholder="Password"></v-text-field>
         <div class="d-flex justify-center">
-           <v-btn type="submit" class="btn btn-primary my-0">Войти</v-btn>
+           <v-btn type="submit" class="btn btn-primary mb-1">Войти</v-btn>
         </div>
      
       <div>
