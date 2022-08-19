@@ -20,14 +20,16 @@
     </template>
     <v-card elevation="2"
       class="px-2 py-2"
-       min-width="324"
+       min-width="214"
       max-width="474">
 
     <signin v-if="!this.signedIn && regwin == false"></signin>
     <signup v-if="!this.signedIn && regwin == true"></signup>  
-    <div class="register d-flex justify-center" v-if="this.signedIn == false">
+    <div class="register d-flex justify-end" v-if="this.signedIn == false">
+ 
       <!-- {{this.regwin}} -->
       <v-btn
+          class="my-2 align-end"
         @click="regwin = !regwin"
         x-small text
         color="primary"> 
@@ -40,22 +42,25 @@
       </v-btn>  
     
       </div>
-      <div v-if="this.signedIn == true" class="d-flex justify-space-between">
+      <div v-if="this.signedIn == true" class="d-flex justify-space-between  flex-column">
         <div  class="d-flex">
           {{ this.currentUser.email}} 
         </div> 
-        <div  class="d-flex">
-          статус: {{ this.currentUser.role}} 
-        </div>        
-        <div  class="d-flex ">
-        <v-btn   
-          v-if="this.signedIn == true"
-          x-small 
-          text
-          color="primary"  
-          @click="signOut">выйти
-        </v-btn>                
-         </div>
+        <div   class="d-flex flex-row  justify-space-between">
+          <div  class="d-flex ">
+            статус: {{ this.currentUser.role}} 
+          </div>        
+          <div  class="d-flex ">
+            <v-btn   
+              v-if="this.signedIn == true"
+              x-small 
+              text
+              color="primary"  
+              @click="signOut">выйти
+            </v-btn>                
+          </div>          
+        </div>
+
       </div>
       
     </v-card>
