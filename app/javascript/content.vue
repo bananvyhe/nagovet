@@ -299,8 +299,8 @@ export default {
         tl.to(".foto", {
         
         opacity: 1, 
-        duration: 0.9,  
-        delay: 0.3,
+        duration: 1.9,  
+        delay: 0.8,
         ease: "expo.out",
           
       })
@@ -431,7 +431,7 @@ ul.list6b{
 }
 
 .ikses{ 
- 
+
   white-space: nowrap;
   color: #fff !important;
    /*backdrop-filter: blur(2px);*/
