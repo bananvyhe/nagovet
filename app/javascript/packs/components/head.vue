@@ -72,19 +72,20 @@
 
             <div class="my-2">
             </div>
-            <VuePhoneNumberInput
-            :translations="{
-              countrySelectorLabel: 'Код страны',
-              countrySelectorError: 'Ошибка',
-              phoneNumberLabel: 'Номер телефона',
-              example: 'Например:'
-            }"
-            class="mb-2"
-              v-model="phone"
-           
-              label="phone"
-               >
-            </VuePhoneNumberInput>
+
+              <VuePhoneNumberInput
+              :translations="{
+                countrySelectorLabel: 'Код страны',
+                countrySelectorError: 'Ошибка',
+                phoneNumberLabel: 'Номер телефона',
+                example: 'Например:'
+              }"
+              class="mb-2"
+                v-model="phone"
+             
+                label="phone"
+                 >
+              </VuePhoneNumberInput>    
             <v-textarea
               class="mt-3"
               v-model="text"
@@ -93,7 +94,12 @@
               label="Задайте вопрос"
               value="">
             </v-textarea>
-
+            <div class="d-flex flex-row">
+              <a href="https://web.telegram.org/"  target="_blank"><div class="telg mr-2"></div></a>
+              <a href="https://skype.com/"  target="_blank"><div class="skype mr-2"></div></a>
+              <a href="https://www.whatsapp.com/"  target="_blank"><div class="whatsapp mr-2"></div></a>
+              <a href="https://www.viber.com//"  target="_blank"><div class="viber mr-2"></div></a>
+            </div>
 
 <!--    <v-date-picker
       v-model="date"
@@ -442,7 +448,34 @@ export default {
 </script>
 
 <style >
-.
+.whatsapp{
+  border-radius: 4px;
+  background-image: url('../../images/whatsapp.png');
+  background-size: 32px;
+  height: 32px;
+  width: 32px;
+}
+.viber{
+  border-radius: 4px;
+  background-image: url('../../images/viber.png');
+  background-size: 32px;
+  height: 32px;
+  width: 32px;
+}
+.skype{
+  border-radius: 4px;
+  background-image: url('../../images/skype.png');
+  background-size: 32px;
+  height: 32px;
+  width: 32px;
+}
+.telg{
+  border-radius: 4px;
+  background-image: url('../../images/tg.png');
+  background-size: 32px;
+  height: 32px;
+  width: 32px;
+}
 .appbar{
   position: relative;
   /*z-index: 5;*/
