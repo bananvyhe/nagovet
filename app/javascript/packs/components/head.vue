@@ -94,12 +94,18 @@
               label="Задайте вопрос"
               value="">
             </v-textarea>
-            <div class="d-flex flex-row">
-              <a href="https://web.telegram.org/"  target="_blank"><div class="telg mr-2"></div></a>
-              <a href="https://skype.com/"  target="_blank"><div class="skype mr-2"></div></a>
-              <a href="https://www.whatsapp.com/"  target="_blank"><div class="whatsapp mr-2"></div></a>
-              <a href="https://www.viber.com//"  target="_blank"><div class="viber mr-2"></div></a>
+            <div class="d-flex justify-center flex-column">
+              <div class="mb-1 " style="text-align: center;">
+                Встречи проводятся очно или онлайн через мессенджеры:
+              </div>
+              <div class="d-flex flex-row justify-center">
+                <a href="https://web.telegram.org/"  target="_blank"><div class="telg mr-2"></div></a>
+                <a href="https://skype.com/"  target="_blank"><div class="skype mr-2"></div></a>
+                <a href="https://www.whatsapp.com/"  target="_blank"><div class="whatsapp mr-2"></div></a>
+                <a href="https://www.viber.com//"  target="_blank"><div class="viber mr-2"></div></a>
+              </div>              
             </div>
+
 
 <!--    <v-date-picker
       v-model="date"
