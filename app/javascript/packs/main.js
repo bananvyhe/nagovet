@@ -36,6 +36,10 @@ Vue.config.productionTip = false
 Vue.use(MasonryWall)
 Vue.use(Vuetify, {
   components: {
+    VExpansionPanel,
+    VExpansionPanels,
+    VExpansionPanelHeader,
+    VExpansionPanelContent,
     VMenu,
     VHover,
     VDatePicker,
@@ -74,6 +78,10 @@ Vue.use(Vuetify, {
   }
 }) 
 import Vuetify, {
+  VExpansionPanel,
+  VExpansionPanels,
+  VExpansionPanelHeader,
+  VExpansionPanelContent,
   VMenu,
   VHover,
   VDatePicker,
