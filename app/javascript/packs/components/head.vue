@@ -176,7 +176,9 @@
               <div class="d-xs-none d-sm-flex ludmila"></div>
               <div class="d-xs-none d-sm-flex nagb nagovets"></div>
               <!-- <div class="d-xs-none d-sm-flex  subti"> ПСИХОЛОГ - ПСИХОАНАЛИТИК</div> -->
-              <div class="d-xs-none d-sm-flex  subti"> психолог - психоаналитик</div>
+              <div class="d-xs-none d-sm-flex  subti flex-row  "> психолог - психоаналитик <div class="ml-2 mb-1" style="text-align: center;"><a style="color:#ffffff !important; " href="tel:+79193814826" >тел. +7(919) 381 4826</a></div> </div>
+ 
+              
             </div>
  
             <div class="titles d-flex hidden-sm-and-up"> 
@@ -184,10 +186,12 @@
               <div class="nagovets  nags"></div>
               <div class="bgdfa   "> </div>
               <div class="bgdfb  "> </div>
-              <div class="subti  "> психолог - психоаналитик </div>
+             <div class=" subti flex-row  "> психолог - психоаналитик<br><div class="pb-1" style="text-align: center;"><a style="color:#ffffff !important; " href="tel:+79193814826" >тел. +7(919) 381 4826</a></div> </div>
+ 
             </div>            
             <div class="head3">
               <div class="frontclouds "></div>
+ 
             </div>
           </div>
         </v-container>
@@ -559,14 +563,14 @@ margin-top: 14px;
 .titleb{ z-index: 5;
   /*width: 700px;*/
   position: absolute;
-  margin-top: 70px;
+  margin-top: 60px;
   margin-left: 20px;
 }
 .titles{
 
   z-index: 5;
   position: absolute;
-  margin-top: 80px;
+  margin-top: 60px;
   margin-left: 10px;
  
     height: 40px;
@@ -581,10 +585,10 @@ margin-top: 14px;
   z-index: 1;
 }
 .titleb .subti{
-
-    margin-top: -4px;
-    margin-left: 150px;
- background-color: rgb(79.688, 71.652, 47.813, .1);
+  width: 365px;
+    margin-top:  2px;
+    margin-left: 50px;
+ background-color: rgb(79.688, 71.652, 47.813, .2);
   /*color: #222;*/
  color: #fff;
   /*position: relative;*/
