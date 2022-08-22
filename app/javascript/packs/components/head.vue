@@ -176,7 +176,7 @@
               <div class="d-xs-none d-sm-flex ludmila"></div>
               <div class="d-xs-none d-sm-flex nagb nagovets"></div>
               <!-- <div class="d-xs-none d-sm-flex  subti"> ПСИХОЛОГ - ПСИХОАНАЛИТИК</div> -->
-              <div class="d-xs-none d-sm-flex  subti flex-row  "> психолог - психоаналитик <div class="ml-2 mb-1" style="text-align: center;"><a style="color:#ffffff !important; " href="tel:+79193814826" >тел. +7(919) 381 4826</a></div> </div>
+              <div class="d-xs-none d-sm-flex  subti flex-row  "> психолог - психоаналитик <div class="ml-5 mb-1" style="text-align: center;"><a style="color:#ffffff !important; " href="tel:+79193814826" >тел. +7(919) 381 4826</a></div> </div>
  
               
             </div>
@@ -585,7 +585,7 @@ margin-top: 14px;
   z-index: 1;
 }
 .titleb .subti{
-  width: 365px;
+  width: 370px;
     margin-top:  2px;
     margin-left: 50px;
  background-color: rgb(79.688, 71.652, 47.813, .2);
