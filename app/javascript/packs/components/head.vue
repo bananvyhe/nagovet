@@ -570,7 +570,7 @@ margin-top: 14px;
 
   z-index: 5;
   position: absolute;
-  margin-top: 60px;
+  margin-top: 74px;
   margin-left: 10px;
  
     height: 40px;
