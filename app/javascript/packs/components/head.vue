@@ -599,6 +599,7 @@ margin-top: 14px;
   /*background-color: #dad;*/
 }
 .titles .subti{
+  backdrop-filter: blur(8px);
   margin-top: 75px;
   margin-left: 33px;
 
