@@ -100,7 +100,7 @@ export default {
     checkSignedIn () {
       if (this.signedIn == true) {
  
-        this.$router.replace('/')
+        // this.$router.replace('/')
         // store.thislog = true
         // uselogStore.$patch({
         //   thislog: true

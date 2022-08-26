@@ -90,7 +90,7 @@ export default {
     checkSignedIn () {
       if (this.signedIn == true) {
         // this.$router.replace('/todos')
-        this.$router.replace('/')
+        // this.$router.replace('/')
       }
     }
   }

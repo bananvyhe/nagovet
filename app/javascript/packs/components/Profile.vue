@@ -18,15 +18,15 @@
         </div>
       </v-btn>
     </template>
+ 
     <v-card elevation="2"
       class="px-2 py-2"
        min-width="244"
       max-width="474">
-
     <signin v-if="!this.signedIn && regwin == false"></signin>
     <signup v-if="!this.signedIn && regwin == true"></signup>  
     <div class="register d-flex justify-end" v-if="this.signedIn == false">
- 
+
       <!-- {{this.regwin}} -->
       <v-btn
           class="my-2 align-end"
@@ -42,9 +42,13 @@
       </v-btn>  
     
       </div>
-      <div v-if="this.signedIn == true" class="d-flex justify-space-between  flex-column">
-        <div  class="d-flex">
-          {{ this.currentUser.email}} 
+      <div v-if="this.signedIn == true" class="d-flex flex-column">
+        <div  class="d-flex flex-column">
+          {{ this.currentUser.email}}  
+          <div class="px-2 py-2">
+            <router-link  to="/admin/all" v-if="this.currentUser.role == 'admin'">пользователи</router-link>            
+          </div>
+
         </div> 
         <div   class="d-flex flex-row  justify-space-between">
           <div  class="d-flex ">
@@ -60,14 +64,11 @@
             </v-btn>                
           </div>          
         </div>
-
       </div>
-      
     </v-card>
+
   </v-menu>   
 </div>
- 
-   
 </template>
 
 <script>

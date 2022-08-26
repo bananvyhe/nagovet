@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 	# get '/*path', to: 'welcome#index', format: false
 	# root 'welcome#index'
 	# get '/*path', to: 'welcome#index' 
+  # match '*path', to: redirect('/'), via: :all
+
 	post 'refresh', controller: :refresh, action: :create
 	post 'signin', controller: :signin, action: :create
 	post 'signup', controller: :signup, action: :create
@@ -13,21 +15,19 @@ Rails.application.routes.draw do
   post 'mesa', controller: :meshandl, action: :mesa 
   resources :todos
   get 'me', controller: :users, action: :me
-  namespace :admin do
-    resources :users, only: [:index]
-  end
+
   # resources :password_resets, only: [:create] do
   #   collection do
   #     get ':token', action: :edit, as: :edit
   #     patch ':token', action: :update
   #   end
   # end
-resources :users
-  # namespace :admin do
-  #   resources :users, only: [:index, :show, :update] do
-  #     resources :todos, only: [:index], controller: 'users/todos'
+  # resources :users
+  #   namespace :admin do
+  #     resources :users, only: [:index, :show, :update] 
   #   end
   # end
-
+  get 'admin/users', controller: 'admin/users', action: :all
+  get '/404', to: 'welcome#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

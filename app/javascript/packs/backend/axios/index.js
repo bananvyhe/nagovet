@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { useLogStore } from 'store.js'
-// const API_URL = 'https://nagovets.ru'
-const API_URL = window.location.href 
-
+const API_URL = 'https://nagovets.ru'
+// const API_URL = window.location.href 
+// const API_URL = 'http://localhost:3000'
 // export default axios.create({
 //   baseURL: API_URL,
 //   headers: {
