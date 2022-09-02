@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post 'mesa', controller: :meshandl, action: :mesa 
   resources :todos
   get 'me', controller: :users, action: :me
-
+  # resource :redactors
   # resources :password_resets, only: [:create] do
   #   collection do
   #     get ':token', action: :edit, as: :edit
@@ -28,6 +28,11 @@ Rails.application.routes.draw do
   #   end
   # end
   get 'admin/users', controller: 'admin/users', action: :all
-  get '/404', to: 'welcome#index'
+  # get '/404', to: 'welcome#index'
+  # get '/404', to: 'errors#not_found'
+  # get '/500', to: 'errors#internal_server_error'
+  get '/401', to: 'welcome#index', as: :unauthorized
+  get '/404', to: 'welcome#index', as: :not_found
+  get '/500', to: 'welcome#index', as: :internal_server_error
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
