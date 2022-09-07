@@ -21,13 +21,14 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(payload['user_id'])
   end
   def not_authorized
-    # render json: { error: 'ошибка авторизации' }, status: :unauthorized
-    render :status => 404
+    render json: { error: 'ошибка авторизации' }, status: :unauthorized
+
   end  
-  # def not_found
-  #   # render json: { error: 'не найдено' }, status: :not_found
-  #   # raise ActionController::RoutingError.new('Not Found')
-  # end    
+  def not_found
+    # render json: { error: 'не найдено' }, status: :not_found
+    # raise ActionController::RoutingError.new('Not Found')
+    render status: 404
+  end    
   def internal_server_error
     render json: { error: 'ошибка авторизации' }, status: :internal_server_error
   end  

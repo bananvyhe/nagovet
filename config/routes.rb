@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   # get '/500', to: 'errors#internal_server_error'
   get '/401', to: 'welcome#index', as: :unauthorized
   get '/404', to: 'welcome#index', as: :not_found
-  get '/500', to: 'welcome#index', as: :internal_server_error
+  # match "/404", :to => "errors#not_found", :via => :all 
+  get '/500', to: 'welcome#index', as: :internal_server_errors
+  # match "/500", :to => "errors#internal_server_error", :via => :all
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
