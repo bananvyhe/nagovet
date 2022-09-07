@@ -16,23 +16,18 @@ class ApplicationController < ActionController::Base
   end
   def set_default_format
     request.format = :json
-
   end
   def current_user
     @current_user ||= User.find(payload['user_id'])
   end
-  
   def not_authorized
     render json: { error: 'ошибка авторизации' }, status: :unauthorized
-
   end  
   def not_found
     render json: { error: 'не найдено' }, status: :not_found
-
   end    
   def internal_server_error
     render json: { error: 'ошибка авторизации' }, status: :internal_server_error
-    
   end  
   def forbidden
     render json: { error: 'Forbidden' }, status: :forbidden

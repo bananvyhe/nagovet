@@ -6,6 +6,7 @@ import Signup from '../components/Signup.vue'
 import List from '../components/todos/list.vue'
 import NotFound from '../components/404.vue'
 import UsersList from '../components/admin/users/List.vue'
+import Redactor from '../components/admin/redactor.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -32,10 +33,15 @@ export default new Router({
       component: List
     },
     {
-      path: '/admin/all',
+      path: '/admin/users',
       name: 'UsersList',
       component: UsersList
-    },        
+    },  
+    // {
+    //   path: '/admin/redactors',
+    //   name: 'Redactor',
+    //   component: Redactor
+    // }, 
     {
       path: '*',
       name: 'NotFound',

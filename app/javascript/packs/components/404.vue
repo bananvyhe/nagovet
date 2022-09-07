@@ -1,6 +1,8 @@
 <template>
   <div>
-  Страница не найдена
+    <v-container class=" py-2 " >
+      Страница не найдена
+    </v-container >
   </div>
 </template>
 
