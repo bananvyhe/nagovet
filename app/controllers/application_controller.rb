@@ -27,7 +27,10 @@ class ApplicationController < ActionController::Base
   def not_found
     # render json: { error: 'не найдено' }, status: :not_found
     # raise ActionController::RoutingError.new('Not Found')
-    render status: 404
+    # render status: 404
+    # render :text => 'Not Found', :status => '404'
+    render(:status => 404)
+
   end    
   def internal_server_error
     render json: { error: 'ошибка авторизации' }, status: :internal_server_error

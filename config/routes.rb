@@ -32,7 +32,8 @@ Rails.application.routes.draw do
   # get '/404', to: 'errors#not_found'
   # get '/500', to: 'errors#internal_server_error'
   get '/401', to: 'welcome#index', as: :unauthorized
-  get '/404', to: 'welcome#index', as: :not_found
+  # get '/404', to: 'welcome#index', as: :not_found
+  match "/404", :to => 'welcome#index', :via => :all, as: :not_found
   # match "/404", :to => "errors#not_found", :via => :all 
   get '/500', to: 'welcome#index', as: :internal_server_errors
   # match "/500", :to => "errors#internal_server_error", :via => :all
