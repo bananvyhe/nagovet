@@ -27,15 +27,20 @@ Rails.application.routes.draw do
   #     resources :users, only: [:index, :show, :update] 
   #   end
   # end
-  get 'admin/users', controller: 'admin/users', action: :all
+  get 'admin/users', to: 'admin/users#allus' 
+  # get 'admin/users', controller: 'admin/users', action: :allus
+  # get 'admin/users', to: 'admin/users#allus' 
   # get '/404', to: 'welcome#index'
   # get '/404', to: 'errors#not_found'
   # get '/500', to: 'errors#internal_server_error'
-  get '/401', to: 'welcome#index', as: :unauthorized
+  # get '/401', to: 'errors#not_authorized' 
+  # get '/401', to: 'welcome#index'
+
   # get '/404', to: 'welcome#index', as: :not_found
   get '/404', to: "errors#not_found" 
+  # get '/500', to: "errors#internal_server_error" 
   # match "/404", :to => "errors#not_found", :via => :all 
-  get '/500', to: 'welcome#index', as: :internal_server_errors
+  get '/500', to: 'welcome#index', as: :internal_server_error
   # match "/500", :to => "errors#internal_server_error", :via => :all
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

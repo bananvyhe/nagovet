@@ -17,16 +17,16 @@ export default new Router({
       name: 'Content',
       component: Content
     },
-    // {
-    //   path: '/Signup',
-    //   name: 'Signup',
-    //   component: Signup
-    // },
-    // {
-    //   path: '/Signin',
-    //   name: 'Signin',
-    //   component: Signin
-    // },    
+    {
+      path: '/Signup',
+      name: 'Signup',
+      component: Signup
+    },
+    {
+      path: '/Signin',
+      name: 'Signin',
+      component: Signin
+    },    
     {
       path: '/todos',
       name: 'List',

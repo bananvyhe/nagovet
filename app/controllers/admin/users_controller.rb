@@ -2,8 +2,10 @@ class Admin::UsersController < ApplicationController
   before_action :authorize_access_request!
   ROLES = %w[admin manager].freeze
 
-  def all
+  def allus
+
     @users = User.all
+
 
     render json: @users.as_json(only: [:id, :email, :role])
   end
