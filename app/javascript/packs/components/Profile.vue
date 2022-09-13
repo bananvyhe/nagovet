@@ -46,7 +46,7 @@
         <div  class="d-flex flex-column">
           {{ this.currentUser.email}}  
           <div class="px-2 py-2 d-flex flex-column">
-            <router-link  to="/admin/users" v-if="this.currentUser.role == 'admin'">пользователи</router-link>   
+            <router-link  to="/admin/allus" v-if="this.currentUser.role == 'admin'">пользователи</router-link>   
             <!-- <router-link  to="/admin/redactors" v-if="this.currentUser.role == 'admin'">редактор</router-link>             -->
           </div>
 

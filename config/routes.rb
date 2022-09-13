@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   #     resources :users, only: [:index, :show, :update] 
   #   end
   # end
+  # get 'admin/users', to: 'admin/users#allus' 
+  # get 'admin/users', to: 'welcome#index', action: :allus, controller: 'admin/users'
   get 'admin/users', to: 'admin/users#allus' 
   # get 'admin/users', controller: 'admin/users', action: :allus
   # get 'admin/users', to: 'admin/users#allus' 

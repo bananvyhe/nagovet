@@ -33,7 +33,7 @@ export default new Router({
       component: List
     },
     {
-      path: '/admin/users',
+      path: '/admin/allus',
       name: 'UsersList',
       component: UsersList
     },  
