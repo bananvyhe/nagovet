@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  about: MyText
+  consult: MyText
+  zaprosi: MyString
+  education: MyText
+  karta: MyText
+
+two:
+  about: MyText
+  consult: MyText
+  zaprosi: MyString
+  education: MyText
+  karta: MyText

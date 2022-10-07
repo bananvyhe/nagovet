@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { useLogStore } from 'store.js'
-const API_URL = 'https://nagovets.ru'
+// const API_URL = 'https://nagovets.ru'
 // const API_URL = window.location.href 
-// const API_URL = 'http://localhost:3000'
+const API_URL = 'http://localhost:3000'
 // export default axios.create({
 //   baseURL: API_URL,
 //   headers: {
@@ -14,8 +14,8 @@ const securedAxiosInstance = axios.create({
   baseURL: API_URL,
   withCredentials: true,
   headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': '*',
+    // 'Access-Control-Allow-Origin': '*',
+    // 'Access-Control-Allow-Headers': '*',
     'Content-Type': 'application/json',
   }
 })
@@ -24,8 +24,8 @@ const plainAxiosInstance = axios.create({
   baseURL: API_URL,
   withCredentials: true,
   headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': '*',
+    // 'Access-Control-Allow-Origin': '*',
+    // 'Access-Control-Allow-Headers': '*',
     'Content-Type': 'application/json',
   }
 })
@@ -60,7 +60,7 @@ securedAxiosInstance.interceptors.response.use(null, error => {
         // delete localStorage.csrf
         // delete localStorage.signedIn
         const logStore = useLogStore();
-        logStore.unsetCurrentUser
+        logStore.unsetCurrentUser()
         // redirect to signin in case refresh request fails
         location.replace('/')
         return Promise.reject(error)
