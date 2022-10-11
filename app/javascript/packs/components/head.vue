@@ -38,7 +38,8 @@
                   color="primary">
                   {{item.name}}
                 </v-btn> 
-              </div>   
+              </div>  
+              {{this.href}} 
             </v-card> 
           </div>
         <v-dialog
@@ -233,6 +234,7 @@ export default {
  
   data: function () {
     return {
+      href: '',
       els: ["2022-03-03", "2022-03-05"],
       date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),      
       text: '',
@@ -362,7 +364,12 @@ export default {
         offs = 35
         // console.log(da)
       }
-
+      if (da == 'Отзывы'){
+        this.href = "/reviews"
+      }else{
+        this.href = "/"
+      }
+      this.$router.replace(this.href)
       this.$vuetify.goTo(ta,{ offset: offs })
       this.blinkup(ta) 
       this.drawer = false

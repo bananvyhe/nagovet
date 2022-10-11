@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   # get 'admin/users', to: 'welcome#index', action: :allus, controller: 'admin/users'
   get 'admin/users', to: 'admin/users#allus' 
   get 'admin/redactors', to: 'admin/redactors#index' 
+  get '/reviews', to: 'reviews#index' 
   # get 'admin/users', controller: 'admin/users', action: :allus
   # get 'admin/users', to: 'admin/users#allus' 
   # get '/404', to: 'welcome#index'
