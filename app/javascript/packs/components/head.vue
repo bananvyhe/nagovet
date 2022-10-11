@@ -39,7 +39,7 @@
                   {{item.name}}
                 </v-btn> 
               </div>  
-              {{this.href}} 
+              <!-- {{this.href}}  -->
             </v-card> 
           </div>
         <v-dialog
@@ -365,7 +365,7 @@ export default {
         // console.log(da)
       }
       if (da == 'Отзывы'){
-        this.href = "/reviews"
+        this.href = "/revie"
       }else{
         this.href = "/"
       }

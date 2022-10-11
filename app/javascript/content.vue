@@ -108,20 +108,7 @@
           </v-row>
 
         </v-container>
-        <v-container class="rev_block">
-          <div class="aboutTitle headpsy d-flex justify-center pb-3">
-            <h2>Отзывы</h2>
-          </div>
-          <masonry-wall :items="reviews" :ssr-columns="1" :column-width="300" :gap="16">
-            <template #default="{ item, index }">
-              <v-card>
-              <div class="px-4 py-3 newsBlock">
-                <div>{{ item.description }}</div>
-                <div class="d-flex justify-end subtitle-2">{{ item.autor }}</div>
-              </div></v-card>
-            </template>
-          </masonry-wall>
-        </v-container>
+
         <v-container class="price_block">
           <div class="headpsy aboutTitle d-flex justify-center pb-1">
             <h2>Стоимость</h2>
