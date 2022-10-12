@@ -1,7 +1,7 @@
 <template>
   <div>
-  	<v-container class=" py-2 " >
-        <v-container class="rev_block">
+  	<v-container class=" py-0 " >
+        <v-container class="rev_block py-0 ">
           <div class="aboutTitle headpsy d-flex justify-center pb-3">
             <h2>Отзывы</h2>
           </div>
