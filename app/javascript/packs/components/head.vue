@@ -370,9 +370,12 @@ export default {
         this.href = "/"
       }
       this.$router.replace(this.href)
-      this.$vuetify.goTo(ta,{ offset: offs })
-      this.blinkup(ta) 
-      this.drawer = false
+      
+      this.$nextTick(function () {
+        this.$vuetify.goTo(ta,{ offset: offs })
+        this.blinkup(ta) 
+        this.drawer = false
+      })
       // console.log(da)
       // console.log(ta)
       // $vuetify.goTo('#about_block')
