@@ -14,7 +14,7 @@ export default new Router({
   
   routes: [
     {
-      path: '/revie',
+      path: '/revi',
       name: 'Reviews',
       component: Reviews
     },

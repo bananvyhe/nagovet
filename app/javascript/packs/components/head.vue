@@ -365,12 +365,12 @@ export default {
         // console.log(da)
       }
       if (da == 'Отзывы'){
-        this.href = "/revie"
+        this.href = "/revi"
       }else{
         this.href = "/"
       }
       this.$router.replace(this.href)
-      
+
       this.$nextTick(function () {
         this.$vuetify.goTo(ta,{ offset: offs })
         this.blinkup(ta) 
