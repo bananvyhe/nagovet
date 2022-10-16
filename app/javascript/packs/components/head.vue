@@ -365,7 +365,7 @@ export default {
         // console.log(da)
       }
       if (da == 'Отзывы'){
-        this.href = "/revi"
+        this.href = "/rev"
       }else{
         this.href = "/"
       }

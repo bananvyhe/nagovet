@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   get 'admin/users', to: 'admin/users#allus' 
   get 'admin/redactors', to: 'admin/redactors#index' 
 
-  get '/revi', to: 'welcome#index' 
+  get '/rev', to: 'welcome#index' 
   get '/reviews', to: 'reviews#index' 
 
   # get 'admin/users', controller: 'admin/users', action: :allus
