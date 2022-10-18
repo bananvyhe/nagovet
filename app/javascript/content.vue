@@ -371,6 +371,9 @@ ul.list6b{
   background-position: right;
   background-image: url('./images/psy.jpg');
 }
+.zaprosBlock{
+  min-height: 280px;
+}
 .konsultBlock, .zaprosBlock, .about_block{
   /*background-color: #dad;*/
   position: relative;
