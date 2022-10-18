@@ -36,7 +36,7 @@ export default {
       })
       .catch(error => { this.setError(error, 'Something went wrong') })
   	},  
-}
+	}
 </script>
 
 <style >

@@ -366,7 +366,10 @@ export default {
       }
       if (da == 'Отзывы'){
         this.href = "/rev"
-      }else{
+      }else if (da == 'Стоимость'){
+        this.href = "/pricel"
+      }
+      else{
         this.href = "/"
       }
       this.$router.replace(this.href)

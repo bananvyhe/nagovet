@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Prices from '../../prices.vue'
 import Reviews from '../../reviews.vue'
 import Content from '../../content.vue'
 import Signin from '../components/Signin.vue'
@@ -13,6 +14,11 @@ Vue.use(Router)
 export default new Router({
   
   routes: [
+    {
+      path: '/pricel',
+      name: 'Prices',
+      component: Prices
+    },  
     {
       path: '/rev',
       name: 'Reviews',

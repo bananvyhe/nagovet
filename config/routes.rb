@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   get '/rev', to: 'welcome#index' 
   get '/reviews', to: 'reviews#index' 
 
+  get '/prices', to: 'prices#index' 
+  get '/pricel', to: 'welcome#index' 
   # get 'admin/users', controller: 'admin/users', action: :allus
   # get 'admin/users', to: 'admin/users#allus' 
   # get '/404', to: 'welcome#index'
