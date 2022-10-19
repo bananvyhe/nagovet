@@ -28,6 +28,8 @@
                 <td>{{ item.cost }}&nbsp;руб.</td>
                 <td>{{ item.duration }}</td>
               </tr>
+              &nbsp; 
+              <!-- <tr><td></td></tr> -->
             </tbody>
           </template>
         </v-simple-table>
