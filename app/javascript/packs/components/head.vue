@@ -368,7 +368,9 @@ export default {
         this.href = "/rev"
       }else if (da == 'Стоимость'){
         this.href = "/pricel"
-      }
+      }else if (da == 'Контакты'){
+        this.href = "/cont"
+      }      
       else{
         this.href = "/"
       }

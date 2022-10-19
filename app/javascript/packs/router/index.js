@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Contacts from '../../contacts.vue'
 import Prices from '../../prices.vue'
 import Reviews from '../../reviews.vue'
 import Content from '../../content.vue'
@@ -14,6 +15,11 @@ Vue.use(Router)
 export default new Router({
   
   routes: [
+    {
+      path: '/cont',
+      name: 'Contacts',
+      component: Contacts
+    },  
     {
       path: '/pricel',
       name: 'Prices',
