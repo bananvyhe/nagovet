@@ -21,6 +21,13 @@ export default {
 
   },
   created () {
+ 
+    this.$http.plain.get('/prices')
+      .then(response => { 
+        this.prices = response.data 
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+
 
       this.$http.secured.get('/admin/redactors')
         .then(response => { 

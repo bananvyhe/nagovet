@@ -51,12 +51,12 @@ export default new Router({
       component: List
     },
     {
-      path: '/admin/allus',
+      path: '/admin/use',
       name: 'UsersList',
       component: UsersList
     },  
     {
-      path: '/admin/redactors',
+      path: '/admin/red',
       name: 'Redactor',
       component: Redactor
     }, 

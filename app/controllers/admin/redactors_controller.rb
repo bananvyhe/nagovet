@@ -8,4 +8,5 @@ class Admin::RedactorsController < ApplicationController
     puts "--------------"
     render json: @red	
 	end
+ 
 end
