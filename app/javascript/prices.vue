@@ -1,11 +1,14 @@
 <template>
   <div>
+    <div style="display:none;">
+      {{role = this.currentUser.role}}
+    </div> 
         <v-container class="price_block">
           <div class="headpsy aboutTitle d-flex justify-center pb-1">
             <h2>Стоимость</h2>
           </div>
         <v-simple-table dense>
-          <template v-slot:default>
+          <template >
             <thead>
               <tr>
                 <th class="text-left priceHead">
@@ -22,19 +25,17 @@
             <tbody>
               <tr
                 v-for="item in prices"
-                :key="item.name"
-              >
+                :key="item.name"> 
                 <td>{{ item.name }}</td>
                 <td>{{ item.cost }}&nbsp;руб.</td>
                 <td>{{ item.duration }}</td>
-                <td>
+                <td v-if="role == 'admin'">
                   <div class="my-2">
                     <v-btn
                       color="primary"
                       fab
                       x-small
-                      dark
-                    >
+                      dark>
                      ред
                     </v-btn>
                   </div>
