@@ -16,4 +16,12 @@ environment.plugins.prepend('VueLoaderPlugin', new VueLoaderPlugin())
 environment.loaders.prepend('vue', vue)
 environment.loaders.prepend('vuetify', vuetify)
 environment.loaders.prepend('mjs', mjs)
+const config = environment.toWebpackConfig()
+
+config.resolve.alias = {
+
+  vue: "vue/dist/vue.esm.js",
+
+}
+
 module.exports = environment
