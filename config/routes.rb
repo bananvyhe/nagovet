@@ -41,7 +41,8 @@ Rails.application.routes.draw do
 
   get '/prices', to: 'prices#index' 
   get '/pricel', to: 'welcome#index' 
-
+  post 'getitem', to: "prices#getitem"
+  post 'saveitem', to: "prices#saveitem"
   get '/contacts', to: 'contacts#index' 
   get '/cont', to: 'welcome#index'   
   # get 'admin/users', controller: 'admin/users', action: :allus

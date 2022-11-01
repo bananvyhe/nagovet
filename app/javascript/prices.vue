@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="display:none;">
+     <div style="display:none;">
       {{role = this.currentUser.role}}
     </div> 
         <v-container class="price_block">
@@ -31,74 +31,92 @@
                 <td>{{ item.duration }}</td>
                 <td v-if="role == 'admin'">
                   <div class="my-2">
-                    <v-btn
-                      color="primary"
-                      fab
-                      x-small
-                      dark>
-                     ред
-                    </v-btn>
+                    <v-menu offset-y
+                      :close-on-content-click="closeOnContentClick">
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-btn
+                          color="primary"
+                          fab
+                          x-small
+                          dark 
+                          @click="getitem(item.id)"
+                          v-bind="attrs"
+                          v-on="on"
+                           >
+                         ред
+                        </v-btn>
+                      </template>
+                   
+                      <v-card elevation="2"
+                        class="px-2 py-2"
+                         min-width="244"
+                        max-width="874">
+                            <v-form v-model="valid" >
+                              <v-container >
+                                <v-row>
+                                  <v-col
+                                    cols="12"
+                                    md="4"
+                                  >
+                                    <v-text-field
+                                      v-model="gname"
+                   
+                   
+                                      label="наименование услуги"
+                                      required
+                                    ></v-text-field>
+                                  </v-col>
+
+                                  <v-col
+                                    cols="12"
+                                    md="4"
+                                  >
+                                    <v-text-field
+                                      v-model="gcost"
+                   
+                                      label="цена"
+                                      required
+                                    ></v-text-field>
+                                  </v-col>
+
+                                  <v-col
+                                    cols="12"
+                                    md="4"
+                                  >
+                                    <v-text-field
+                                      v-model="gduration"
+                   
+                                      label="длительность"
+                                       
+                                    ></v-text-field>
+                                  </v-col>
+                                </v-row>
+                                <div class="d-flex justify-end">
+                                  <v-btn
+                                  color="success"
+                                  @click="datitem(item.id)"
+                                  small>
+                                  сохранить
+                                </v-btn>
+                                </div>
+                              </v-container>
+
+                            </v-form>    
+                      </v-card>
+                    </v-menu>   
                   </div>
                 </td>
               </tr>
               &nbsp; 
-              <!-- <tr><td></td></tr> -->
+ 
             </tbody>
           </template>
         </v-simple-table>
-
-
-        <div v-if="this.currentUser.role == 'admin'">
-          редактор
-          <redinput></redinput>
-          <v-form v-model="valid">
-            <v-container>
-              <v-row>
-                <v-col
-                  cols="12"
-                  md="4"
-                >
-                  <v-text-field
-                    v-model="name"
- 
- 
-                    label="наименование услуги"
-                    required
-                  ></v-text-field>
-                </v-col>
-
-                <v-col
-                  cols="12"
-                  md="4"
-                >
-                  <v-text-field
-                    v-model="cost"
- 
-                    label="цена"
-                    required
-                  ></v-text-field>
-                </v-col>
-
-                <v-col
-                  cols="12"
-                  md="4"
-                >
-                  <v-text-field
-                    v-model="duration"
- 
-                    label="длительность"
-                    required
-                  ></v-text-field>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-form>          
-        </div>   
         </v-container>
   </div>
 </template>
 
-<script>
+<script> 
   var cmp = {
     data: function(){
       return {
@@ -119,6 +137,10 @@ export default {
   },
   data: function () {
     return {
+      gduration: '',
+      gcost: '',
+      gname: '',
+      closeOnContentClick: false,
       valid: false,
       name: '',
       cost: '',
@@ -134,6 +156,35 @@ export default {
       })
       .catch(error => { this.setError(error, 'Something went wrong') })
   },  
+  methods: {
+    getitem(dat){
+      console.log(dat)
+      this.$http.secured.post('/getitem', { id: dat})
+      .then(response => { 
+        console.log(response.data)
+        this.gname = response.data.name
+        this.gcost = response.data.cost
+        this.gduration = response.data.duration
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+
+    },
+    datitem(dat){
+      console.log(dat)  
+       this.$http.secured.post('/saveitem', { id: dat, name: this.gname, cost: this.gcost, duration: this.gduration})
+      .then(response => { 
+        console.log(response.data)
+         this.$http.plain.get('/prices')
+      .then(response => { 
+        this.prices = response.data 
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+ 
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })     
+    }
+
+  },
   computed: {
     ...mapState(useLogStore, {
       currentUser: "thiscurrentUser",
