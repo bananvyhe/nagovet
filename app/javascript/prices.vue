@@ -50,14 +50,14 @@
                          class="mx-2"
                          x-small
                           color="primary"
-                          @click="hidden = !hidden"
+                          @click="hidhandle(item.id)"
                         >
                           {{ hidden ? 'удал' : 'отмена' }}
                         </v-btn>
                         <v-btn
                         absolute
                         right
-                          v-show="!hidden"
+                          v-show="showdel(item.id)"
                           class="mx-2"
                           color="red"
                           fab
@@ -216,7 +216,8 @@ export default {
   },
   data: function () {
     return {
-      hidden: false,
+      delitemid: '',
+      hidden: true,
       aduration: '',
       acost: '',
       aname: '',      
@@ -240,10 +241,20 @@ export default {
       .catch(error => { this.setError(error, 'Something went wrong') })
   },  
   methods: {
+    showdel(dat){
+      if (this.hidden == false && this.delitemid == dat ){
+          return true
+      }
+    },
+    hidhandle(dat){
+      console.log(dat)
+      this.delitemid = dat
+      this.hidden = !this.hidden
+    },
     delitem(dat){
       this.$http.secured.delete('/delitem/'+ dat)
       .then(response => { 
-        console.log(response.data)
+        
         this.$http.plain.get('/prices')
             .then(response => { 
               this.prices = response.data 
