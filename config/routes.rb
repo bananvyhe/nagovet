@@ -41,6 +41,8 @@ Rails.application.routes.draw do
 
   get '/prices', to: 'prices#index' 
   get '/pricel', to: 'welcome#index' 
+  delete 'delitem/:id', to: "prices#delitem"
+  post 'aitem', to: "prices#aitem"
   post 'getitem', to: "prices#getitem"
   post 'saveitem', to: "prices#saveitem"
   get '/contacts', to: 'contacts#index' 

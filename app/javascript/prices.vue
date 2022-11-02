@@ -45,13 +45,24 @@
                            >
                          ред
                         </v-btn>
+                        <!-- {{item.id}} -->
+                        <v-btn
+                          class="mx-2"
+                          color="warning"
+                          fab
+                          x-small
+                          dark 
+                          @click="delitem(item.id)">
+                         удал
+                        </v-btn>
+
                       </template>
                    
                       <v-card elevation="2"
                         class="px-2 py-2"
                          min-width="244"
                         max-width="874">
-                            <v-form v-model="valid" >
+                            <v-form>
                               <v-container >
                                 <v-row>
                                   <v-col
@@ -112,6 +123,63 @@
             </tbody>
           </template>
         </v-simple-table>
+        <div v-if="role == 'admin'">
+          <h3>Добавить услугу:</h3>
+
+             <v-form>
+                <v-container >
+                  <v-row>
+                    <v-col
+                      cols="12"
+                      md="4"
+                    >
+                      <v-text-field
+                        v-model="aname"
+     
+     
+                        label="наименование услуги"
+                        required
+                      ></v-text-field>
+                    </v-col>
+
+                    <v-col
+                      cols="12"
+                      md="4"
+                    >
+                      <v-text-field
+                        v-model="acost"
+     
+                        label="цена"
+                        required
+                      ></v-text-field>
+                    </v-col>
+
+                    <v-col
+                      cols="12"
+                      md="4"
+                    >
+                      <v-text-field
+                        v-model="aduration"
+     
+                        label="длительность"
+                         
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
+                  <div class="d-flex justify-end">
+                    <v-btn
+                    color="success"
+                    @click="aitem()"
+                    small>
+                    добавить
+                  </v-btn>
+                  </div>
+                </v-container>
+
+              </v-form>    
+
+            </div>
+
         </v-container>
   </div>
 </template>
@@ -137,6 +205,9 @@ export default {
   },
   data: function () {
     return {
+      aduration: '',
+      acost: '',
+      aname: '',      
       gduration: '',
       gcost: '',
       gname: '',
@@ -157,6 +228,32 @@ export default {
       .catch(error => { this.setError(error, 'Something went wrong') })
   },  
   methods: {
+    delitem(dat){
+      this.$http.secured.delete('/delitem/'+ dat)
+      .then(response => { 
+        console.log(response.data)
+        this.$http.plain.get('/prices')
+            .then(response => { 
+              this.prices = response.data 
+            })
+            .catch(error => { this.setError(error, 'Something went wrong') })
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+
+    },       
+    aitem(){
+      this.$http.secured.post('/aitem', {  name: this.aname, cost: this.acost, duration: this.aduration})
+      .then(response => { 
+        console.log(response.data)
+        this.$http.plain.get('/prices')
+            .then(response => { 
+              this.prices = response.data 
+            })
+            .catch(error => { this.setError(error, 'Something went wrong') })
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+
+    },   
     getitem(dat){
       console.log(dat)
       this.$http.secured.post('/getitem', { id: dat})
@@ -175,10 +272,10 @@ export default {
       .then(response => { 
         console.log(response.data)
          this.$http.plain.get('/prices')
-      .then(response => { 
-        this.prices = response.data 
-      })
-      .catch(error => { this.setError(error, 'Something went wrong') })
+            .then(response => { 
+              this.prices = response.data 
+            })
+            .catch(error => { this.setError(error, 'Something went wrong') })
  
       })
       .catch(error => { this.setError(error, 'Something went wrong') })     
