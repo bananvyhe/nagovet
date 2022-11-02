@@ -25,9 +25,7 @@ class PricesController < ApplicationController
 		full = Price.find(params[:id]) 
 		render json: full
 	end
-	def saveitem
-		puts  params
- 
+	def saveitem 
 	  @prices =  Price.find(params[:id]) 
 	  if @prices.update(price_params)
 	  	render json: @prices, status: :ok

@@ -82,8 +82,6 @@
                                   >
                                     <v-text-field
                                       v-model="gname"
-                   
-                   
                                       label="наименование услуги"
                                       required
                                     ></v-text-field>
@@ -95,7 +93,6 @@
                                   >
                                     <v-text-field
                                       v-model="gcost"
-                   
                                       label="цена"
                                       required
                                     ></v-text-field>
@@ -107,9 +104,7 @@
                                   >
                                     <v-text-field
                                       v-model="gduration"
-                   
-                                      label="длительность"
-                                       
+                                      label="длительность"  
                                     ></v-text-field>
                                   </v-col>
                                 </v-row>
@@ -309,7 +304,6 @@ export default {
     ...mapState(useLogStore, {
       currentUser: "thiscurrentUser",
     }),      
-  
   },    
 }
 </script>

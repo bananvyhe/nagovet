@@ -36,8 +36,13 @@ Rails.application.routes.draw do
   get 'admin/red', to: 'welcome#index' 
   get 'admin/redactors', to: 'admin/redactors#index' 
 
+ 
+  post 'saverevitem', to: "reviews#saverevitem"
+  post '/getrev', to: 'reviews#getrev' 
   get '/rev', to: 'welcome#index' 
   get '/reviews', to: 'reviews#index' 
+
+
 
   get '/prices', to: 'prices#index' 
   get '/pricel', to: 'welcome#index' 

@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div style="display:none;">
+      {{role = this.currentUser.role}}
+    </div>      
   	<v-container class=" py-0 " >
         <v-container class="rev_block py-0 ">
           <div class="aboutTitle headpsy d-flex justify-center pb-3">
@@ -8,24 +11,119 @@
           <masonry-wall :items="reviews" :ssr-columns="1" :column-width="300" :gap="16">
             <template #default="{ item, index }">
               <v-card>
-              <div class="px-4 py-3 newsBlock">
-                <div>{{ item.body }}</div>
-                <div class="d-flex justify-end subtitle-2">{{ item.name }}</div>
-              </div></v-card>
+                <div class="px-4 py-3 newsBlock">
+                  <div>{{ item.body }}</div>
+                  <div class="d-flex justify-end subtitle-2">{{ item.name }}</div>
+                </div>
+
+    <div v-if="role == 'admin'">
+                <div class="my-2">
+                    <v-menu offset-y
+                      :close-on-content-click="closeOnContentClick">
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-btn
+                          class="ma-2"
+                          color="primary"
+                          fab
+                          x-small
+                          dark 
+                          @click="getitem(item.id)"
+                          v-bind="attrs"
+                          v-on="on">
+                         ред
+                        </v-btn>
+                      </template>
+                   
+                      <v-card elevation="2"
+                         min-width="344"
+                        max-width="874">
+                        <v-form>    
+                          <v-col
+                            cols="12">
+                            <v-textarea
+                            filled
+                              v-model="ebody"
+                              label="">
+                            </v-textarea>
+                          </v-col>
+                          <v-col
+                            cols="12">
+                            <v-text-field
+                            filled
+                              v-model="ename"
+                              label="">
+                            </v-text-field>
+                          </v-col>  
+                            <div class="d-flex justify-end">
+                              <v-btn
+                                class="ma-2"
+                                color="success"
+                                @click="datitem(item.id)"
+                                small>
+                                сохранить
+                              </v-btn>
+                            </div>                                                  
+                        </v-form>
+                      </v-card>
+                    </v-menu>   
+                  </div>
+                </div>
+              </v-card>
             </template>
           </masonry-wall>
         </v-container>
+   
+    <div v-if="role == 'admin'">
+      <h3>Добавить рецензию:</h3>
+    </div>          
   	</v-container>
   </div>
 </template>
 
 <script>
-export default {
- 
+  import { mapState } from 'pinia'
+  import { mapActions } from 'pinia'
+  import { useLogStore } from 'store.js'
+export default { 
   data: function () {
     return {
-     reviews: []  
+      ename: '',
+      ebody: '',
+      closeOnContentClick: false,      
+      reviews: []  
     }
+  },
+  computed: {
+    ...mapState(useLogStore, {
+      currentUser: "thiscurrentUser",
+    }),      
+  }, 
+  methods:  {
+    datitem(dat){
+      console.log(dat)  
+       this.$http.secured.post('/saverevitem', { id: dat, name: this.ename, body: this.ebody})
+      .then(response => { 
+        console.log(response.data)
+         this.$http.plain.get('/reviews')
+            .then(response => { 
+              this.reviews = response.data 
+            })
+            .catch(error => { this.setError(error, 'Something went wrong') })
+ 
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })     
+    },    
+    getitem(dat){
+      console.log(dat)
+      this.$http.plain.post('/getrev', { id: dat})
+      .then(response => { 
+        console.log(response.data)
+        this.ebody = response.data.body
+        this.ename = response.data.name
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+
+    },
   },
 	created () {
     console.log("reviews created")
