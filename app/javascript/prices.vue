@@ -46,9 +46,20 @@
                          ред
                         </v-btn>
                         <!-- {{item.id}} -->
+                         <v-btn
+                         class="mx-2"
+                         x-small
+                          color="primary"
+                          @click="hidden = !hidden"
+                        >
+                          {{ hidden ? 'удал' : 'отмена' }}
+                        </v-btn>
                         <v-btn
+                        absolute
+                        right
+                          v-show="!hidden"
                           class="mx-2"
-                          color="warning"
+                          color="red"
                           fab
                           x-small
                           dark 
@@ -205,6 +216,7 @@ export default {
   },
   data: function () {
     return {
+      hidden: false,
       aduration: '',
       acost: '',
       aname: '',      
