@@ -7,7 +7,25 @@ class ReviewsController < ApplicationController
   # format.json { render json:  @reviews}
 		render json: @reviews.as_json(only: [:id, :body, :name])
 	end
-	
+
+	def aitem
+ 		@reviews =  Review.new(review_params)
+	  if @reviews.save 
+	  	render json: @reviews, status: :ok
+	  else 	
+	  end	 
+	end	
+
+	def delitem
+		puts params[:id]
+		@reviews = Review.find(params[:id])
+	  if @reviews.destroy
+	  	render json: @reviews, status: :ok
+	  else 	
+	  end	 
+ 
+	end
+
 	def saverevitem
 		@reviews =  Review.find(params[:id]) 
 	  if @reviews.update(review_params)

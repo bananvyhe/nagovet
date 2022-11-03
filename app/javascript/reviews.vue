@@ -32,6 +32,26 @@
                           v-on="on">
                          ред
                         </v-btn>
+                         <v-btn
+                         class="mx-2"
+                         x-small
+                          color="primary"
+                          @click="hidhandle(item.id)"
+                        >
+                          {{ hidden ? 'удал' : 'отмена' }}
+                        </v-btn>
+                        <v-btn
+                        absolute
+                        right
+                          v-show="showdel(item.id)"
+                          class="mx-2"
+                          color="red"
+                          fab
+                          x-small
+                          dark 
+                          @click="delitem(item.id)">
+                         удал
+                        </v-btn>                        
                       </template>
                    
                       <v-card elevation="2"
@@ -74,7 +94,48 @@
         </v-container>
    
     <div v-if="role == 'admin'">
-      <h3>Добавить рецензию:</h3>
+      <v-card 
+        class="ma-2 pa-2"
+        max-width="874">
+        <h3>Добавить рецензию:</h3>
+          <v-form>
+            <v-container >
+              <v-row>
+                <v-col
+                  cols="12"
+                  md="6">
+                  <v-textarea
+                    min-width="544"
+                    v-model="abody"
+                    filled
+                    label="отзыв"
+                    required
+                  ></v-textarea>
+                </v-col>
+
+                <v-col
+                  cols="12"
+                  md="6">
+                  <v-text-field
+                    v-model="aname"
+                    label="имя"
+                    required
+                  ></v-text-field>
+                </v-col>
+
+              </v-row>
+              <div class="d-flex justify-end">
+                <v-btn
+                color="success"
+                @click="aitem()"
+                small>
+                добавить
+              </v-btn>
+              </div>
+            </v-container>
+          </v-form>    
+        </v-card>
+
     </div>          
   	</v-container>
   </div>
@@ -87,6 +148,10 @@
 export default { 
   data: function () {
     return {
+      abody: '',
+      aname: '',
+      delitemid: '',
+      hidden: true,      
       ename: '',
       ebody: '',
       closeOnContentClick: false,      
@@ -99,6 +164,42 @@ export default {
     }),      
   }, 
   methods:  {
+    aitem(){
+      this.$http.secured.post('/arevitem', {  name: this.aname, body: this.abody})
+      .then(response => { 
+        console.log(response.data)
+        this.$http.plain.get('/reviews')
+            .then(response => { 
+              this.reviews = response.data 
+            })
+            .catch(error => { this.setError(error, 'Something went wrong') })
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+
+    },       
+    showdel(dat){
+      if (this.hidden == false && this.delitemid == dat ){
+          return true
+      }
+    },
+    hidhandle(dat){
+      console.log(dat)
+      this.delitemid = dat
+      this.hidden = !this.hidden
+    },
+    delitem(dat){
+      this.$http.secured.delete('/delrevitem/'+ dat)
+      .then(response => { 
+        
+        this.$http.plain.get('/reviews')
+            .then(response => { 
+              this.reviews = response.data 
+            })
+            .catch(error => { this.setError(error, 'Something went wrong') })
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+
+    },           
     datitem(dat){
       console.log(dat)  
        this.$http.secured.post('/saverevitem', { id: dat, name: this.ename, body: this.ebody})
