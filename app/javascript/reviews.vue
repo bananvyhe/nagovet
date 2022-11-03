@@ -38,7 +38,7 @@
                           color="primary"
                           @click="hidhandle(item.id)"
                         >
-                          {{ hidden ? 'удал' : 'отмена' }}
+                          {{ !hidden && item.id == delitemid  ? 'отмена' : 'удал' }}
                         </v-btn>
                         <v-btn
                         absolute
@@ -184,6 +184,10 @@ export default {
     },
     hidhandle(dat){
       console.log(dat)
+      // if (dat != this.delitemid ){
+      //   this.hidden = false
+      // }
+
       this.delitemid = dat
       this.hidden = !this.hidden
     },
@@ -194,6 +198,7 @@ export default {
         this.$http.plain.get('/reviews')
             .then(response => { 
               this.reviews = response.data 
+              this.hidden = true
             })
             .catch(error => { this.setError(error, 'Something went wrong') })
       })

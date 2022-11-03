@@ -52,7 +52,7 @@
                           color="primary"
                           @click="hidhandle(item.id)"
                         >
-                          {{ hidden ? 'удал' : 'отмена' }}
+                          {{!hidden && item.id == delitemid  ? 'отмена' : 'удал'}}
                         </v-btn>
                         <v-btn
                         absolute
@@ -253,6 +253,7 @@ export default {
         this.$http.plain.get('/prices')
             .then(response => { 
               this.prices = response.data 
+              this.hidden = true
             })
             .catch(error => { this.setError(error, 'Something went wrong') })
       })
