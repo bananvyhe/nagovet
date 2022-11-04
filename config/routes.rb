@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   get 'admin/red', to: 'welcome#index' 
   get 'admin/redactors', to: 'admin/redactors#index' 
 
+
+
   post 'arevitem', to: "reviews#aitem"
   delete 'delrevitem/:id', to: "reviews#delitem" 
   post 'saverevitem', to: "reviews#saverevitem"
@@ -51,8 +53,11 @@ Rails.application.routes.draw do
   post 'aitem', to: "prices#aitem"
   post 'getitem', to: "prices#getitem"
   post 'saveitem', to: "prices#saveitem"
+
   get '/contacts', to: 'contacts#index' 
-  get '/cont', to: 'welcome#index'   
+  get '/cont', to: 'welcome#index'  
+  post '/getcont', to: 'contacts#getcont' 
+  post 'savecontitem', to: "contacts#savecontitem" 
   # get 'admin/users', controller: 'admin/users', action: :allus
   # get 'admin/users', to: 'admin/users#allus' 
   # get '/404', to: 'welcome#index'
