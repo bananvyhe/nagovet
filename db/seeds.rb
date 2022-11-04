@@ -28,10 +28,14 @@
 #   name: "Дмитрий"
 # }])
 # p "Created #{Review.count} Reviews"
-Price.destroy_all
-Price.create!([{
-  name: "Индивидуальная консультация",
-  cost: 3500,
-  duration: "50 мин"
+Contact.destroy_all
+Contact.create!([{
+  tel: "+7(919) 381 4826",
+  desc: "ОНЛАЙН - по видеосвязи (мессенджеры: Scype, WhatsApp, Viber, Telegram)
+ОЧНО - в Екатеринбурге по адресу: Тверитина 34, корпус 5.
+ЕкатеринбургУлица Тверитина, 34/5 — Яндекс Карты",
+  position: '<a href="https://yandex.ru/maps/54/yekaterinburg/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Екатеринбург</a>
+                  <a href="https://yandex.ru/maps/54/yekaterinburg/house/ulitsa_tveritina_34_5/YkkYcAVlQEYEQFtsfXRzc3lgbA==/?ll=60.625933%2C56.822538&source=wizgeo&utm_medium=mapframe&utm_source=maps&z=17" style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Тверитина, 34/5 — Яндекс Карты</a>
+                  <iframe  src="https://yandex.ru/map-widget/v1/-/CCUB6JWA9A"  height="600" frameborder="1" allowfullscreen="true" style="position:relative;width:100%;"></iframe>'
 }])
-p "Created #{Price.count} Prices"
+p "Created #{Contact.count} Contacts"
