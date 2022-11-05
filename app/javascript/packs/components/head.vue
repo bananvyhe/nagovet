@@ -8,16 +8,18 @@
           <div class="d-flex d-sm-flex " > 
             <v-hover>
               <template v-slot:default="{ hover }">
-                <div   class="d-flex hidden-sm-and-up  " >
-
-                  <v-btn  @click="drawer = true"  small 
-            color="primary">                  <v-icon  class=" ">
-                  {{mdiMenu}}
-                  </v-icon>меню</v-btn>
+                <div class="d-flex hidden-sm-and-up  " >
+                  <v-btn  @click="drawer = true"
+                    small 
+                    color="primary">
+                    <v-icon  class=" ">
+                      {{mdiMenu}}
+                    </v-icon>
+                    меню
+                  </v-btn>
                 </div>
               </template>
             </v-hover>
-
             <v-spacer></v-spacer>
             <div class="d-flex align-center">
               <!-- {{this.signedIn}} -->
@@ -32,131 +34,92 @@
             </div>
 
             <div class="d-flex align-center">
-            <v-card outlined class="d-flex menu mr-2 d-xs-none d-sm-flex">
-
-              <div  v-for="(item, index) in parts">
+              <v-card outlined class="d-flex menu mr-2 d-xs-none d-sm-flex">
+                <div  v-for="(item, index) in parts">
+                  <v-btn
+                    @click="handler(item.name, item.classname)"
+                    x-small text
+                    color="primary">
+                    {{item.name}}
+                  </v-btn> 
+                </div>  
+              </v-card> 
+            </div>
+            <v-dialog
+              v-model="dialog"
+              width="500">
+              <template v-slot:activator="{ on, attrs }" >
                 <v-btn
-                  @click="handler(item.name, item.classname)"
-                  x-small text
-                  color="primary">
-                  {{item.name}}
-                </v-btn> 
-              </div>  
-              <!-- {{this.href}}  -->
-            </v-card> 
-          </div>
-        <v-dialog
-          v-model="dialog"
-          width="500">
-        <template v-slot:activator="{ on, attrs }" >
-          <v-btn
-            small 
-            color="primary"
-            dark
-            v-bind="attrs"
-            v-on="on"
-          >
-            Записаться
-          </v-btn>
-        </template>
-        <v-card>
+                  small 
+                  color="primary"
+                  dark
+                  v-bind="attrs"
+                  v-on="on">
+                  Записаться
+                </v-btn>
+              </template>
+              <v-card>
+                <v-form
+                  class="mx-4 pt-3"
+                  ref="form"
+                  v-model="valid"
+                  lazy-validation>
+                  <v-text-field
+                    v-model="name"
+                    :counter="45"
+                    :rules="nameRules"
+                    label="Как к вам обращаться?"
+                    required>
+                  </v-text-field>
+
+                  <div class="my-2">
+                  </div>
+
+                  <VuePhoneNumberInput
+                    :translations="{
+                      countrySelectorLabel: 'Код страны',
+                      countrySelectorError: 'Ошибка',
+                      phoneNumberLabel: 'Номер телефона',
+                      example: 'Например:'
+                    }"
+                    class="mb-2"
+                    v-model="phone"
+                    label="phone">
+                  </VuePhoneNumberInput>    
+                  <v-textarea
+                    class="mt-3"
+                    v-model="text"
+                    filled
+                    name="input-7-4"
+                    label="Задайте вопрос"
+                    value="">
+                  </v-textarea>
+                  <div class="d-flex justify-center flex-column">
+                    <div class="mb-1 " style="text-align: center;">
+                      Встречи проводятся очно или онлайн через мессенджеры:
+                    </div>
+                    <div class="d-flex flex-row justify-center">
+                      <a href="https://web.telegram.org/"  target="_blank"><div class="telg mr-2"></div></a>
+                      <a href="https://skype.com/"  target="_blank"><div class="skype mr-2"></div></a>
+                      <a href="https://www.whatsapp.com/"  target="_blank"><div class="whatsapp mr-2"></div></a>
+                      <a href="https://www.viber.com//"  target="_blank"><div class="viber mr-2"></div></a>
+                    </div>              
+                  </div>
  
-          <v-form
-            class="mx-4 pt-3"
-            ref="form"
-            v-model="valid"
-            lazy-validation>
-            <v-text-field
-              v-model="name"
-              :counter="45"
-              :rules="nameRules"
-              label="Как к вам обращаться?"
-              required>
-            </v-text-field>
-
-            <div class="my-2">
-            </div>
-
-              <VuePhoneNumberInput
-              :translations="{
-                countrySelectorLabel: 'Код страны',
-                countrySelectorError: 'Ошибка',
-                phoneNumberLabel: 'Номер телефона',
-                example: 'Например:'
-              }"
-              class="mb-2"
-                v-model="phone"
-             
-                label="phone"
-                 >
-              </VuePhoneNumberInput>    
-            <v-textarea
-              class="mt-3"
-              v-model="text"
-              filled
-              name="input-7-4"
-              label="Задайте вопрос"
-              value="">
-            </v-textarea>
-            <div class="d-flex justify-center flex-column">
-              <div class="mb-1 " style="text-align: center;">
-                Встречи проводятся очно или онлайн через мессенджеры:
-              </div>
-              <div class="d-flex flex-row justify-center">
-                <a href="https://web.telegram.org/"  target="_blank"><div class="telg mr-2"></div></a>
-                <a href="https://skype.com/"  target="_blank"><div class="skype mr-2"></div></a>
-                <a href="https://www.whatsapp.com/"  target="_blank"><div class="whatsapp mr-2"></div></a>
-                <a href="https://www.viber.com//"  target="_blank"><div class="viber mr-2"></div></a>
-              </div>              
-            </div>
-
-
-<!--    <v-date-picker
-      v-model="date"
-      :allowed-dates="allowedDates"
-      class="mt-4"
- s
-   
-    ></v-date-picker> -->
- 
-<!-- 
-            <date-picker 
-              class="ma-2"
-              :lang="lang"
-              :disabled-date="disabledDate"
-              v-model="time1" 
-              valueType="format"
-              placeholder="дата приема">
-            </date-picker>
-            <date-picker
-              class="ma-2"
-              v-model="time2"
-              :time-picker-options="{
-                start: '08:00',
-                step: '01:00',
-                end: '18:00',
-              }"
-                format="HH"
-   
-              type="time"
-              placeholder="время приема">
-            </date-picker> -->
-        <div class="d-flex justify-end">
-          <v-btn
-            class="my-2"
-            color="primary"
-            text
-            @click="meshandl()">
-            Отправить
-          </v-btn>  
-        </div>
-
-             
-          </v-form>
-          <v-card-actions>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
+                  <div class="d-flex justify-end">
+                    <v-btn
+                      class="my-2"
+                      color="primary"
+                      text
+                      @click="meshandl()">
+                      Отправить
+                    </v-btn>  
+                  </div>
+                </v-form>
+                <v-card-actions>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
           </div>
         </v-container>
       </v-app-bar> 
@@ -178,9 +141,9 @@
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>
-              <v-container class="main px-0 pt-0">
-          <div class="headsite">
-            <div class="d-xs-none   d-md-flex head1"></div>
+      <v-container class="main px-0 pt-0">
+        <div class="headsite">
+          <div class="d-xs-none   d-md-flex head1"></div>
  
             <div class="titleb  ">
               <router-link  to="/" >
@@ -195,22 +158,33 @@
                   <a style="color:#ffffff !important; " :href="'tel:'+ tel" >
                   тел. {{tel}}
                   </a>
-                                      <div class="posred" v-if="role == 'admin'">
-                      <v-menu offset-y
+
+
+
+
+
+
+
+                </div>
+              </div>
+
+
+                  <div class="posred" v-if="role == 'admin'">
+                    <v-menu offset-y
                       :close-on-content-click="closeOnContentClick">
-                        <template v-slot:activator="{ on, attrs }">
-                          <v-btn
-                            class="ma-2"
-                            color="primary"
-                            fab
-                            x-small
-                            dark 
-                            @click="gettel()"
-                            v-bind="attrs"
-                            v-on="on">
-                           ред
-                          </v-btn> 
-                        </template>
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-btn
+                          class="ma-2"
+                          color="primary"
+                          fab
+                          x-small
+                          dark 
+                          @click="gettel()"
+                          v-bind="attrs"
+                          v-on="on">
+                         ред
+                        </v-btn> 
+                      </template>
                         <v-card elevation="2"
                            min-width="344"
                           max-width="874">
@@ -224,21 +198,20 @@
                               </v-textarea>
                             </v-col>
 
-                              <div class="d-flex justify-end">
-                                <v-btn
-                                  class="ma-2"
-                                  color="success"
-                                  @click="telitem(10)"
-                                  small>
-                                  сохранить
-                                </v-btn>
-                              </div>                                                  
+                            <div class="d-flex justify-end">
+                              <v-btn
+                                class="ma-2"
+                                color="success"
+                                @click="telitem(10)"
+                                small>
+                                сохранить
+                              </v-btn>
+                            </div>                                                  
                           </v-form>
                         </v-card>                    
                       </v-menu>
                     </div> 
-                </div>
-              </div>
+              
             </div>
  
             <div class="titles d-flex hidden-sm-and-up"> 
@@ -561,10 +534,10 @@ export default {
 
 <style >
 .posred{
-
+/*right: -20px;*/
   position: absolute;
   opacity: 0.7;
-  top: -12px;
+  /*top: -12px;*/
 }
 .whatsapp{
   border-radius: 4px;
