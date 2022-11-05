@@ -20,6 +20,9 @@
                 <th class="text-left priceHead">
                   <h3>Длительность:</h3>
                 </th>
+                <td v-if="role == 'admin'" class="text-left priceHead">
+                  редактировать:
+                </td>
               </tr>
             </thead>
             <tbody>

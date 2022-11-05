@@ -302,10 +302,11 @@ export default {
     position: relative;  
   }
  .desc{
+  opacity: 0.7;
   z-index: 10;
   position: absolute;
   top: -18px;
-  left: -45px;
+  left: -20px;
   /*padding-top: -30px;*/
   max-width: 880px;
  }
