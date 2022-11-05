@@ -561,9 +561,10 @@ export default {
 
 <style >
 .posred{
+
   position: absolute;
   opacity: 0.7;
-  top: -25px;
+  top: -12px;
 }
 .whatsapp{
   border-radius: 4px;
