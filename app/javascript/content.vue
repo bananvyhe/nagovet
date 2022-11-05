@@ -1,6 +1,8 @@
 <template>
   <div>
-
+    <div style="display:none;">
+      {{role = this.currentUser.role}}
+    </div> 
 
         <v-container class=" py-2 " >
           <v-row >
@@ -15,20 +17,56 @@
                     </div>
                     <div class="foto"></div>
                     <span  >
-                    Здравствуйте, рада приветствовать Вас на моей страничке!
-                    Я – психолог-психоаналитик. Опыт работы - 13 лет.
-                    В процессе терапии для меня важно создание безопасной доверительной обстановки, принятия, поддержки и понимания. В такой атмосфере человек получает возможность раскрыться, исследовать свои трудности, а также возможности и ресурсы. Нередко мы неосознанно следуем старым сценариям, которые мешают получать удовольствие от жизни, достигать целей и строить здоровые отношения. Психоаналитическая терапия помогает проложить новые пути, найти выход и изменить качество жизни.  
+                    {{about}}
                     </span> 
                   </div>
                 </div>              
               </div>
+                                <div class="posred" v-if="role == 'admin'">
+                    <v-menu offset-y
+                      :close-on-content-click="closeOnContentClick">
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-btn
+                          class="ma-2"
+                          color="primary"
+                          fab
+                          x-small
+                          dark 
+                          @click="getred()"
+                          v-bind="attrs"
+                          v-on="on">
+                         ред
+                        </v-btn> 
+                      </template>
+                        <v-card elevation="2"
+                           min-width="344"
+                          max-width="874">
+                          <v-form>    
+                            <v-col
+                              cols="12">
+                              <v-textarea
+                              filled
+                                v-model="about"
+                                label="">
+                              </v-textarea>
+                            </v-col>
+
+                            <div class="d-flex justify-end">
+                              <v-btn
+                                class="ma-2"
+                                color="success"
+                                @click="reditem()"
+                                small>
+                                сохранить
+                              </v-btn>
+                            </div>                                                  
+                          </v-form>
+                        </v-card>                    
+                      </v-menu>
+                    </div> 
               <div class="konsultBlock mb-3 mt-2 px-2">
                 <h2>Как проходит консультация?</h2>
-                <span >
-                Хочу немного рассказать о том, как происходит процесс психотерапии.
-                На первой консультации я определяю специфику Вашей проблемы и объясняю, как мы будем дальше с этим работать. Многолетний опыт позволяет сделать это быстро и понятно.
-                На последующих консультациях мы вместе выявляем неосознанные модели реакций и поведения, которые приводят к проблеме и постепенно меняем их.
-                В результате такой совместной работы, Вы сможете справиться с депрессией, тревогой, неуверенностью в себе, стабилизировать эмоциональную сферу.</span>
+                <span >{{consult}}</span>
               </div>
               <div class="zaprosBlock ">
                 <div class="psyholog_bg"></div>
@@ -116,7 +154,9 @@
 </template>
 
 <script>
-
+  import { mapState } from 'pinia'
+  import { mapActions } from 'pinia'
+  import { useLogStore } from 'store.js'
 import 'vue2-datepicker/index.css';
   import gsap from "gsap";
   import { mdiMenu } from '@mdi/js'
@@ -124,6 +164,9 @@ export default {
  
   data: function () {
     return {
+      closeOnContentClick: false,
+      consult: '',
+      about: '',
        hours: Array.from({ length: 8 }).map((_, i) => i + 10),
        second: false,
        lang: {
@@ -166,7 +209,44 @@ export default {
       group: null,
     }
   },
+  created () {
+    this.getred()
+  },  
   methods:{
+    reditem(dat){
+      console.log(dat)      
+       this.$http.secured.post('/saveredtitem', { id: 1, about: this.about})
+      .then(response => { 
+        console.log(response.data)
+         this.$http.plain.get('/redactors')
+            .then(response => { 
+              this.redactors = response.data 
+            })
+            .catch(error => { this.setError(error, 'Something went wrong') })
+ 
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })     
+    },       
+    redtel(dat){
+       this.$http.plain.get('/contacts')
+      .then(response => { 
+        
+        this.tel = response.data[0].tel
+ 
+
+        console.log(response.data )
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+
+    },      
+    getred(dat){
+       this.$http.plain.get('/redactors')
+      .then(response => { 
+        this.about = response.data.about
+        this.consult = response.data.consult
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+    },    
     setError (error, text) {
       this.error = (error.response && error.response.data && error.response.data.error) || text
     },
@@ -239,12 +319,18 @@ export default {
     // console.log(this.$vuetify.breakpoint)
   },
   computed: {
- 
+    ...mapState(useLogStore, {
+      currentUser: "thiscurrentUser",
+    }),   
   },
 }
 </script>
 
 <style >
+.posred{
+  z-index: 9999;
+  position: absolute;
+}
 .li{
   display: flex;
     justify-content: space-around;

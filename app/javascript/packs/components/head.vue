@@ -189,7 +189,8 @@
               <div class="frontclouds "></div>
  
             </div>
-          </div>                               <div class="posred" v-if="role == 'admin'">
+          </div>  
+                  <div class="posred" v-if="role == 'admin'">
                     <v-menu offset-y
                       :close-on-content-click="closeOnContentClick">
                       <template v-slot:activator="{ on, attrs }">
