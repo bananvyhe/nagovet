@@ -4,7 +4,7 @@
       {{role = this.currentUser.role}}
     </div>         
       <v-app-bar dense fixed flat hide-on-scroll rounded color="transparent" class="appbar">
-        <v-container class= "px-0">
+        <v-container class= "px-0 ">
           <div class="d-flex d-sm-flex " > 
             <v-hover>
               <template v-slot:default="{ hover }">

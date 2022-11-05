@@ -3,8 +3,8 @@
      <div style="display:none;">
       {{role = this.currentUser.role}}
     </div> 
-        <v-container class="price_block">
-          <div class="headpsy aboutTitle d-flex justify-center pb-1">
+        <v-container class="price_block pt-0">
+          <div class="headpsy aboutTitle d-flex justify-center pb-1 ">
             <h2>Стоимость</h2>
           </div>
         <v-simple-table dense>
