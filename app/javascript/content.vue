@@ -456,7 +456,7 @@ ul.list6b{
  
   /*display: inline;*/
 
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   /*box-shadow: -10px 0 0 rgba(255, 255, 255, 0.8), 10px 0 0 rgba(255, 255, 255, 0.8);*/
 }
 .aboutBlock{
