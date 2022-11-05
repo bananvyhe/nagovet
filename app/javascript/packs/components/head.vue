@@ -169,7 +169,27 @@
               </div>
 
 
-                  <div class="posred" v-if="role == 'admin'">
+
+              
+            </div>
+ 
+            <div class="titles d-flex hidden-sm-and-up"> 
+              <div class="ludmila  "></div>
+              <div class="nagovets  nags"></div>
+              <div class="bgdfa   "> </div>
+              <div class="bgdfb  "> </div>
+              <div class=" subti flex-row  "> психолог–психоаналитик<br><div class="pb-1" style="text-align: center;">
+                  <a style="color:#ffffff !important;" href="tel:+79193814826" >тел. +7(919) 381 4826</a>
+              </div> 
+            </div>
+
+            </div>       
+
+            <div class="head3">
+              <div class="frontclouds "></div>
+ 
+            </div>
+          </div>                               <div class="posred" v-if="role == 'admin'">
                     <v-menu offset-y
                       :close-on-content-click="closeOnContentClick">
                       <template v-slot:activator="{ on, attrs }">
@@ -210,26 +230,7 @@
                           </v-form>
                         </v-card>                    
                       </v-menu>
-                    </div> 
-              
-            </div>
- 
-            <div class="titles d-flex hidden-sm-and-up"> 
-              <div class="ludmila  "></div>
-              <div class="nagovets  nags"></div>
-              <div class="bgdfa   "> </div>
-              <div class="bgdfb  "> </div>
-              <div class=" subti flex-row  "> психолог–психоаналитик<br><div class="pb-1" style="text-align: center;">
-                  <a style="color:#ffffff !important;" href="tel:+79193814826" >тел. +7(919) 381 4826</a>
-              </div> 
-            </div>
- 
-            </div>            
-            <div class="head3">
-              <div class="frontclouds "></div>
- 
-            </div>
-          </div>
+                    </div>      
         </v-container>
       </div>
     </template>
@@ -534,10 +535,11 @@ export default {
 
 <style >
 .posred{
+ z-index: 9999;
 /*right: -20px;*/
   position: absolute;
   opacity: 0.7;
-  /*top: -12px;*/
+  top: 72px;
 }
 .whatsapp{
   border-radius: 4px;
