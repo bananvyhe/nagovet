@@ -23,11 +23,15 @@ class ContactsController < ApplicationController
 		end 
 	elsif params[:id] == 3
 		fa = Contact.order("id ASC").limit(1).offset(params[:id]-1)
-		puts fa.inspect
+		
 		if fa.update(contact_params)
 			render json: fa, status: :ok
 		end
- 		 		
+	elsif params[:id] == 10
+		fa = Contact.order("id ASC").first
+		if fa.update(contact_params)
+			render json: fa, status: :ok
+		end 		 		
 	end
 
 	puts params[:id]

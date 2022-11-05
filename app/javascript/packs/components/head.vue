@@ -1,5 +1,8 @@
    <template>  
     <div>
+    <div style="display:none;">
+      {{role = this.currentUser.role}}
+    </div>         
       <v-app-bar dense fixed flat hide-on-scroll rounded color="transparent" class="appbar">
         <v-container class= "px-0">
           <div class="d-flex d-sm-flex " > 
@@ -187,9 +190,55 @@
                 </div>
               </router-link>
               <!-- <div class="d-xs-none d-sm-flex  subti"> ПСИХОЛОГ - ПСИХОАНАЛИТИК</div> -->
-              <div class="d-xs-none d-sm-flex  subti flex-row  "> психолог - психоаналитик <div class="ml-5 mb-1" style="text-align: center;"><a style="color:#ffffff !important; " href="tel:+79193814826" >тел. +7(919) 381 4826</a></div> </div>
- 
-              
+              <div class="d-xs-none d-sm-flex  subti flex-row  "> психолог - психоаналитик 
+                <div class="ml-5 mb-1" style="text-align: center;">
+                  <a style="color:#ffffff !important; " :href="'tel:'+ tel" >
+                  тел. {{tel}}
+                  </a>
+                                      <div class="posred" v-if="role == 'admin'">
+                      <v-menu offset-y
+                      :close-on-content-click="closeOnContentClick">
+                        <template v-slot:activator="{ on, attrs }">
+                          <v-btn
+                            class="ma-2"
+                            color="primary"
+                            fab
+                            x-small
+                            dark 
+                            @click="gettel()"
+                            v-bind="attrs"
+                            v-on="on">
+                           ред
+                          </v-btn> 
+                        </template>
+                        <v-card elevation="2"
+                           min-width="344"
+                          max-width="874">
+                          <v-form>    
+                            <v-col
+                              cols="12">
+                              <v-textarea
+                              filled
+                                v-model="tel"
+                                label="">
+                              </v-textarea>
+                            </v-col>
+
+                              <div class="d-flex justify-end">
+                                <v-btn
+                                  class="ma-2"
+                                  color="success"
+                                  @click="telitem(10)"
+                                  small>
+                                  сохранить
+                                </v-btn>
+                              </div>                                                  
+                          </v-form>
+                        </v-card>                    
+                      </v-menu>
+                    </div> 
+                </div>
+              </div>
             </div>
  
             <div class="titles d-flex hidden-sm-and-up"> 
@@ -197,7 +246,10 @@
               <div class="nagovets  nags"></div>
               <div class="bgdfa   "> </div>
               <div class="bgdfb  "> </div>
-             <div class=" subti flex-row  "> психолог–психоаналитик<br><div class="pb-1" style="text-align: center;"><a style="color:#ffffff !important; " href="tel:+79193814826" >тел. +7(919) 381 4826</a></div> </div>
+              <div class=" subti flex-row  "> психолог–психоаналитик<br><div class="pb-1" style="text-align: center;">
+                  <a style="color:#ffffff !important;" href="tel:+79193814826" >тел. +7(919) 381 4826</a>
+              </div> 
+            </div>
  
             </div>            
             <div class="head3">
@@ -234,6 +286,8 @@ export default {
  
   data: function () {
     return {
+      closeOnContentClick: false,
+      tel: '',
       href: '',
       els: ["2022-03-03", "2022-03-05"],
       date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),      
@@ -275,8 +329,37 @@ export default {
     ...mapState(useLogStore, {
       signedIn: "thissignedIn",
     }),  
+    ...mapState(useLogStore, {
+      currentUser: "thiscurrentUser",
+    }),     
   },
-  methods:{  
+  methods:{ 
+    telitem(dat){
+      console.log(dat)      
+       this.$http.secured.post('/savecontitem', { id: 1, tel: this.tel})
+      .then(response => { 
+        console.log(response.data)
+         this.$http.plain.get('/contacts')
+            .then(response => { 
+              this.contacts = response.data 
+            })
+            .catch(error => { this.setError(error, 'Something went wrong') })
+ 
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })     
+    },       
+    gettel(dat){
+       this.$http.plain.get('/contacts')
+      .then(response => { 
+        
+        this.tel = response.data[0].tel
+ 
+
+        console.log(response.data )
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+
+    },   
     allowedDates: val => this.els.indexOf(val) !== -1,
     ...mapActions(useLogStore, ["unsetCurrentUser"]), 
     meshandl() {
@@ -471,12 +554,17 @@ export default {
     // console.log(this.$vuetify.breakpoint)
   },
   created () {
- 
+    this.gettel()
   },
 }
 </script>
 
 <style >
+.posred{
+  position: absolute;
+  opacity: 0.7;
+  top: -25px;
+}
 .whatsapp{
   border-radius: 4px;
   background-image: url('../../images/whatsapp.png');
