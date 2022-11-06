@@ -129,6 +129,28 @@
                 :key="item.name"> 
                 <li>
                   {{item.position}}
+
+                         <v-btn
+                         class="mx-2"
+                         x-small
+                          color="primary"
+                          @click="hidhandle(item.id)"
+                        >
+                          {{!hidden && item.id == delitemid  ? 'отмена' : 'удал'}}
+                        </v-btn>
+                        <v-btn
+                        absolute
+                        right
+                          v-show="showdel(item.id)"
+                          class="mx-2"
+                          color="red"
+                          fab
+                          x-small
+                          dark 
+                          @click="delitem(item.id)">
+                         удал
+                        </v-btn>
+
                 </li>
               </ul>
 
@@ -243,6 +265,7 @@ export default {
  
   data: function () {
     return {
+      hidden: true,
       position: '',
       req: [],
       closeOnContentClick: false,
@@ -295,6 +318,31 @@ export default {
     this.getreq()
   },  
   methods:{
+    showdel(dat){
+      if (this.hidden == false && this.delitemid == dat ){
+          return true
+      }
+    },
+    hidhandle(dat){
+      console.log(dat)
+      this.delitemid = dat
+      this.hidden = !this.hidden
+    },
+    delitem(dat){
+      this.$http.secured.delete('/delitemreq/'+ dat)
+      .then(response => { 
+        this.getreq()
+        this.hidden = true
+      //   this.$http.plain.get('/prices')
+      //       .then(response => { 
+      //         this.prices = response.data 
+      //         this.hidden = true
+      //       })
+      //       .catch(error => { this.setError(error, 'Something went wrong') })
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+
+    },     
     aitem(){
       this.$http.secured.post('/aitemzap', {  position: this.position})
       .then(response => { 

@@ -11,7 +11,16 @@ class RequestsController < ApplicationController
 	  else 	
 	  end	 
 	end	
-	
+
+	def delitemreq
+		puts params[:id]
+		@requests = Request.find(params[:id])
+	  if @requests.destroy
+	  	render json: @requests, status: :ok
+	  else 	
+	  end	 
+	end	
+
 	private
   	def request_params
     	params.permit(:id, :position)
