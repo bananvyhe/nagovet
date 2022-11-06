@@ -4,152 +4,192 @@
       {{role = this.currentUser.role}}
     </div> 
 
-        <v-container class=" py-2 " >
-          <v-row >
-            <v-col class=" d-flex flex-column py-1" cols="12"  sm="12" md="6" lg="7" >
-              <div class="about "> 
-                <div class="bg_books"></div>
-                <div class="books"></div>
-                <div class="about_block my-0 px-0" >
-                  <div>
-                    <div  id='about_block' class="aboutTitle " v-bind:class="{ikses: $vuetify.breakpoint.md || $vuetify.breakpoint.xs}" > 
-                      <h2 >Обо мне </h2>
-                    </div>
-                    <div class="foto"></div>
-                    <span  >
-                    {{about}}
-                    </span> 
-                  </div>
-                </div>              
-              </div>
-                                <div class="posred" v-if="role == 'admin'">
-                    <v-menu offset-y
-                      :close-on-content-click="closeOnContentClick">
-                      <template v-slot:activator="{ on, attrs }">
-                        <v-btn
-                          class="ma-2"
-                          color="primary"
-                          fab
-                          x-small
-                          dark 
-                          @click="getred()"
-                          v-bind="attrs"
-                          v-on="on">
-                         ред
-                        </v-btn> 
-                      </template>
-                        <v-card elevation="2"
-                           min-width="344"
-                          max-width="874">
-                          <v-form>    
-                            <v-col
-                              cols="12">
-                              <v-textarea
-                              filled
-                                v-model="about"
-                                label="">
-                              </v-textarea>
-                            </v-col>
-
-                            <div class="d-flex justify-end">
-                              <v-btn
-                                class="ma-2"
-                                color="success"
-                                @click="reditem()"
-                                small>
-                                сохранить
-                              </v-btn>
-                            </div>                                                  
-                          </v-form>
-                        </v-card>                    
-                      </v-menu>
-                    </div> 
-              <div class="konsultBlock mb-3 mt-2 px-2">
-                <h2>Как проходит консультация?</h2>
-                <span >{{consult}}</span>
-              </div>
-              <div class="zaprosBlock ">
-                <div class="psyholog_bg"></div>
-                <div class="psyholog"></div>
-                <v-container>
-                  <div class="headpsy aboutTitle">
-                    <h2>С какими запросами я работаю?</h2>
-                    Я могу Вам помочь:
-                  </div>
-                  <ul class="list6b pt-1">
-                    <li>
-                      Справиться со страхами, тревожными состояниями, депрессией
-                    </li>
-                    <li>
-                      Стабилизировать эмоциональную сферу
-                    </li>
-                    <li>
-                      Разобраться в себе
-                    </li>
-                    <li>
-                      Избавиться от чувства вины, обиды
-                    </li>
-                    <li>
-                      Справиться с эмоциональной зависимостью от человека
-                    </li> 
-                    <li>
-                      Исследовать причины одиночества и неудачных отношений
-                    </li> 
-                    <li>
-                      Справиться с ревностью и любовной зависимостью
-                    </li> 
-                    <li>
-                      Справиться с раздражительностью, агрессией
-                    </li> 
-                    <li>
-                      Исследовать причины психосоматических заболеваний
-                    </li> 
-                    <li>
-                      Обрести уверенность в себе
-                    </li> 
-                    <li>
-                      Найти внутренние ресурсы и опору в себе
-                    </li> 
-                  </ul>       
-                </v-container>
-              </div>
-            </v-col>
-            
-            <v-col class="know_block d-flex py-0" cols="12"    sm="12" md="6" lg="5" >
-              <div class="d-flex align-stretch obraz">
-                <div >
-                  <div class="headpsy aboutTitle d-flex justify-center">
-                    <h2>Образование</h2>
-                      
-                  </div>
-                  <v-list-item-content class="py-0 px-4">
-                    1. Психологическое: УрГПУ, психолог
-                    преподаватель психологии</v-list-item-content>
-                    <v-list-item-content class="py-1 px-4">
-                    2. Восточно-Европейский Институт Психоанализа
-                    психоаналитик</v-list-item-content>
-                    <div>
-                     Прошла дополнительное обучение по профессиональным программам: 
-                    </div>
-
-                   <div v-for="(item, index) in itemkno"> 
-                    <ul>
-                      <li>
-                        {{item}}
-                      </li>
-                    </ul>
-
-                   </div> 
+    <v-container class=" py-2 " >
+      <v-row >
+        <v-col class=" d-flex flex-column py-1" cols="12"  sm="12" md="6" lg="7" >
+          <div class="about "> 
+            <div class="bg_books"></div>
+            <div class="books"></div>
+            <div class="about_block my-0 px-0" >
+              <div>
+                <div  id='about_block' class="aboutTitle " v-bind:class="{ikses: $vuetify.breakpoint.md || $vuetify.breakpoint.xs}" > 
+                  <h2 >Обо мне </h2>
                 </div>
+                <div class="foto"></div>
+                <span  >
+                {{about}}
+                </span> 
               </div>
-            </v-col>
-          </v-row>
+            </div>              
+          </div>
 
-        </v-container>
+          <div class="posred" v-if="role == 'admin'">
+            <v-menu offset-y
+              :close-on-content-click="closeOnContentClick">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  class="ma-2"
+                  color="primary"
+                  fab
+                  x-small
+                  dark 
+                  @click="getred()"
+                  v-bind="attrs"
+                  v-on="on">
+                 ред
+                </v-btn> 
+              </template>
+              <v-card elevation="2"
+                min-width="344"
+                max-width="874">
+                <v-form>    
+                  <v-col
+                    cols="12">
+                    <v-textarea
+                      filled
+                      v-model="about"
+                      label="">
+                    </v-textarea>
+                  </v-col>
 
+                  <div class="d-flex justify-end">
+                    <v-btn
+                      class="ma-2"
+                      color="success"
+                      @click="reditem()"
+                      small>
+                      сохранить
+                    </v-btn>
+                  </div>                                                  
+                </v-form>
+              </v-card>                    
+            </v-menu>
+          </div> 
 
-   
-  
+          <div class="konsultBlock mb-3 mt-2 px-2">
+            <h2>Как проходит консультация?</h2>
+            <span >{{consult}}</span>
+
+          <div class="posred" v-if="role == 'admin'">
+            <v-menu offset-y
+              :close-on-content-click="closeOnContentClick">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  class="ma-2"
+                  color="primary"
+                  fab
+                  x-small
+                  dark 
+                  @click="getred()"
+                  v-bind="attrs"
+                  v-on="on">
+                 ред
+                </v-btn> 
+              </template>
+              <v-card elevation="2"
+                min-width="344"
+                max-width="874">
+                <v-form>    
+                  <v-col
+                    cols="12">
+                    <v-textarea
+                      filled
+                      v-model="consult"
+                      label="">
+                    </v-textarea>
+                  </v-col>
+
+                  <div class="d-flex justify-end">
+                    <v-btn
+                      class="ma-2"
+                      color="success"
+                      @click="reditem()"
+                      small>
+                      сохранить
+                    </v-btn>
+                  </div>                                                  
+                </v-form>
+              </v-card>                    
+            </v-menu>
+          </div> 
+
+          </div>
+          <div class="zaprosBlock ">
+            <div class="psyholog_bg"></div>
+            <div class="psyholog"></div>
+            <v-container>
+              <div class="headpsy aboutTitle">
+                <h2>С какими запросами я работаю?</h2>
+                Я могу Вам помочь:
+              </div>
+              <ul class="list6b pt-1">
+                <li>
+                  Справиться со страхами, тревожными состояниями, депрессией
+                </li>
+                <li>
+                  Стабилизировать эмоциональную сферу
+                </li>
+                <li>
+                  Разобраться в себе
+                </li>
+                <li>
+                  Избавиться от чувства вины, обиды
+                </li>
+                <li>
+                  Справиться с эмоциональной зависимостью от человека
+                </li> 
+                <li>
+                  Исследовать причины одиночества и неудачных отношений
+                </li> 
+                <li>
+                  Справиться с ревностью и любовной зависимостью
+                </li> 
+                <li>
+                  Справиться с раздражительностью, агрессией
+                </li> 
+                <li>
+                  Исследовать причины психосоматических заболеваний
+                </li> 
+                <li>
+                  Обрести уверенность в себе
+                </li> 
+                <li>
+                  Найти внутренние ресурсы и опору в себе
+                </li> 
+              </ul>       
+            </v-container>
+          </div>
+        </v-col>
+          
+        <v-col class="know_block d-flex py-0" cols="12"    sm="12" md="6" lg="5" >
+          <div class="d-flex align-stretch obraz">
+            <div>
+              <div class="headpsy aboutTitle d-flex justify-center">
+                <h2>Образование</h2>  
+              </div>
+              <v-list-item-content class="py-0 px-4">
+                1. Психологическое: УрГПУ, психолог
+                преподаватель психологии
+              </v-list-item-content>
+              <v-list-item-content class="py-1 px-4">
+                2. Восточно-Европейский Институт Психоанализа
+                психоаналитик
+              </v-list-item-content>
+              <div>
+               Прошла дополнительное обучение по профессиональным программам: 
+              </div>
+              <div v-for="(item, index) in itemkno"> 
+                <ul>
+                  <li>
+                    {{item}}
+                  </li>
+                </ul>
+              </div> 
+            </div>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
@@ -215,7 +255,7 @@ export default {
   methods:{
     reditem(dat){
       console.log(dat)      
-       this.$http.secured.post('/saveredtitem', { id: 1, about: this.about})
+       this.$http.secured.post('/saveredtitem', { id: 1, about: this.about, consult: this.consult})
       .then(response => { 
         console.log(response.data)
          this.$http.plain.get('/redactors')
