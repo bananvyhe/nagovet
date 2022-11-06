@@ -131,6 +131,35 @@
                   {{item.position}}
                 </li>
               </ul>
+
+        <div v-if="role == 'admin'"  class="pt-2">
+          <h3>Добавить:</h3>
+
+             <v-form>
+                <v-container class="pt-0">
+                  <v-row>
+                    <v-col
+                      cols="12"
+                      md="4">
+                      <v-text-field
+                        v-model="position"
+                        label="запрос"
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
+                  <div class="d-flex justify-end">
+                    <v-btn
+                    color="success"
+                    @click="aitem()"
+                    small>
+                    добавить
+                  </v-btn>
+                  </div>
+                </v-container>
+              </v-form>    
+            </div>
+
+
              </div>
           <!--     <ul class="list6b pt-1">
                 <li>
@@ -214,6 +243,7 @@ export default {
  
   data: function () {
     return {
+      position: '',
       req: [],
       closeOnContentClick: false,
       consult: '',
@@ -265,6 +295,14 @@ export default {
     this.getreq()
   },  
   methods:{
+    aitem(){
+      this.$http.secured.post('/aitemzap', {  position: this.position})
+      .then(response => { 
+       this.getreq()
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+
+    },       
     reditem(dat){
       console.log(dat)      
        this.$http.secured.post('/saveredtitem', { id: 1, about: this.about, consult: this.consult})

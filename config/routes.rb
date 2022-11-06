@@ -62,6 +62,8 @@ Rails.application.routes.draw do
   get '/redactors', to: "redactors#getcont"  
   post 'saveredtitem', to: "redactors#saveitem" 
   get '/requests', to: "requests#index"  
+  post '/aitemzap', to: "requests#aitem"
+ 
   # get 'admin/users', controller: 'admin/users', action: :allus
   # get 'admin/users', to: 'admin/users#allus' 
   # get '/404', to: 'welcome#index'
