@@ -122,7 +122,17 @@
                 <h2>С какими запросами я работаю?</h2>
                 Я могу Вам помочь:
               </div>
-              <ul class="list6b pt-1">
+              <div >
+                 <!-- {{req}} -->
+              <ul class="list6b pt-1"
+                v-for="item in req"
+                :key="item.name"> 
+                <li>
+                  {{item.position}}
+                </li>
+              </ul>
+             </div>
+          <!--     <ul class="list6b pt-1">
                 <li>
                   Справиться со страхами, тревожными состояниями, депрессией
                 </li>
@@ -156,7 +166,7 @@
                 <li>
                   Найти внутренние ресурсы и опору в себе
                 </li> 
-              </ul>       
+              </ul>        -->
             </v-container>
           </div>
         </v-col>
@@ -204,6 +214,7 @@ export default {
  
   data: function () {
     return {
+      req: [],
       closeOnContentClick: false,
       consult: '',
       about: '',
@@ -251,6 +262,7 @@ export default {
   },
   created () {
     this.getred()
+    this.getreq()
   },  
   methods:{
     reditem(dat){
@@ -286,7 +298,14 @@ export default {
         this.consult = response.data.consult
       })
       .catch(error => { this.setError(error, 'Something went wrong') })
-    },    
+    },
+    getreq(){
+       this.$http.plain.get('/requests')
+      .then(response => { 
+        this.req = response.data
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+    },           
     setError (error, text) {
       this.error = (error.response && error.response.data && error.response.data.error) || text
     },
@@ -407,7 +426,7 @@ export default {
 .list6b li{
 
     display: inline-block;
-    margin:2px;
+    margin:0px;
     padding:0px;
     background-color: rgba(255, 255, 255, 0.8);
 }
@@ -441,15 +460,16 @@ ul.list6b{
   background-image: url('./images/psy_bg.jpg');
   background-repeat: repeat-x;
   width: 100%;
-  height: 271px;
+  height: 351px;
 }
 .psyholog{
  border-radius: 10px 10px;
-  height: 271px;
+  height: 351px;
   position: absolute;
   width: 100%;
   background-position: right;
   background-image: url('./images/psy.jpg');
+  background-size: 470px;
 }
 .zaprosBlock{
   min-height: 280px;
