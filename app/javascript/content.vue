@@ -70,153 +70,196 @@
             <h2>Как проходит консультация?</h2>
             <span >{{consult}}</span>
 
-          <div class="posred" v-if="role == 'admin'">
-            <v-menu offset-y
-              :close-on-content-click="closeOnContentClick">
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  class="ma-2"
-                  color="primary"
-                  fab
-                  x-small
-                  dark 
-                  @click="getred()"
-                  v-bind="attrs"
-                  v-on="on">
-                 ред
-                </v-btn> 
-              </template>
-              <v-card elevation="2"
-                min-width="344"
-                max-width="874">
-                <v-form>    
-                  <v-col
-                    cols="12">
-                    <v-textarea
-                      filled
-                      v-model="consult"
-                      label="">
-                    </v-textarea>
-                  </v-col>
-
-                  <div class="d-flex justify-end">
-                    <v-btn
-                      class="ma-2"
-                      color="success"
-                      @click="reditem()"
-                      small>
-                      сохранить
-                    </v-btn>
-                  </div>                                                  
-                </v-form>
-              </v-card>                    
-            </v-menu>
-          </div> 
-
-          </div>
-          <div class="zaprosBlock ">
-            <div class="psyholog_bg"></div>
-            <div class="psyholog"></div>
-            <v-container>
-              <div class="headpsy aboutTitle">
-                <h2>С какими запросами я работаю?</h2>
-                Я могу Вам помочь:
-              </div>
-              <div >
-                 <!-- {{req}} -->
-              <ul class="list6b pt-1"
-                v-for="item in req"
-                :key="item.name"> 
-                <li>
-                  {{item.position}}
-
-                         <v-btn
-                         class="mx-2"
-                         x-small
-                          color="primary"
-                          @click="hidhandle(item.id)"
-                        >
-                          {{!hidden && item.id == delitemid  ? 'отмена' : 'удал'}}
-                        </v-btn>
-                        <v-btn
-                        absolute
-                        right
-                          v-show="showdel(item.id)"
-                          class="mx-2"
-                          color="red"
-                          fab
-                          x-small
-                          dark 
-                          @click="delitem(item.id)">
-                         удал
-                        </v-btn>
-
-                </li>
-              </ul>
-
-        <div v-if="role == 'admin'"  class="pt-2">
-          <h3>Добавить:</h3>
-
-             <v-form>
-                <v-container class="pt-0">
-                  <v-row>
+            <div class="posred" v-if="role == 'admin'">
+              <v-menu offset-y
+                :close-on-content-click="closeOnContentClick">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                    class="ma-2"
+                    color="primary"
+                    fab
+                    x-small
+                    dark 
+                    @click="getred()"
+                    v-bind="attrs"
+                    v-on="on">
+                   ред
+                  </v-btn> 
+                </template>
+                <v-card elevation="2"
+                  min-width="344"
+                  max-width="874">
+                  <v-form>    
                     <v-col
-                      cols="12"
-                      md="4">
-                      <v-text-field
-                        v-model="position"
-                        label="запрос"
-                      ></v-text-field>
+                      cols="12">
+                      <v-textarea
+                        filled
+                        v-model="consult"
+                        label="">
+                      </v-textarea>
                     </v-col>
-                  </v-row>
-                  <div class="d-flex justify-end">
-                    <v-btn
-                    color="success"
-                    @click="aitem()"
-                    small>
-                    добавить
-                  </v-btn>
-                  </div>
-                </v-container>
-              </v-form>    
+
+                    <div class="d-flex justify-end">
+                      <v-btn
+                        class="ma-2"
+                        color="success"
+                        @click="reditem()"
+                        small>
+                        сохранить
+                      </v-btn>
+                    </div>                                                  
+                  </v-form>
+                </v-card>                    
+              </v-menu>
+            </div> 
+
             </div>
-             </div>
+            <div class="zaprosBlock ">
+              <div class="psyholog_bg"></div>
+              <div class="psyholog"></div>
+              <v-container>
+                <div class="headpsy aboutTitle">
+                  <h2>С какими запросами я работаю?</h2>
+                  Я могу Вам помочь:
+                </div>
+                <div >
+                   <!-- {{req}} -->
+                <ul class="list6b pt-1"
+                  v-for="item in req"
+                  :key="item.name"> 
+                  <li>
+                    {{item.position}}
+
+                    <v-btn
+                    class="mx-2"
+                    x-small
+                    color="primary"
+                    @click="hidhandle(item.id)">
+                      {{!hidden && item.id == delitemid  ? 'отмена' : 'удал'}}
+                    </v-btn>
+                    <v-btn
+                    absolute
+                    right
+                    v-show="showdel(item.id)"
+                    class="mx-2"
+                    color="red"
+                    fab
+                    x-small
+                    dark 
+                    @click="delitem(item.id)">
+                      удал
+                    </v-btn>
+                  </li>
+                </ul>
+
+                <div v-if="role == 'admin'"  class="pt-2">
+                  <h3>Добавить:</h3>
+
+                  <v-form>
+                    <v-container class="pt-0">
+                      <v-row>
+                        <v-col
+                          cols="12"
+                          md="6">
+                          <v-text-field
+                            v-model="position"
+                            label="запрос"
+                          ></v-text-field>
+                        </v-col>
+                      </v-row>
+                      <div class="d-flex justify-end">
+                        <v-btn
+                        color="success"
+                        @click="aitem()"
+                        small>
+                        добавить
+                      </v-btn>
+                      </div>
+                    </v-container>
+                  </v-form>    
+                </div>
+
+              </div>
             </v-container>
           </div>
         </v-col>
-          
+            
         <v-col class="know_block d-flex py-0" cols="12"    sm="12" md="6" lg="5" >
           <div class="d-flex align-stretch obraz">
             <div>
               <div class="headpsy aboutTitle d-flex justify-center">
                 <h2>Образование</h2>  
               </div>
-<!-- {{ed}} -->
- <!-- 321321{{filteredListtrue}}123123 -->
+
               <div v-for="(item, index) in filteredListtrue" > 
                 <v-list-item-content class="py-1 px-4 ">
                   {{index+1+"."}}   {{item.desc}}
                 </v-list-item-content>
               </div>  
- 
+
               <div>
                Прошла дополнительное обучение по профессиональным программам: 
               </div>
-<!--               <div v-for="(item, index) in itemkno"> 
-                <ul>
-                  <li>
-                    {{item}}
-                  </li>
-                </ul>
-              </div>  -->
               <div v-for="(item, index) in filteredListfalse" > 
                 <ul>
                   <li>
                     {{item.desc}}
+
+
+                    <v-btn
+                    class="mx-2"
+                    x-small
+                    color="primary"
+                    @click="hidhandleed(item.id)">
+                      {{!hidden && item.id == delitemid  ? 'отмена' : 'удал'}}
+                    </v-btn>
+                    <v-btn
+                    absolute
+                    right
+                    v-show="showdeled(item.id)"
+                    class="mx-2"
+                    color="red"
+                    fab
+                    x-small
+                    dark 
+                    @click="delitemed(item.id)">
+                      удал
+                    </v-btn>
+
+
+
+
                   </li>
                 </ul>
-              </div>               
-<!-- {{ed}} -->
+              </div> 
+
+                <div v-if="role == 'admin'"  class="pt-2">
+                  <h3>Добавить:</h3>
+
+                  <v-form>
+                    <v-container class="pt-0">
+                      <v-row>
+                        <v-col
+                          cols="12"
+                          md="6">
+                          <v-text-field
+                            v-model="positioned"
+                            label="добавить программу"
+                          ></v-text-field>
+                        </v-col>
+                      </v-row>
+                      <div class="d-flex justify-end">
+                        <v-btn
+                        color="success"
+                        @click="aitemed()"
+                        small>
+                        добавить 
+                      </v-btn>
+                      </div>
+                    </v-container>
+                  </v-form>    
+                </div>
+
 
             </div>
           </div>
@@ -237,6 +280,9 @@ export default {
  
   data: function () {
     return {
+      hiddened: true,
+      delitemided: '',
+      positioned: '',
       val: true,
       ed: [],
       hidden: true,
@@ -299,21 +345,49 @@ export default {
     filteredListtrue: function(){
       var self = this
       return self.ed.filter(function (it) {
-        // var itjson = JSON.stringify(it)
-        console.log(it.main)
         return it.main == true
       })
     },
     filteredListfalse: function(){
       var self = this
       return self.ed.filter(function (it) {
-        // var itjson = JSON.stringify(it)
-        console.log(it.main)
         return it.main == false
       })
     }
   },  
   methods:{
+    hidhandleed(dat){
+      this.delitemided = dat
+      this.hiddened = !this.hiddened
+    },
+    delitemed(dat){
+      this.$http.secured.delete('/delitemed/'+ dat)
+      .then(response => { 
+        this.geted()
+        this.hiddened = true
+      //   this.$http.plain.get('/prices')
+      //       .then(response => { 
+      //         this.prices = response.data 
+      //         this.hidden = true
+      //       })
+      //       .catch(error => { this.setError(error, 'Something went wrong') })
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+
+    }, 
+    showdeled(dat){
+      if (this.hiddened == false && this.delitemided == dat ){
+          return true
+      }
+    },         
+    aitemed(){
+      this.$http.secured.post('/aitemed', {  desc: this.positioned, main: false})
+      .then(response => { 
+       this.geted()
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+
+    },  
     geted(){
        this.$http.plain.get('/educations')
       .then(response => { 
