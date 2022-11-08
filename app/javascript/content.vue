@@ -180,44 +180,7 @@
                 </v-container>
               </v-form>    
             </div>
-
-
              </div>
-          <!--     <ul class="list6b pt-1">
-                <li>
-                  Справиться со страхами, тревожными состояниями, депрессией
-                </li>
-                <li>
-                  Стабилизировать эмоциональную сферу
-                </li>
-                <li>
-                  Разобраться в себе
-                </li>
-                <li>
-                  Избавиться от чувства вины, обиды
-                </li>
-                <li>
-                  Справиться с эмоциональной зависимостью от человека
-                </li> 
-                <li>
-                  Исследовать причины одиночества и неудачных отношений
-                </li> 
-                <li>
-                  Справиться с ревностью и любовной зависимостью
-                </li> 
-                <li>
-                  Справиться с раздражительностью, агрессией
-                </li> 
-                <li>
-                  Исследовать причины психосоматических заболеваний
-                </li> 
-                <li>
-                  Обрести уверенность в себе
-                </li> 
-                <li>
-                  Найти внутренние ресурсы и опору в себе
-                </li> 
-              </ul>        -->
             </v-container>
           </div>
         </v-col>
@@ -228,24 +191,33 @@
               <div class="headpsy aboutTitle d-flex justify-center">
                 <h2>Образование</h2>  
               </div>
-              <v-list-item-content class="py-0 px-4">
-                1. Психологическое: УрГПУ, психолог
-                преподаватель психологии
-              </v-list-item-content>
-              <v-list-item-content class="py-1 px-4">
-                2. Восточно-Европейский Институт Психоанализа
-                психоаналитик
-              </v-list-item-content>
+<!-- {{ed}} -->
+ <!-- 321321{{filteredListtrue}}123123 -->
+              <div v-for="(item, index) in filteredListtrue" > 
+                <v-list-item-content class="py-1 px-4 ">
+                  {{index+1+"."}}   {{item.desc}}
+                </v-list-item-content>
+              </div>  
+ 
               <div>
                Прошла дополнительное обучение по профессиональным программам: 
               </div>
-              <div v-for="(item, index) in itemkno"> 
+<!--               <div v-for="(item, index) in itemkno"> 
                 <ul>
                   <li>
                     {{item}}
                   </li>
                 </ul>
-              </div> 
+              </div>  -->
+              <div v-for="(item, index) in filteredListfalse" > 
+                <ul>
+                  <li>
+                    {{item.desc}}
+                  </li>
+                </ul>
+              </div>               
+<!-- {{ed}} -->
+
             </div>
           </div>
         </v-col>
@@ -265,6 +237,8 @@ export default {
  
   data: function () {
     return {
+      val: true,
+      ed: [],
       hidden: true,
       position: '',
       req: [],
@@ -316,8 +290,37 @@ export default {
   created () {
     this.getred()
     this.getreq()
+    this.geted()
+  },  
+  computed: {
+    ...mapState(useLogStore, {
+      currentUser: "thiscurrentUser",
+    }),  
+    filteredListtrue: function(){
+      var self = this
+      return self.ed.filter(function (it) {
+        // var itjson = JSON.stringify(it)
+        console.log(it.main)
+        return it.main == true
+      })
+    },
+    filteredListfalse: function(){
+      var self = this
+      return self.ed.filter(function (it) {
+        // var itjson = JSON.stringify(it)
+        console.log(it.main)
+        return it.main == false
+      })
+    }
   },  
   methods:{
+    geted(){
+       this.$http.plain.get('/educations')
+      .then(response => { 
+        this.ed = response.data
+      })
+      .catch(error => { this.setError(error, 'Something went wrong') })
+    },    
     showdel(dat){
       if (this.hidden == false && this.delitemid == dat ){
           return true
@@ -463,11 +466,7 @@ export default {
     // .add(flash() ) 
     // console.log(this.$vuetify.breakpoint)
   },
-  computed: {
-    ...mapState(useLogStore, {
-      currentUser: "thiscurrentUser",
-    }),   
-  },
+
 }
 </script>
 

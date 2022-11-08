@@ -64,6 +64,8 @@ Rails.application.routes.draw do
   get '/requests', to: "requests#index"  
   post '/aitemzap', to: "requests#aitem"
   delete 'delitemreq/:id', to: "requests#delitemreq"
+
+  get '/educations', to: 'educations#index' 
   # get 'admin/users', controller: 'admin/users', action: :allus
   # get 'admin/users', to: 'admin/users#allus' 
   # get '/404', to: 'welcome#index'
