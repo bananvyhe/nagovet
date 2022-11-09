@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+	before_action :authorize_access_request!, only: [:savecontitem]
 	def index
 		@contact = Contact.all.order("id ASC")
 		render json: @contact.as_json(only: [:id, :tel, :position, :desc])

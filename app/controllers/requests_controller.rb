@@ -1,4 +1,5 @@
 class RequestsController < ApplicationController
+	before_action :authorize_access_request!, only: [:aitem, :delitemreq]
 	def index
     @req = Request.all
     render json: @req.as_json(only: [:id, :position])

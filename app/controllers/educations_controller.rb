@@ -1,4 +1,5 @@
 class EducationsController < ApplicationController
+	before_action :authorize_access_request!, only: [:aitemed, :delitemed]
 	def index
     @ed = Education.all
     render json: @ed.as_json(only: [:id, :desc, :main])
