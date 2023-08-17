@@ -678,7 +678,8 @@ margin-top: 14px;
   width: 370px;
     margin-top:  2px;
     margin-left: 50px;
- background-color: rgb(79.688, 71.652, 47.813, .2);
+    text-shadow: #555 1px 0 5px;
+ background-color: rgb(79.688, 71.652, 47.813, .1);
   /*color: #222;*/
  color: #fff;
   /*position: relative;*/
@@ -692,8 +693,8 @@ margin-top: 14px;
   backdrop-filter: blur(8px);
   margin-top: 75px;
   margin-left: 33px;
-
-  background-color: rgb(79.688, 71.652, 47.813, .3);
+text-shadow: #444 1px 0 5px;
+  background-color: rgb(79.688, 71.652, 47.813, .1);
 /* margin-top: 68px;
   margin-left: -222px;*/
   color: #fff;
