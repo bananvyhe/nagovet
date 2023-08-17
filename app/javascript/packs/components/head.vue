@@ -668,6 +668,7 @@ margin-top: 14px;
 
 }
 .subti{
+  padding-top: 8px;
   border-radius: 2px;
   font-family: "Roboto Slab";
   padding-left: 5px;
